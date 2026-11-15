@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="handbook">
+  <title>Урок 2: Личные местоимения, глагол hebben и профессиональный профиль — Нидерландский A0–A2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Public+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Handbook palette */
+      --background: #ffffff;
+      --surface-container-low: #f3f2f1;
+      --surface-container: #e8e7e5;
+      --surface-container-high: #dbdad9;
+
+      /* Ink */
+      --on-surface: #0b0c0c;
+      --on-surface-variant: #505a5f;
+
+      /* Rules */
+      --outline: #0b0c0c;
+      --outline-variant: #b1b4b6;
+
+      /* Accents */
+      --primary: #162e51;
+      --on-primary: #ffffff;
+      --primary-container: #d2e2f1;
+      --on-primary-container: #0c2d4a;
+      --secondary: #4c2c92;
+      --tertiary: #1a569e;
+      --error: #d4351c;
+      --on-error: #ffffff;
+
+      /* Semantic additions harmonized with Handbook */
+      --positive: #00703c;
+      --on-positive: #ffffff;
+      --positive-container: #e3f3eb;
+      --on-positive-container: #004d29;
+      --warning: #944a00;
+      --warning-container: #fff2e0;
+      --on-warning-container: #5c2d00;
+      --error-container: #fdeae8;
+      --on-error-container: #8a1f0e;
+
+      /* Data series */
+      --data-1: #1a569e;
+      --data-2: #c75a0a;
+      --data-3: #28a197;
+      --data-4: #4c2c92;
+      --data-context: #b1b4b6;
+
+      /* Fonts (Noto Sans paired with Public Sans for crisp Cyrillic + Dutch) */
+      --font-headline: 'Noto Sans', 'Public Sans', sans-serif;
+      --font-body: 'Noto Sans', 'Public Sans', sans-serif;
+      --font-label: 'Noto Sans', 'Public Sans', sans-serif;
+
+      /* Shape: strictly square */
+      --rounded: 0;
+      --rounded-lg: 0;
+      --rounded-full: 0;
+
+      /* Style effects */
+      --top-index-rule: 6px solid var(--primary);
+      --inset-rule: 5px solid var(--tertiary);
+      --inset-positive-rule: 5px solid var(--positive);
+      --inset-error-rule: 5px solid var(--error);
+      --inset-warning-rule: 5px solid var(--warning);
+      --button-ground: 0 2px 0 #091526;
+      --button-ground-secondary: 0 2px 0 #858686;
+      --focus-yellow: #ffdd00;
+      --focus-ring: 3px solid var(--focus-yellow);
+      --focus-bar: inset 0 0 0 2px var(--on-surface);
+      --focus-underline: 0 -2px var(--focus-yellow), 0 4px var(--on-surface);
+      --focus: var(--primary);
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2rem, 1.35rem + 2.4vw, 3rem);
+      --headline-size: clamp(1.5rem, 1.15rem + 1.3vw, 2.05rem);
+      --subhead-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+      --body-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xl);
+      padding: var(--space-lg);
+      max-width: 940px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus treatment (Handbook #4) */
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 0;
+      box-shadow: var(--focus-bar);
+    }
+    a:focus-visible {
+      outline: none;
+      background: var(--focus-yellow);
+      color: var(--on-surface);
+      text-decoration: none;
+      box-shadow: var(--focus-underline);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      color: var(--on-surface);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      font-size: var(--display-size);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: var(--space-md);
+    }
+    h2 {
+      font-size: var(--headline-size);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    h3 {
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: var(--space-sm);
+    }
+    p {
+      margin: 0 0 var(--space-md) 0;
+      max-width: 68ch;
+    }
+    p:last-child { margin-bottom: 0; }
+    ul, ol {
+      margin: 0 0 var(--space-md) 0;
+      padding-left: var(--space-lg);
+      max-width: 68ch;
+    }
+    li { margin-bottom: var(--space-xs); }
+
+    .lead {
+      font-size: var(--subhead-size);
+      line-height: 1.45;
+      color: var(--on-surface);
+      max-width: 65ch;
+      margin-bottom: var(--space-lg);
+    }
+    .muted {
+      color: var(--on-surface-variant);
+      font-size: 0.9375rem;
+    }
+    .nl {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .code-formula {
+      font-family: var(--font-label);
+      font-weight: 700;
+      background: var(--surface-container-low);
+      border-left: var(--inset-rule);
+      padding: var(--space-sm) var(--space-md);
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    /* Top Index Header (Handbook #1) */
+    .index-header {
+      border-top: var(--top-index-rule);
+      border-bottom: 1px solid var(--on-surface);
+      padding: var(--space-sm) 0;
+      margin-bottom: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Section Header with Square Step Badge */
+    .section-block {
+      padding-top: var(--space-lg);
+      border-top: 2px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .section-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 800;
+      font-size: 1rem;
+      margin-top: var(--space-xs);
+    }
+
+    /* Quick Nav Links (Handbook anchor index) */
+    .toc-nav {
+      border-top: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+      padding: var(--space-sm) 0;
+      margin-bottom: var(--space-md);
+    }
+    .toc-title {
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .toc-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm) var(--space-lg);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: none;
+    }
+    .toc-list a {
+      color: var(--tertiary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 0.95rem;
+      display: inline-block;
+      padding: var(--space-xs) 0;
+    }
+    .toc-list a:hover {
+      text-decoration-thickness: 3px;
+    }
+
+    /* Key Figures Grid */
+    .figures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .figure-panel {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+    }
+    .figure-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .figure-value {
+      font-size: var(--headline-size);
+      font-weight: 800;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: var(--space-xs);
+    }
+    .figure-desc {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Inset Callouts (Handbook #2) */
+    .inset {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .inset--positive {
+      border-left: var(--inset-positive-rule);
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+    .inset--error {
+      border-left: var(--inset-error-rule);
+      background: var(--error-container);
+      color: var(--on-surface);
+    }
+    .inset--warning {
+      border-left: var(--inset-warning-rule);
+      background: var(--warning-container);
+      color: var(--on-warning-container);
+    }
+
+    /* Status Tags */
+    .tag {
+      display: inline-block;
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag--positive {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+    .tag--error {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+    .tag--neutral {
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+
+    /* Grounded Buttons (Handbook #3) */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 0;
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      box-shadow: var(--button-ground);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+    .button:hover:not(:disabled) {
+      background: var(--tertiary);
+    }
+    .button:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+    .button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    .button--secondary {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      box-shadow: var(--button-ground-secondary);
+      border: 1px solid var(--outline-variant);
+    }
+    .button--secondary:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+    .button--active {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--button-ground);
+      border-color: var(--primary);
+    }
+    .button--small {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.875rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Tables (Handbook: no vertical lines, no zebra stripes, grey hairline) */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--on-surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: top;
+    }
+    th {
+      font-weight: 700;
+      color: var(--on-surface);
+      border-bottom: 2px solid var(--on-surface);
+      background: var(--background);
+    }
+    .num {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Inputs & Labels */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--on-surface);
+    }
+    .field-hint {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+    .input, .select, .textarea {
+      font-family: inherit;
+      font-size: 1rem;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline);
+      border-radius: var(--rounded);
+      width: 100%;
+    }
+    .select {
+      padding-right: var(--space-xl);
+    }
+    .textarea {
+      min-height: 88px;
+      resize: vertical;
+    }
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+
+    /* Formula Explorer Widget */
+    .explorer-panel {
+      border: 2px solid var(--on-surface);
+      padding: var(--space-lg);
+      background: var(--background);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .explorer-output {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .explorer-card {
+      background: var(--surface-container-low);
+      border-left: var(--inset-rule);
+      padding: var(--space-md);
+    }
+    .explorer-sentence {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: var(--space-xs) 0;
+    }
+
+    /* Common Pitfalls Grid */
+    .pitfall-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .pitfall-item {
+      border: 1px solid var(--outline-variant);
+      border-left: var(--inset-error-rule);
+      padding: var(--space-md);
+      background: var(--background);
+    }
+    .wrong-line {
+      color: var(--error);
+      font-weight: 700;
+      text-decoration: line-through;
+      margin-bottom: var(--space-xs);
+    }
+    .right-line {
+      color: var(--positive);
+      font-weight: 700;
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Vocabulary Cards Grid */
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .vocab-card {
+      border: 2px solid var(--outline-variant);
+      background: var(--background);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+    .vocab-card.is-known {
+      border-color: var(--positive);
+      border-left: 5px solid var(--positive);
+      background: var(--positive-container);
+    }
+    .vocab-word {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--on-surface);
+    }
+    .vocab-plural {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+    .vocab-ru {
+      font-weight: 700;
+      color: var(--tertiary);
+    }
+    .vocab-example {
+      font-size: 0.9rem;
+      padding-top: var(--space-xs);
+      border-top: 1px solid var(--outline-variant);
+    }
+    .vocab-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+    }
+
+    /* Reading & Dialogue Boxes */
+    .dialogue-box {
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-md);
+      background: var(--background);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .dialogue-line {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: var(--space-sm);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--surface-container);
+    }
+    .dialogue-line:last-child { border-bottom: 0; }
+    .speaker {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .translation-panel {
+      display: none;
+      margin-top: var(--space-sm);
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border-left: var(--inset-rule);
+    }
+    .translation-panel.is-open {
+      display: block;
+    }
+
+    /* Interactive Practice Modules */
+    .exercise-card {
+      border: 1px solid var(--outline-variant);
+      padding: var(--space-lg);
+      background: var(--background);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .q-row {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .q-row:last-child { border-bottom: 0; }
+    .q-prompt {
+      font-weight: 700;
+    }
+    .q-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .opt-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 2px solid var(--outline-variant);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .opt-btn:hover {
+      border-color: var(--on-surface);
+    }
+    .opt-btn.is-selected {
+      background: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--on-primary-container);
+    }
+    .opt-btn.is-correct {
+      background: var(--positive-container);
+      border-color: var(--positive);
+      color: var(--on-positive-container);
+    }
+    .opt-btn.is-wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      color: var(--on-error-container);
+    }
+    .feedback {
+      font-size: 0.9375rem;
+      padding: var(--space-sm) var(--space-md);
+      display: none;
+    }
+    .feedback.is-visible { display: block; }
+    .feedback--ok {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      border-left: var(--inset-positive-rule);
+    }
+    .feedback--err {
+      background: var(--error-container);
+      color: var(--on-surface);
+      border-left: var(--inset-error-rule);
+    }
+    .inline-input-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: end;
+    }
+    .inline-input-row .field-group {
+      flex: 1 1 200px;
+      max-width: 280px;
+    }
+
+    /* Profession Matching Grid */
+    .match-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .match-col {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .match-item {
+      min-height: 48px;
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 2px solid var(--outline-variant);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .match-item.is-selected {
+      border-color: var(--primary);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .match-item.is-matched {
+      border-color: var(--positive);
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      cursor: default;
+    }
+    .match-item.is-mismatch {
+      border-color: var(--error);
+      background: var(--error-container);
+    }
+
+    /* Details / Summary for Spoilers (Hoe zeg je dit?) */
+    details {
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      padding: var(--space-sm) var(--space-md);
+    }
+    summary {
+      font-weight: 700;
+      color: var(--tertiary);
+      cursor: pointer;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    details[open] summary {
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Footer */
+    .lesson-footer {
+      border-top: 2px solid var(--on-surface);
+      padding: var(--space-lg) 0 var(--space-xl);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 640px) {
+      .page-grid { padding: var(--space-md); gap: var(--space-lg); }
+      .dialogue-line { grid-template-columns: 1fr; }
+      .match-grid { grid-template-columns: 1fr; }
+      .exercise-card, .explorer-panel { padding: var(--space-md); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+
+    <!-- HEADER & LESSON OVERVIEW -->
+    <header>
+      <div class="index-header">
+        <span>Курс нидерландского языка A0–A2 · Месяц 1 · Урок 2</span>
+        <span>Уровень A0 → A1 · 45–60 минут</span>
+      </div>
+
+      <h1>Личные местоимения, глагол <em>hebben</em> и профессиональный профиль</h1>
+      <p class="lead">
+        Научитесь уверенно называть свой возраст, страну, родной и рабочие языки, профессию и контактные данные — в разговоре у кофемашины, при знакомстве с коллегами и при заполнении профиля в LinkedIn или рабочей анкеты (<em>Personeelsgegevens</em>).
+      </p>
+
+      <div class="figures-grid" aria-label="Прогресс урока">
+        <div class="figure-panel">
+          <div class="figure-label">Интерактивные блоки</div>
+          <div class="figure-value num" id="stat-exercises">0 / 5</div>
+          <div class="figure-desc">выполненных практических заданий</div>
+        </div>
+        <div class="figure-panel">
+          <div class="figure-label">Словарь урока</div>
+          <div class="figure-value num" id="stat-vocab">0 / 26</div>
+          <div class="figure-desc">слов отмечено как изученные</div>
+        </div>
+        <div class="figure-panel">
+          <div class="figure-label">Мини-тест</div>
+          <div class="figure-value num" id="stat-quiz">Не пройден</div>
+          <div class="figure-desc" id="stat-quiz-desc">итоговая проверка из 10 вопросов</div>
+        </div>
+      </div>
+
+      <nav class="toc-nav" aria-label="Содержание урока">
+        <div class="toc-title">Маршрут урока</div>
+        <ul class="toc-list">
+          <li><a href="#sec-pronouns">1. Личные местоимения</a></li>
+          <li><a href="#sec-hebben">2. Глагол hebben vs zijn</a></li>
+          <li><a href="#sec-professions">3. Профессии, возраст и словарь</a></li>
+          <li><a href="#sec-context">4. LinkedIn, диалоги и памятка</a></li>
+          <li><a href="#sec-practice">5. Интерактивная практика</a></li>
+          <li><a href="#sec-quiz">6. Финальный мини-тест</a></li>
+        </ul>
+      </nav>
+
+      <div class="inset">
+        <h3>Цели урока и краткое повторение Урока 1</h3>
+        <ul>
+          <li><strong>Коммуникация:</strong> рассказать о себе, возрасте, происхождении, языках и должности; заполнить анкету сотрудника.</li>
+          <li><strong>Грамматика:</strong> все формы личных местоимений (ударные и безударные), спряжение <em>hebben</em> в настоящем времени (OTT), инверсия в вопросах и выбор между <em>hebben</em> и <em>zijn</em>.</li>
+          <li><strong>Повторение из Урока 1:</strong> глагол <em>zijn</em> (быть): <span class="nl">ik ben, jij bent, u bent/is, hij/zij/het is, wij/jullie/zij zijn</span>. В утверждении глагол всегда стоит на 2-й позиции (правило V2), а в общем вопросе выходит на 1-е место, при этом у <span class="nl">jij</span> исчезает <span class="nl">-t</span> (<span class="nl">Ben jij...?</span>).</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- SECTION 1: PERSONAL PRONOUNS -->
+    <section class="section-block" id="sec-pronouns">
+      <div class="section-title-row">
+        <span class="step-badge" aria-hidden="true">1</span>
+        <div>
+          <h2>Личные местоимения (Persoonlijke voornaamwoorden)</h2>
+          <p class="muted">Когда использовать полную форму (<span class="nl">jij, zij, wij</span>), а когда разговорную безударную (<span class="nl">je, ze, we</span>).</p>
+        </div>
+      </div>
+
+      <p>
+        В нидерландском языке у большинства личных местоимений есть две формы: <strong>полная (ударная)</strong> и <strong>редуцированная (безударная)</strong>. В обычной речи и деловой переписке безударные формы <span class="nl">je, ze, we</span> звучат примерно в 80% случаев. Полные формы <span class="nl">jij, zij, wij</span> нужны, когда вы делаете логическое ударение или противопоставляете людей: <em>«Я — разработчик, а кто <strong>ты</strong>?»</em>
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Лицо и перевод</th>
+              <th>Полная форма</th>
+              <th>Безударная (разг.)</th>
+              <th>Пример (Быт)</th>
+              <th>Пример (Работа / Офис)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1-е ед.ч. (я)</td>
+              <td><strong>ik</strong></td>
+              <td><em>’k</em> (редко в письме)</td>
+              <td><span class="nl">Ik</span> woon in Haarlem.</td>
+              <td><span class="nl">Ik</span> ben developer.</td>
+            </tr>
+            <tr>
+              <td>2-е ед.ч. неформ. (ты)</td>
+              <td><strong>jij</strong></td>
+              <td><strong>je</strong></td>
+              <td>Hoe heet <span class="nl">je</span>?</td>
+              <td>Heb <span class="nl">jij</span> een laptop?</td>
+            </tr>
+            <tr>
+              <td>2-е форм. (Вы)</td>
+              <td><strong>u</strong></td>
+              <td>—</td>
+              <td><span class="nl">U</span> bent heel aardig.</td>
+              <td>Heeft <span class="nl">u</span> een afspraak?</td>
+            </tr>
+            <tr>
+              <td>3-е ед.ч. м.р. (он)</td>
+              <td><strong>hij</strong></td>
+              <td><em>ie</em> (только устно)</td>
+              <td><span class="nl">Hij</span> komt uit Spanje.</td>
+              <td><span class="nl">Hij</span> heeft een pauze.</td>
+            </tr>
+            <tr>
+              <td>3-е ед.ч. ж.р. (она)</td>
+              <td><strong>zij</strong></td>
+              <td><strong>ze</strong></td>
+              <td><span class="nl">Zij</span> is dertig jaar.</td>
+              <td><span class="nl">Ze</span> is docente Nederlands.</td>
+            </tr>
+            <tr>
+              <td>3-е ед.ч. ср.р. (оно)</td>
+              <td><strong>het</strong></td>
+              <td><em>’t</em></td>
+              <td><span class="nl">Het</span> is goed.</td>
+              <td><span class="nl">Het</span> kantoor is groot.</td>
+            </tr>
+            <tr>
+              <td>1-е мн.ч. (мы)</td>
+              <td><strong>wij</strong></td>
+              <td><strong>we</strong></td>
+              <td><span class="nl">We</span> wonen in Delft.</td>
+              <td><span class="nl">Wij</span> hebben een meeting.</td>
+            </tr>
+            <tr>
+              <td>2-е мн.ч. неформ. (вы)</td>
+              <td><strong>jullie</strong></td>
+              <td>—</td>
+              <td><span class="nl">Jullie</span> zijn buren.</td>
+              <td>Hebben <span class="nl">jullie</span> vragen?</td>
+            </tr>
+            <tr>
+              <td>3-е мн.ч. (они)</td>
+              <td><strong>zij</strong></td>
+              <td><strong>ze</strong></td>
+              <td><span class="nl">Ze</span> zijn vrienden.</td>
+              <td><span class="nl">Zij</span> werken bij Philips.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="inset">
+        <h3>Важные нюансы выбора местоимения</h3>
+        <ul>
+          <li><strong>Как отличить <span class="nl">zij / ze</span> («она») от <span class="nl">zij / ze</span> («они»):</strong> ориентируйтесь на окончание глагола! В единственном числе глагол стоит в форме 3-го лица (<span class="nl">Ze heeft een contract</span> — У нее есть контракт), во множественном — в инфинитиве на <span class="nl">-en</span> (<span class="nl">Ze hebben een meeting</span> — У них митинг).</li>
+          <li><strong>Неопределенное значение <span class="nl">je</span> («любой человек / в целом»):</strong> <span class="nl">In Nederland spreek je Engels op kantoor</span> (В Нидерландах в офисе говорят по-английски). В этом значении <span class="nl">jij</span> не используется.</li>
+          <li><strong><span class="nl">jij / je</span> vs <span class="nl">u</span> на работе:</strong> в нидерландских офисах принята горизонтальная культура — даже к руководителю и директору с первого дня обращаются на <span class="nl">jij / je</span>. Местоимение <span class="nl">u</span> используют с внешними клиентами, в банках, больнице и при общении с пожилыми людьми.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 2: VERB HEBBEN & HEBBEN VS ZIJN -->
+    <section class="section-block" id="sec-hebben">
+      <div class="section-title-row">
+        <span class="step-badge" aria-hidden="true">2</span>
+        <div>
+          <h2>Неправильный глагол <em>hebben</em> (OTT) и отличие от <em>zijn</em></h2>
+          <p class="muted">Спряжение в настоящем времени (<em>onvoltooid tegenwoordige tijd</em>), инверсия и главные ловушки.</p>
+        </div>
+      </div>
+
+      <p>
+        Глагол <span class="nl">hebben</span> (иметь) — второй базовый глагол нидерландского языка. Он неправильный: его основа меняется в формах <span class="nl">u, hij, zij, het</span> (<span class="nl">heeft</span> вместо ожидаемого *hebt*). Обратите внимание на форму <span class="nl">jij</span> в вопросах!
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Местоимение</th>
+              <th>Глагол <em>hebben</em> (иметь)</th>
+              <th>Глагол <em>zijn</em> (быть)</th>
+              <th>Пример с <em>hebben</em> (Быт и Работа)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ik</td>
+              <td><strong>heb</strong></td>
+              <td>ben</td>
+              <td><span class="nl">Ik heb een vraag.</span> (У меня есть вопрос.)</td>
+            </tr>
+            <tr>
+              <td>jij / je</td>
+              <td><strong>hebt</strong> (в вопросе: <strong>heb jij/je?</strong>)</td>
+              <td>bent (в вопросе: ben jij/je?)</td>
+              <td><span class="nl">Heb je een laptop?</span> (У тебя есть ноутбук?)</td>
+            </tr>
+            <tr>
+              <td>u</td>
+              <td><strong>heeft</strong> / hebt</td>
+              <td>bent / is</td>
+              <td><span class="nl">U heeft een afspraak.</span> (У вас встреча.)</td>
+            </tr>
+            <tr>
+              <td>hij / zij / het</td>
+              <td><strong>heeft</strong></td>
+              <td>is</td>
+              <td><span class="nl">Hij heeft vijf jaar ervaring.</span> (У него 5 лет опыта.)</td>
+            </tr>
+            <tr>
+              <td>wij / we</td>
+              <td><strong>hebben</strong></td>
+              <td>zijn</td>
+              <td><span class="nl">Wij hebben een meeting.</span> (У нас митинг.)</td>
+            </tr>
+            <tr>
+              <td>jullie</td>
+              <td><strong>hebben</strong></td>
+              <td>zijn</td>
+              <td><span class="nl">Jullie hebben een nieuw kantoor.</span> (У вас новый офис.)</td>
+            </tr>
+            <tr>
+              <td>zij / ze (они)</td>
+              <td><strong>hebben</strong></td>
+              <td>zijn</td>
+              <td><span class="nl">Ze hebben een vast contract.</span> (У них постоянный контракт.)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <h3>Математические формулы порядка слов</h3>
+        <code class="code-formula">Утверждение (V2): [Подлежащее] + [hebben / zijn (Позиция 2)] + [Остальная часть]</code>
+        <code class="code-formula">Общий вопрос (Инверсия): [hebben / zijn (Позиция 1)] + [Подлежащее (Позиция 2)] + [Остальная часть]?</code>
+      </div>
+
+      <!-- Interactive Formula Explorer -->
+      <div class="explorer-panel" aria-label="Интерактивный конструктор спряжения hebben и zijn">
+        <div>
+          <h3>Интерактивный конструктор: выберите местоимение и тип предложения</h3>
+          <p class="muted">Нажмите на местоимение и переключите порядок слов, чтобы увидеть точные формы <span class="nl">hebben</span> и <span class="nl">zijn</span> в реальных фразах.</p>
+        </div>
+
+        <div>
+          <div class="field-label" style="margin-bottom: var(--space-xs);">1. Местоимение:</div>
+          <div class="pill-group" id="explorer-pronouns">
+            <button type="button" class="button button--small button--active" onclick="setExplorerPronoun('ik', this)">ik</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('jij', this)">jij / je</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('u', this)">u</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('hij', this)">hij</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('zij_sg', this)">zij / ze (она)</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('het', this)">het</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('wij', this)">wij / we</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('jullie', this)">jullie</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerPronoun('zij_pl', this)">zij / ze (они)</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="field-label" style="margin-bottom: var(--space-xs);">2. Порядок слов:</div>
+          <div class="pill-group" id="explorer-modes">
+            <button type="button" class="button button--small button--active" onclick="setExplorerMode('statement', this)">Утверждение (V2)</button>
+            <button type="button" class="button button--small button--secondary" onclick="setExplorerMode('question', this)">Вопрос (Инверсия)</button>
+          </div>
+        </div>
+
+        <div class="explorer-output" id="explorer-output">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <h3>Когда <em>hebben</em>, а когда <em>zijn</em>? Главные правила и типичные ошибки</h3>
+      <div class="pitfall-list">
+        <div class="pitfall-item">
+          <span class="tag tag--error">Возраст</span>
+          <div class="wrong-line">Ik heb 28 jaar.</div>
+          <div class="right-line">Ik ben 28 jaar (oud).</div>
+          <p class="muted">В отличие от французского или испанского, в нидерландском возраст выражается ТОЛЬКО глаголом <span class="nl">zijn</span>.</p>
+        </div>
+        <div class="pitfall-item">
+          <span class="tag tag--error">Профессия и артикль</span>
+          <div class="wrong-line">Ik ben een developer.</div>
+          <div class="right-line">Ik ben developer.</div>
+          <p class="muted">Перед названием профессии артикль <span class="nl">een</span> не ставится. Артикль нужен только с прилагательным: <span class="nl">Ik ben een ervaren developer</span>.</p>
+        </div>
+        <div class="pitfall-item">
+          <span class="tag tag--error">Инверсия с jij / je</span>
+          <div class="wrong-line">Hebt jij een vraag?</div>
+          <div class="right-line">Heb jij een vraag? / Heb je een vraag?</div>
+          <p class="muted">Когда глагол стоит ПЕРЕД местоимением <span class="nl">jij / je</span>, окончание <span class="nl">-t</span> обязательно отпадает!</p>
+        </div>
+        <div class="pitfall-item">
+          <span class="tag tag--error">Страна и национальность</span>
+          <div class="wrong-line">Ik ben uit Oekraïne.</div>
+          <div class="right-line">Ik kom uit Oekraïne. / Ik ben Oekraïens.</div>
+          <p class="muted">Для страны происхождения используется глагол <span class="nl">komen uit</span>; для национальности без существительного — <span class="nl">zijn</span>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROFESSIONS, AGE, CONTACTS & VOCABULARY -->
+    <section class="section-block" id="sec-professions">
+      <div class="section-title-row">
+        <span class="step-badge" aria-hidden="true">3</span>
+        <div>
+          <h2>Профессии (м. и ж. род), возраст, контакты и словарь урока</h2>
+          <p class="muted">Словообразование профессий, числа 20–100 для возраста и 26 интерактивных карточек.</p>
+        </div>
+      </div>
+
+      <h3>Словообразование профессий: мужской и женский род</h3>
+      <p>
+        Все названия профессий относятся к общему роду и употребляются с артиклем <span class="nl">de</span>. Женская форма образуется с помощью суффиксов <span class="nl">-e</span>, <span class="nl">-ster</span>, <span class="nl">-euse / -trice</span> или <span class="nl">-esse</span>. При этом в современном нидерландском (особенно в IT и вакансиях) нейтральная форма часто используется для обоих полов: <span class="nl">Zij is manager</span>, <span class="nl">Hij is adviseur</span>.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Модель / Суффикс</th>
+              <th>Мужская / общая форма</th>
+              <th>Женская форма</th>
+              <th>Перевод</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>+ <strong>-e</strong> (самая частая)</td>
+              <td>de docent / de student</td>
+              <td>de docent<strong>e</strong> / de student<strong>e</strong></td>
+              <td>преподаватель / студент</td>
+            </tr>
+            <tr>
+              <td><strong>-er</strong> → <strong>-ster</strong></td>
+              <td>de verpleger / de medewerker</td>
+              <td>de verpleeg<strong>ster</strong> / de medewerk<strong>ster</strong></td>
+              <td>медбрат (медсестра) / сотрудник</td>
+            </tr>
+            <tr>
+              <td><strong>-eur</strong> → <strong>-euse / -trice</strong></td>
+              <td>de adviseur / de directeur</td>
+              <td>de advis<strong>euse</strong> / de direc<strong>trice</strong></td>
+              <td>консультант / директор</td>
+            </tr>
+            <tr>
+              <td>+ <strong>-esse</strong></td>
+              <td>de secretaris</td>
+              <td>de secretar<strong>esse</strong></td>
+              <td>секретарь</td>
+            </tr>
+            <tr>
+              <td>Единая форма (IT / Офис)</td>
+              <td>de developer / de manager / de ontwerper</td>
+              <td>de developer / de manager / de ontwerper</td>
+              <td>разработчик / менеджер / дизайнер</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Числа 20–100 для возраста, опыта и контактов</h3>
+      <div class="inset">
+        <p>
+          <strong>Правило перевернутого порядка:</strong> в двузначных числах от 21 до 99 сначала называются <strong>единицы</strong>, затем союз <span class="nl">en</span>, затем <strong>десятки</strong>: <strong>24</strong> = <span class="nl">vier-en-twintig</span>, <strong>38</strong> = <span class="nl">acht-en-dertig</span>.
+        </p>
+        <p>
+          <strong>Десятки:</strong> 20 <span class="nl">twintig</span> · 30 <span class="nl">dertig</span> · 40 <span class="nl">veertig</span> · 50 <span class="nl">vijftig</span> · 60 <span class="nl">zestig</span> · 70 <span class="nl">zeventig</span> · 80 <span class="nl">tachtig</span> · 90 <span class="nl">negentig</span> · 100 <span class="nl">honderd</span>.
+        </p>
+        <p>
+          <strong>Контакты в NL:</strong> мобильные номера всегда начинаются с <span class="nl">06</span> (<span class="nl">Mijn telefoonnummer is 06-12345678</span>). Символ <span class="nl">@</span> в e-mail называется <span class="nl">apestaartje</span>, а точка — <span class="nl">punt</span>.
+        </p>
+      </div>
+
+      <div>
+        <h3>Интерактивный словарь урока (26 единиц)</h3>
+        <p class="muted">Нажмите на кнопку <strong>Пример</strong>, чтобы увидеть употребление слова в предложении, <strong>Озвучить</strong> для прослушивания, и <strong>Изучено</strong> для отслеживания прогресса.</p>
+        <div class="pill-group" id="vocab-filters" style="margin-bottom: var(--space-md);">
+          <button type="button" class="button button--small button--active" onclick="filterVocab('all', this)">Все (26)</button>
+          <button type="button" class="button button--small button--secondary" onclick="filterVocab('professions', this)">Профессии (10)</button>
+          <button type="button" class="button button--small button--secondary" onclick="filterVocab('workplace', this)">Профиль и офис (10)</button>
+          <button type="button" class="button button--small button--secondary" onclick="filterVocab('verbs', this)">Глаголы и фразы (6)</button>
+        </div>
+        <div class="vocab-grid" id="vocab-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DIALOGUES, LINKEDIN PROFILE & MINI-GUIDE -->
+    <section class="section-block" id="sec-context">
+      <div class="section-title-row">
+        <span class="step-badge" aria-hidden="true">4</span>
+        <div>
+          <h2>Профиль LinkedIn, рабочие диалоги и памятка по NL</h2>
+          <p class="muted">Как выглядят анкета сотрудника и реальные знакомства в нидерландской компании.</p>
+        </div>
+      </div>
+
+      <!-- Reading Text: LinkedIn Profile -->
+      <article class="exercise-card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <span class="tag">Текст для чтения · LinkedIn &amp; Профиль</span>
+          <div class="btn-row">
+            <button type="button" class="button button--small button--secondary" onclick="speakDutchText('reading-profile-text')">Озвучить текст</button>
+            <button type="button" class="button button--small button--secondary" onclick="togglePanel('trans-profile', this)">Показать перевод</button>
+          </div>
+        </div>
+        <h3>Dit ben ik: Mijn profiel</h3>
+        <div id="reading-profile-text">
+          <p>
+            Hallo! Ik ben Alex Kowalski en ik ben eenendertig jaar oud. Ik kom uit Polen, maar ik woon nu in Utrecht. Ik werk als software developer bij een internationaal IT-bedrijf in Amsterdam. Ik heb zes jaar ervaring met websites en apps.
+          </p>
+          <p>
+            Ik spreek Pools, Engels en een beetje Nederlands. Op mijn LinkedIn-profiel staat: «Ik heb veel energie en ik werk graag in een team.» Mijn nieuwe collega heet Sophie. Zij is zevenentwintig jaar en zij is UX-ontwerper. Ze komt uit Nederland en ze spreekt ook Duits. Wij hebben vandaag een kennismakingsgesprek met onze manager. Hebben jullie vragen? Mijn e-mailadres is alex@techbedrijf.nl.
+          </p>
+        </div>
+        <div class="translation-panel" id="trans-profile">
+          <p><strong>Перевод:</strong></p>
+          <p>
+            Привет! Я Алекс Ковальски, и мне 31 год. Я родом из Польши, но сейчас живу в Утрехте. Я работаю разработчиком программного обеспечения в международной IT-компании в Амстердаме. У меня шесть лет опыта работы с веб-сайтами и приложениями.
+          </p>
+          <p>
+            Я говорю по-польски, по-английски и немного по-нидерландски. В моем профиле LinkedIn написано: «У меня много энергии, и я с удовольствием работаю в команде». Мою новую коллегу зовут Софи. Ей 27 лет, и она UX-дизайнер. Она из Нидердов и также говорит по-немецки. Сегодня у нас встреча-знакомство с нашим менеджером. У вас есть вопросы? Мой адрес электронной почты: alex@techbedrijf.nl.
+          </p>
+        </div>
+      </article>
+
+      <!-- Interactive Profile Builder -->
+      <div class="explorer-panel">
+        <div>
+          <span class="tag">Интерактивный инструмент</span>
+          <h3 style="margin-top: var(--space-xs);">Конструктор вашего профиля LinkedIn / анкеты сотрудника</h3>
+          <p class="muted">Заполните поля о себе, чтобы получить готовое самопредставление на нидерландском (от 1-го лица) и карточку для представления HR-менеджером (от 3-го лица).</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label" for="prof-name">Имя (Naam)</label>
+            <input class="input" type="text" id="prof-name" value="Elena" oninput="updateProfileBuilder()">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="prof-age">Возраст (Leeftijd)</label>
+            <input class="input" type="number" id="prof-age" min="18" max="99" value="29" oninput="updateProfileBuilder()">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="prof-country">Страна происхождения (Land)</label>
+            <select class="select" id="prof-country" onchange="updateProfileBuilder()">
+              <option value="Oekraïne">Oekraïne (Украина)</option>
+              <option value="Polen">Polen (Польша)</option>
+              <option value="Duitsland">Duitsland (Германия)</option>
+              <option value="Spanje">Spanje (Испания)</option>
+              <option value="Nederland">Nederland (Нидерланды)</option>
+              <option value="Kazachstan">Kazachstan (Казахстан)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label" for="prof-city">Город проживания (Woonplaats)</label>
+            <input class="input" type="text" id="prof-city" value="Rotterdam" oninput="updateProfileBuilder()">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="prof-job">Профессия (Beroep — без een!)</label>
+            <select class="select" id="prof-job" onchange="updateProfileBuilder()">
+              <option value="software developer">software developer (разработчик)</option>
+              <option value="projectmanager">projectmanager (проект-менеджер)</option>
+              <option value="data-analist">data-analist (аналитик данных)</option>
+              <option value="docente">docente (преподавательница)</option>
+              <option value="adviseuse">adviseuse (консультантка)</option>
+              <option value="ontwerper">ontwerper (дизайнер)</option>
+              <option value="accountant">accountant (бухгалтер)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="prof-gender">Местоимение для 3-го лица</label>
+            <select class="select" id="prof-gender" onchange="updateProfileBuilder()">
+              <option value="zij">zij / ze (она)</option>
+              <option value="hij">hij (он)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label" for="prof-exp">Опыт работы, лет (Ervaring)</label>
+            <input class="input" type="number" id="prof-exp" min="0" max="50" value="4" oninput="updateProfileBuilder()">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="prof-langs">Языки (Talen)</label>
+            <input class="input" type="text" id="prof-langs" value="Engels en een beetje Nederlands" oninput="updateProfileBuilder()">
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="prof-email">Рабочий e-mail</label>
+            <input class="input" type="text" id="prof-email" value="elena@bedrijf.nl" oninput="updateProfileBuilder()">
+          </div>
+        </div>
+
+        <div class="explorer-output">
+          <div class="explorer-card">
+            <div class="figure-label">От первого лица (LinkedIn / стендап)</div>
+            <p id="prof-out-first" style="font-weight: 600;"></p>
+            <button type="button" class="button button--small button--secondary" onclick="speakDutchText('prof-out-first')">Озвучить</button>
+          </div>
+          <div class="explorer-card">
+            <div class="figure-label">От третьего лица (представление коллегой)</div>
+            <p id="prof-out-third" style="font-weight: 600;"></p>
+            <button type="button" class="button button--small button--secondary" onclick="speakDutchText('prof-out-third')">Озвучить</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workplace Dialogues -->
+      <div class="exercise-card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <span class="tag">Диалог 1 · У кофемашины (неформально, jij/je)</span>
+          <div class="btn-row">
+            <button type="button" class="button button--small button--secondary" onclick="speakDutchText('dlg-coffee')">Озвучить диалог</button>
+            <button type="button" class="button button--small button--secondary" onclick="togglePanel('trans-coffee', this)">Показать перевод</button>
+          </div>
+        </div>
+        <h3>Bij de koffieautomaat</h3>
+        <div class="dialogue-box" id="dlg-coffee">
+          <div class="dialogue-line">
+            <span class="speaker">Sanne:</span>
+            <span>Goedemorgen! Jij bent de nieuwe collega, toch? Hoe heet je?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Tim:</span>
+            <span>Hoi! Ja, klopt. Ik heet Tim. Ik ben projectleider in team Noord.</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Sanne:</span>
+            <span>Aangenaam, Tim! Ik ben Sanne, ik ben adviseuse. Waar kom je vandaan?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Tim:</span>
+            <span>Ik kom uit Duitsland, maar ik woon nu in Haarlem. Hoe oud ben jij?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Sanne:</span>
+            <span>Ik ben vierendertig jaar. En jij? Heb je al een werkplek en een laptop?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Tim:</span>
+            <span>Ik ben tweeëndertig jaar. Ja, ik heb een laptop, maar ik heb nog een vraag voor IT.</span>
+          </div>
+        </div>
+        <div class="translation-panel" id="trans-coffee">
+          <p><strong>Санне:</strong> Доброе утро! Ты новый коллега, верно? Как тебя зовут?</p>
+          <p><strong>Тим:</strong> Привет! Да, верно. Меня зовут Тим. Я руководитель проектов в команде «Север».</p>
+          <p><strong>Санне:</strong> Приятно познакомиться, Тим! Я Санне, я консультант. Откуда ты родом?</p>
+          <p><strong>Тим:</strong> Я из Германии, но сейчас живу в Харлеме. Сколько тебе лет?</p>
+          <p><strong>Санне:</strong> Мне 34 года. А тебе? У тебя уже есть рабочее место и ноутбук?</p>
+          <p><strong>Тим:</strong> Мне 32 года. Да, ноутбук у меня есть, но у меня еще есть вопрос к IT-отделу.</p>
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <span class="tag">Диалог 2 · В отделе кадров (Personeelsgegevens, формально u)</span>
+          <div class="btn-row">
+            <button type="button" class="button button--small button--secondary" onclick="speakDutchText('dlg-hr')">Озвучить диалог</button>
+            <button type="button" class="button button--small button--secondary" onclick="togglePanel('trans-hr', this)">Показать перевод</button>
+          </div>
+        </div>
+        <h3>Personeelsgegevens invullen</h3>
+        <div class="dialogue-box" id="dlg-hr">
+          <div class="dialogue-line">
+            <span class="speaker">HR-medewerker:</span>
+            <span>Goedemiddag, meneer Vermeer. Heeft u uw paspoort en uw contract bij u?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Dhr. Vermeer:</span>
+            <span>Ja, natuurlijk. Hier zijn mijn documenten.</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">HR-medewerker:</span>
+            <span>Dank u wel. Wat is uw telefoonnummer en uw e-mailadres voor ons systeem?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Dhr. Vermeer:</span>
+            <span>Mijn nummer is 06-45891230 en mijn e-mail is j.vermeer@bedrijf.nl.</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">HR-medewerker:</span>
+            <span>Prima. Heeft u nog vragen over uw afdeling of uw salaris?</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Dhr. Vermeer:</span>
+            <span>Nee, alles is duidelijk. Ik heb vijf jaar ervaring en ik begin graag maandag!</span>
+          </div>
+        </div>
+        <div class="translation-panel" id="trans-hr">
+          <p><strong>HR-специалист:</strong> Добрый день, господин Вермер. У вас с собой паспорт и контракт?</p>
+          <p><strong>Г-н Вермер:</strong> Да, конечно. Вот мои документы.</p>
+          <p><strong>HR-специалист:</strong> Спасибо. Какой у вас номер телефона и адрес электронной почты для нашей системы?</p>
+          <p><strong>Г-н Вермер:</strong> Мой номер 06-45891230, а электронная почта — j.vermeer@bedrijf.nl.</p>
+          <p><strong>HR-специалист:</strong> Отлично. У вас еще есть вопросы по вашему отделу или зарплате?</p>
+          <p><strong>Г-н Вермер:</strong> Нет, всё понятно. У меня пять лет опыта, и я с радостью начинаю в понедельник!</p>
+        </div>
+      </div>
+
+      <div class="inset">
+        <h3>Памятка по жизни и работе в Нидерландах (Mini-Guide)</h3>
+        <ul>
+          <li><strong>Форма сотрудника (<span class="nl">Personeelsgegevens</span>):</strong> при приеме на работу HR-отдел запрашивает не только ваше имя и адрес, но и гражданский номер <span class="nl">BSN (Burgerservicenummer)</span>, а также банковский счет <span class="nl">IBAN</span> для перевода зарплаты.</li>
+          <li><strong>Маленький секрет о «ты» и «Вы»:</strong> если HR или менеджер пишет вам <em>«Zeg maar je hoor!»</em> (Говори на «ты»!), смело переходите на <span class="nl">jij/je</span> — в Нидерландах настаивать на <span class="nl">u</span> после такого приглашения считается излишней дистанцией.</li>
+          <li><strong>В резюме и LinkedIn:</strong> в заголовке профиля пишут просто должность без артикля: <span class="nl">Ik ben software engineer</span> или <span class="nl">Docente Nederlands</span>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE PRACTICE -->
+    <section class="section-block" id="sec-practice">
+      <div class="section-title-row">
+        <span class="step-badge" aria-hidden="true">5</span>
+        <div>
+          <h2>Интерактивная практика: закрепление материала</h2>
+          <p class="muted">Пять тренировочных блоков с мгновенной обратной связью и подсказками.</p>
+        </div>
+      </div>
+
+      <!-- Exercise 1: Pronouns Choice -->
+      <div class="exercise-card" id="ex-pronouns">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <h3>Задание 1. Выберите правильное личное местоимение</h3>
+          <span class="tag tag--neutral" id="badge-ex1">Не выполнено</span>
+        </div>
+        <p class="muted">Обращайте внимание на глагол (единственное или множественное число), формальность и безударные формы.</p>
+        <div id="ex1-container"></div>
+      </div>
+
+      <!-- Exercise 2: hebben vs zijn fill-in -->
+      <div class="exercise-card" id="ex-verbs">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <h3>Задание 2. Подставьте нужную форму глагола <em>hebben</em> или <em>zijn</em></h3>
+          <span class="tag tag--neutral" id="badge-ex2">Не выполнено</span>
+        </div>
+        <p class="muted">Введите одно слово (например: <span class="nl">heb, hebt, heeft, hebben, ben, bent, is, zijn</span>) и нажмите Enter или кнопку «Проверить».</p>
+        <div id="ex2-container"></div>
+        <div class="btn-row">
+          <button type="button" class="button" onclick="checkAllEx2()">Проверить все ответы в Задании 2</button>
+          <button type="button" class="button button--secondary" onclick="resetEx2()">Очистить поля</button>
+        </div>
+        <div class="feedback" id="ex2-summary"></div>
+      </div>
+
+      <!-- Exercise 3: Profession Matching -->
+      <div class="exercise-card" id="ex-match">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <h3>Задание 3. Сопоставьте профессию (м./ж. род) и описание работы</h3>
+          <span class="tag tag--neutral" id="badge-ex3">0 / 8 пар</span>
+        </div>
+        <p class="muted">Сначала нажмите на карточку в левой колонке, затем на подходящее описание в правой. Доступно также с клавиатуры (Tab + Enter).</p>
+        <div class="match-grid" id="match-grid">
+          <div class="match-col" id="match-left" aria-label="Профессии на нидерландском"></div>
+          <div class="match-col" id="match-right" aria-label="Описание и род"></div>
+        </div>
+        <div class="feedback" id="match-feedback"></div>
+        <div class="btn-row">
+          <button type="button" class="button button--secondary" onclick="initMatching()">Перемешать и начать заново</button>
+        </div>
+      </div>
+
+      <!-- Exercise 4: Dialogue Trainer -->
+      <div class="exercise-card" id="ex-dialogue">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <h3>Задание 4. Диалоговый тренажер: первый день на работе</h3>
+          <span class="tag tag--neutral" id="badge-ex4">Шаг 1 / 5</span>
+        </div>
+        <p class="muted">Ведите диалог с новым тимлидом и HR-специалистом. Выберите грамматически верную реплику на каждом шаге.</p>
+        <div id="dialogue-trainer-history" class="dialogue-box" aria-live="polite"></div>
+        <div id="dialogue-trainer-prompt" class="inset"></div>
+        <div id="dialogue-trainer-options" class="q-options"></div>
+        <div id="dialogue-trainer-feedback" class="feedback"></div>
+        <div class="btn-row">
+          <button type="button" class="button button--secondary" onclick="resetDialogueTrainer()">Начать диалог заново</button>
+        </div>
+      </div>
+
+      <!-- Exercise 5: Hoe zeg je dit in het Nederlands? -->
+      <div class="exercise-card" id="ex-translate">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+          <h3>Задание 5. «Hoe zeg je dit in het Nederlands?» (Переведите на нидерландский)</h3>
+          <span class="tag tag--neutral" id="badge-ex5">Самопроверка</span>
+        </div>
+        <p class="muted">Сначала попробуйте перевести фразы самостоятельно в поле для заметок, затем откройте эталонный ответ под спойлером.</p>
+        <div id="ex5-container"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FINAL MINI-TEST -->
+    <section class="section-block" id="sec-quiz">
+      <div class="section-title-row">
+        <span class="step-badge" aria-hidden="true">6</span>
+        <div>
+          <h2>Финальный мини-тест Урока 2 (10 вопросов)</h2>
+          <p class="muted">Проверьте себя по всем темам урока. Для уверенного перехода к Уроку 3 рекомендуется набрать от 8 из 10 баллов.</p>
+        </div>
+      </div>
+
+      <div class="exercise-card" id="quiz-container">
+        <div id="quiz-questions"></div>
+        <div class="btn-row">
+          <button type="button" class="button" onclick="gradeQuiz()">Проверить мини-тест</button>
+          <button type="button" class="button button--secondary" onclick="resetQuiz()">Пройти тест заново</button>
+        </div>
+        <div class="feedback" id="quiz-result-banner" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer class="lesson-footer">
+      <div>
+        <strong>Следующий шаг в курсе:</strong> Урок 3 — Нидерландский алфавит, произношение, диктовка телефона/e-mail и числительные 0–100.
+      </div>
+      <div class="btn-row">
+        <button type="button" class="button button--secondary" id="reset-all-btn" onclick="resetAllProgress(this)">Сбросить весь прогресс урока</button>
+      </div>
+    </footer>
+
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    /* ============================
+       DATA DEFINITIONS (Backticks)
+       ============================ */
+    const EXPLORER_DATA = {
+      ik: {
+        label: `ik`,
+        hebForm: `heb`,
+        zijnForm: `ben`,
+        hebStatement: `Ik heb vandaag een afspraak.`,
+        hebStatementRu: `У меня сегодня встреча.`,
+        hebQuestion: `Heb ik het juiste e-mailadres?`,
+        hebQuestionRu: `У меня правильный e-mail?`,
+        zijnStatement: `Ik ben 28 jaar en ik ben developer.`,
+        zijnStatementRu: `Мне 28 лет, и я разработчик.`,
+        zijnQuestion: `Ben ik vandaag op kantoor?`,
+        zijnQuestionRu: `Я сегодня в офисе?`,
+        note: `В 1-м лице ед. ч. глагол hebben всегда имеет форму heb (основа без -t).`
+      },
+      jij: {
+        label: `jij / je`,
+        hebForm: `hebt`,
+        zijnForm: `bent`,
+        hebStatement: `Jij hebt een nieuwe laptop.`,
+        hebStatementRu: `У тебя новый ноутбук.`,
+        hebQuestion: `Heb je een vraag voor de manager?`,
+        hebQuestionRu: `У тебя есть вопрос к менеджеру?`,
+        zijnStatement: `Je bent vierendertig jaar oud.`,
+        zijnStatementRu: `Тебе 34 года.`,
+        zijnQuestion: `Ben jij de nieuwe collega?`,
+        zijnQuestionRu: `Ты новый коллега?`,
+        note: `Важно: при инверсии (глагол перед jij/je) окончание -t исчезает: Heb je...? Ben jij...?`
+      },
+      u: {
+        label: `u`,
+        hebForm: `heeft`,
+        zijnForm: `bent`,
+        hebStatement: `U heeft een afspraak om twee uur.`,
+        hebStatementRu: `У Вас встреча в два часа.`,
+        hebQuestion: `Heeft u een contract en een paspoort?`,
+        hebQuestionRu: `У Вас есть контракт и паспорт?`,
+        zijnStatement: `U bent de nieuwe directeur.`,
+        zijnStatementRu: `Вы новый директор.`,
+        zijnQuestion: `Bent u mevrouw Bakker?`,
+        zijnQuestionRu: `Вы госпожа Баккер?`,
+        note: `С вежливым u форма heeft звучит наиболее естественно и грамотно в деловой переписке.`
+      },
+      hij: {
+        label: `hij`,
+        hebForm: `heeft`,
+        zijnForm: `is`,
+        hebStatement: `Hij heeft vijf jaar ervaring.`,
+        hebStatementRu: `У него пять лет опыта.`,
+        hebQuestion: `Heeft hij een vaste werkplek?`,
+        hebQuestionRu: `У него есть постоянное рабочее место?`,
+        zijnStatement: `Hij is adviseur bij een bank.`,
+        zijnStatementRu: `Он консультант в банке.`,
+        zijnQuestion: `Is hij vandaag ziek?`,
+        zijnQuestionRu: `Он сегодня болен?`,
+        note: `Для hij всегда используется неправильная форма heeft (не *hebt).`
+      },
+      zij_sg: {
+        label: `zij / ze (она)`,
+        hebForm: `heeft`,
+        zijnForm: `is`,
+        hebStatement: `Ze heeft een pauze in de kantine.`,
+        hebStatementRu: `У нее перерыв в столовой.`,
+        hebQuestion: `Heeft zij het nummer van de HR-afdeling?`,
+        hebQuestionRu: `У нее есть номер HR-отдела?`,
+        zijnStatement: `Zij is docente Nederlands.`,
+        zijnStatementRu: `Она преподавательница нидерландского.`,
+        zijnQuestion: `Is ze op kantoor of thuis?`,
+        zijnQuestionRu: `Она в офисе или дома?`,
+        note: `Безударное ze (она) в речи звучит чаще, но по глаголу heeft / is сразу ясно, что это единственное число.`
+      },
+      het: {
+        label: `het`,
+        hebForm: `heeft`,
+        zijnForm: `is`,
+        hebStatement: `Het bedrijf heeft twintig medewerkers.`,
+        hebStatementRu: `В компании двадцать сотрудников.`,
+        hebQuestion: `Heeft het kantoor een kantine?`,
+        hebQuestionRu: `В офисе есть столовая?`,
+        zijnStatement: `Het contract is duidelijk.`,
+        zijnStatementRu: `Контракт понятный.`,
+        zijnQuestion: `Is het rapport klaar?`,
+        zijnQuestionRu: `Отчет готов?`,
+        note: `Het заменяет существительные среднего рода (het kantoor, het team, het bedrijf).`
+      },
+      wij: {
+        label: `wij / we`,
+        hebForm: `hebben`,
+        zijnForm: `zijn`,
+        hebStatement: `We hebben elke maandag een meeting.`,
+        hebStatementRu: `У нас каждый понедельник митинг.`,
+        hebQuestion: `Hebben wij vandaag een pauze?`,
+        hebQuestionRu: `У нас сегодня есть перерыв?`,
+        zijnStatement: `Wij zijn software developers.`,
+        zijnStatementRu: `Мы разработчики программного обеспечения.`,
+        zijnQuestion: `Zijn we op tijd voor het gesprek?`,
+        zijnQuestionRu: `Мы вовремя на встречу?`,
+        note: `Во множественном числе глаголы совпадают с инфинитивом: hebben и zijn.`
+      },
+      jullie: {
+        label: `jullie`,
+        hebForm: `hebben`,
+        zijnForm: `zijn`,
+        hebStatement: `Jullie hebben een mooi project.`,
+        hebStatementRu: `У вас отличный проект.`,
+        hebQuestion: `Hebben jullie vragen over het profiel?`,
+        hebQuestionRu: `У вас есть вопросы по профилю?`,
+        zijnStatement: `Jullie zijn het nieuwe team.`,
+        zijnStatementRu: `Вы — новая команда.`,
+        zijnQuestion: `Zijn jullie studenten in Leiden?`,
+        zijnQuestionRu: `Вы студенты в Лейдене?`,
+        note: `Jullie используется при обращении к двум и более людям на «ты».`
+      },
+      zij_pl: {
+        label: `zij / ze (они)`,
+        hebForm: `hebben`,
+        zijnForm: `zijn`,
+        hebStatement: `Zij hebben drie jaar ervaring in IT.`,
+        hebStatementRu: `У них три года опыта в IT.`,
+        hebQuestion: `Hebben ze een nieuw telefoonnummer?`,
+        hebQuestionRu: `У них новый номер телефона?`,
+        zijnStatement: `Ze zijn collega's van de afdeling Sales.`,
+        zijnStatementRu: `Они коллеги из отдела продаж.`,
+        zijnQuestion: `Zijn zij uit Oekraïne?`,
+        zijnQuestionRu: `Они из Украины?`,
+        note: `Отличайте от «она» по глаголам hebben / zijn во множественном числе.`
+      }
+    };
+
+    const VOCAB_DATA = [
+      { id: `v1`, cat: `professions`, word: `de docent / de docente`, plural: `de docenten / de docentes`, ru: `преподаватель / преподавательница`, ex: `Zij is docente Engels aan de universiteit.`, exRu: `Она преподавательница английского в университете.` },
+      { id: `v2`, cat: `professions`, word: `de adviseur / de adviseuse`, plural: `de adviseurs / de adviseuses`, ru: `консультант / консультантка`, ex: `Hij werkt als adviseur bij een bank.`, exRu: `Он работает консультантом в банке.` },
+      { id: `v3`, cat: `professions`, word: `de directeur / de directrice`, plural: `de directeuren / de directrices`, ru: `директор / директриса`, ex: `Mevrouw Bakker is onze directrice.`, exRu: `Госпожа Баккер — наша директриса.` },
+      { id: `v4`, cat: `professions`, word: `de medewerker / de medewerkster`, plural: `de medewerkers / de medewerksters`, ru: `сотрудник / сотрудница`, ex: `De nieuwe medewerker begint maandag.`, exRu: `Новый сотрудник начинает в понедельник.` },
+      { id: `v5`, cat: `professions`, word: `de verpleger / de verpleegster`, plural: `de verplegers / de verpleegsters`, ru: `медбрат / медсестра`, ex: `Mijn buurvrouw is verpleegster in het ziekenhuis.`, exRu: `Моя соседка — медсестра в больнице.` },
+      { id: `v6`, cat: `professions`, word: `de secretaris / de secretaresse`, plural: `de secretarissen / de secretaresses`, ru: `секретарь (м. / ж.)`, ex: `De secretaresse maakt een afspraak.`, exRu: `Секретарь назначает встречу.` },
+      { id: `v7`, cat: `professions`, word: `de student / de studente`, plural: `de studenten / de studentes`, ru: `студент / студентка`, ex: `Ik ben student en ik werk parttime.`, exRu: `Я студент и работаю неполный день.` },
+      { id: `v8`, cat: `professions`, word: `de developer / de ontwikkelaar`, plural: `de developers / de ontwikkelaars`, ru: `разработчик`, ex: `Wij zijn software developers.`, exRu: `Мы разработчики ПО.` },
+      { id: `v9`, cat: `professions`, word: `de manager`, plural: `de managers`, ru: `менеджер, руководитель`, ex: `Heb je een afspraak met de manager?`, exRu: `У тебя встреча с менеджером?` },
+      { id: `v10`, cat: `professions`, word: `de projectleider`, plural: `de projectleiders`, ru: `руководитель проекта`, ex: `Wie is de projectleider van team B?`, exRu: `Кто руководитель проекта в команде B?` },
+
+      { id: `v11`, cat: `workplace`, word: `het beroep`, plural: `de beroepen`, ru: `профессия`, ex: `Wat is jouw beroep?`, exRu: `Какая у тебя профессия?` },
+      { id: `v12`, cat: `workplace`, word: `het bedrijf`, plural: `de bedrijven`, ru: `компания, предприятие`, ex: `Het bedrijf heeft vijftig medewerkers.`, exRu: `В компании пятьдесят сотрудников.` },
+      { id: `v13`, cat: `workplace`, word: `de afdeling`, plural: `de afdelingen`, ru: `отдел, департамент`, ex: `Ik werk op de IT-afdeling.`, exRu: `Я работаю в IT-отделе.` },
+      { id: `v14`, cat: `workplace`, word: `de ervaring`, plural: `de ervaringen`, ru: `опыт`, ex: `Zij heeft vier jaar ervaring.`, exRu: `У нее четыре года опыта.` },
+      { id: `v15`, cat: `workplace`, word: `het contract`, plural: `de contracten`, ru: `контракт, договор`, ex: `Ik heb een vast contract.`, exRu: `У меня постоянный контракт.` },
+      { id: `v16`, cat: `workplace`, word: `de afspraak`, plural: `de afspraken`, ru: `встреча, запись на прием`, ex: `We hebben vandaag een afspraak.`, exRu: `У нас сегодня встреча.` },
+      { id: `v17`, cat: `workplace`, word: `het land`, plural: `de landen`, ru: `страна`, ex: `Welk land kom je vandaan?`, exRu: `Из какой ты страны?` },
+      { id: `v18`, cat: `workplace`, word: `de taal`, plural: `de talen`, ru: `язык`, ex: `Welke talen spreek je?`, exRu: `На каких языках ты говоришь?` },
+      { id: `v19`, cat: `workplace`, word: `het e-mailadres`, plural: `de e-mailadressen`, ru: `адрес электронной почты`, ex: `Wat is uw e-mailadres?`, exRu: `Какой у Вас адрес электронной почты?` },
+      { id: `v20`, cat: `workplace`, word: `het telefoonnummer`, plural: `de telefoonnummers`, ru: `номер телефона`, ex: `Mijn telefoonnummer begint met 06.`, exRu: `Мой номер телефона начинается с 06.` },
+
+      { id: `v21`, cat: `verbs`, word: `wonen`, plural: `ik woon, wij wonen`, ru: `жить, проживать`, ex: `Ik woon nu in Utrecht.`, exRu: `Я сейчас живу в Утрехте.` },
+      { id: `v22`, cat: `verbs`, word: `werken`, plural: `ik werk, wij werken`, ru: `работать`, ex: `Hij werkt bij een groot bedrijf.`, exRu: `Он работает в крупной компании.` },
+      { id: `v23`, cat: `verbs`, word: `spreken`, plural: `ik spreek, wij spreken`, ru: `говорить (на языке)`, ex: `We spreken Engels en een beetje Nederlands.`, exRu: `Мы говорим по-английски и немного по-нидерландски.` },
+      { id: `v24`, cat: `verbs`, word: `komen uit`, plural: `ik kom, wij komen`, ru: `быть родом из`, ex: `Ik kom uit Oekraïne.`, exRu: `Я родом из Украины.` },
+      { id: `v25`, cat: `verbs`, word: `hoe oud ben je?`, plural: `выражение возраста`, ru: `сколько тебе лет?`, ex: `Hoe oud ben je? Ik ben dertig jaar.`, exRu: `Сколько тебе лет? Мне тридцать лет.` },
+      { id: `v26`, cat: `verbs`, word: `de personeelsgegevens`, plural: `только мн.ч.`, ru: `личные данные сотрудника`, ex: `Vul je personeelsgegevens in.`, exRu: `Заполни свои данные сотрудника.` }
+    ];
+
+    const EX1_DATA = [
+      {
+        id: `p1`,
+        prompt: `1. ... heeft vijf jaar ervaring als projectleider. (Речь о коллеге Марке)`,
+        options: [`Hij`, `Ik`, `Jij`, `Wij`],
+        answer: `Hij`,
+        why: `Глагол heeft (3-е лицо ед.ч.) и контекст про мужчину (Марк) требуют Hij.`
+      },
+      {
+        id: `p2`,
+        prompt: `2. ... hebben elke maandag een meeting met het team. (Мы)`,
+        options: [`Ze`, `We`, `Ik`, `U`],
+        answer: `We`,
+        why: `«Мы» в разговорной речи — we (или wij), глагол hebben.`
+      },
+      {
+        id: `p3`,
+        prompt: `3. Goedemiddag, mevrouw De Vries. Heeft ... uw paspoort bij u? (Вежливое обращение)`,
+        options: [`je`, `jullie`, `u`, `ze`],
+        answer: `u`,
+        why: `Обращение mevrouw De Vries и притяжательное uw указывают на вежливую форму u.`
+      },
+      {
+        id: `p4`,
+        prompt: `4. Dit is Anna. ... is achtentwintig jaar en ... werkt in Den Haag.`,
+        options: [`Hij / hij`, `Ze / ze`, `Jullie / jullie`, `Het / het`],
+        answer: `Ze / ze`,
+        why: `Анна — женский род, ед. ч. (глаголы is и werkt): используем zij или ze.`
+      },
+      {
+        id: `p5`,
+        prompt: `5. Mijn collega's zijn nieuw. ... komen uit Spanje en Polen.`,
+        options: [`Zij`, `Jij`, `Hij`, `U`],
+        answer: `Zij`,
+        why: `Коллеги (мн. ч.) + глагол komen во мн. ч. -> zij («они»).`
+      },
+      {
+        id: `p6`,
+        prompt: `6. Dit is ons kantoor in Delft. ... is heel modern.`,
+        options: [`Hij`, `Het`, `Wij`, `Zij`],
+        answer: `Het`,
+        why: `Существительное среднего рода het kantoor заменяется местоимением het.`
+      },
+      {
+        id: `p7`,
+        prompt: `7. Hallo Tim en Lisa! Hebben ... al een laptop van IT?`,
+        options: [`jij`, `u`, `jullie`, `ik`],
+        answer: `jullie`,
+        why: `Обращение к двум людям на «ты» (Tim en Lisa) + глагол hebben -> jullie.`
+      },
+      {
+        id: `p8`,
+        prompt: `8. Ik ben Alex, en wie ben ...? (Логическое ударение и противопоставление)`,
+        options: [`jij`, `je`, `het`, `ze`],
+        answer: `jij`,
+        why: `При смысловом ударении и сравнении («я... а ты?») используется полная ударная форма jij.`
+      }
+    ];
+
+    const EX2_DATA = [
+      { id: `v_q1`, before: `Ik`, after: `32 jaar oud.`, accept: [`ben`], hint: `Возраст в нидерландском всегда с глаголом zijn.` },
+      { id: `v_q2`, before: `Ik`, after: `twee vragen voor de manager.`, accept: [`heb`], hint: `«У меня есть два вопроса» -> глагол hebben, 1-е лицо ед.ч.` },
+      { id: `v_q3`, before: ``, after: `jij een Nederlands telefoonnummer?`, accept: [`heb`], hint: `Вопрос с инверсией (глагол перед jij): окончание -t отпадает!` },
+      { id: `v_q4`, before: `Zij`, after: `docente aan een school in Leiden.`, accept: [`is`], hint: `Профессия: «Она — преподавательница» (zijn, 3-е лицо ед.ч.).` },
+      { id: `v_q5`, before: `Mijn collega`, after: `veel ervaring met data.`, accept: [`heeft`], hint: `Мой коллега (он/она) -> форма глагола hebben для 3-го лица ед.ч.` },
+      { id: `v_q6`, before: `Wij`, after: `vandaag een kennismakingsgesprek.`, accept: [`hebben`], hint: `Множественное число (wij) + hebben.` },
+      { id: `v_q7`, before: ``, after: `u mevrouw Bakker?`, accept: [`bent`, `is`], hint: `Вежливый вопрос с zijn: Bent u...? (реже Is u...?).` },
+      { id: `v_q8`, before: `Jullie`, after: `heel aardige buren.`, accept: [`zijn`], hint: `«Вы — очень приятные соседи» (zijn для jullie).` },
+      { id: `v_q9`, before: `Het bedrijf`, after: `een groot kantoor in Utrecht.`, accept: [`heeft`], hint: `Het bedrijf (3-е лицо ед.ч., оно) -> heeft.` },
+      { id: `v_q10`, before: ``, after: `ze (они) een vast contract?`, accept: [`hebben`], hint: `Подсказка (они) указывает на множественное число -> Hebben ze...?` }
+    ];
+
+    const MATCH_PAIRS = [
+      { id: `m1`, left: `de docente`, right: `Преподает в школе или вузе (ж.р.)` },
+      { id: `m2`, left: `de adviseur`, right: `Консультирует клиентов и бизнес (м.р.)` },
+      { id: `m3`, left: `de verpleegster`, right: `Помогает пациентам в больнице (ж.р.)` },
+      { id: `m4`, left: `de directrice`, right: `Руководит всей компанией (ж.р.)` },
+      { id: `m5`, left: `de developer`, right: `Пишет код и создает приложения` },
+      { id: `m6`, left: `de secretaresse`, right: `Ведет расписание и документы (ж.р.)` },
+      { id: `m7`, left: `de student`, right: `Учится в университете (м.р.)` },
+      { id: `m8`, left: `de medewerkster`, right: `Работает в отделе компании (ж.р.)` }
+    ];
+
+    const DIALOGUE_STEPS = [
+      {
+        npcSpeaker: `Laura (HR)`,
+        npcLine: `Goedemorgen! Welkom bij ons bedrijf. Hoe heet je en hoe oud ben je?`,
+        npcRu: `Доброе утро! Добро пожаловать в нашу компанию. Как тебя зовут и сколько тебе лет?`,
+        options: [
+          { text: `Ik heet Maxim en ik heb 29 jaar.`, ok: false, msg: `Ошибка! Возраст в нидерландском строится с глаголом zijn (ik ben), а не hebben.` },
+          { text: `Ik heet Maxim en ik ben negenentwintig jaar oud.`, ok: true, msg: `Отлично! Возраст с zijn, а число 29 верно названо как negenentwintig.` },
+          { text: `Mijn naam heb Maxim en ik ben 29 jaar.`, ok: false, msg: `Имя называют через Ik heet... или Mijn naam is..., а не heb.` }
+        ]
+      },
+      {
+        npcSpeaker: `Laura (HR)`,
+        npcLine: `Leuk je te ontmoeten, Maxim! Wat is jouw beroep in het team?`,
+        npcRu: `Рада знакомству, Максим! Какая у тебя должность в команде?`,
+        options: [
+          { text: `Ik ben een software developer.`, ok: false, msg: `Почти, но при простом названии профессии артикль een опускается!` },
+          { text: `Ik heb software developer.`, ok: false, msg: `Профессия обозначается через глагол zijn (ik ben), а не hebben.` },
+          { text: `Ik ben software developer en ik heb vier jaar ervaring.`, ok: true, msg: `Точно! Профессия без артикля een, а опыт — с глаголом heb.` }
+        ]
+      },
+      {
+        npcSpeaker: `Laura (HR)`,
+        npcLine: `Top! Waar kom je vandaan en welke talen spreek je?`,
+        npcRu: `Супер! Откуда ты родом и на каких языках говоришь?`,
+        options: [
+          { text: `Ik kom uit Oekraïne en ik spreek Oekraïens, Engels en een beetje Nederlands.`, ok: true, msg: `Безупречно! Происхождение с komen uit, языки с глаголом spreken.` },
+          { text: `Ik ben uit Oekraïne en ik spreken Engels.`, ok: false, msg: `Две ошибки: для страны нужно ik kom uit, а для ik основа глагола — spreek (без -en).` },
+          { text: `Ik heb uit Oekraïne en ik spreek Engels.`, ok: false, msg: `Страна происхождения всегда вводится через ik kom uit.` }
+        ]
+      },
+      {
+        npcSpeaker: `Laura (HR)`,
+        npcLine: `Heb je nog vragen voor mij of voor de manager?`,
+        npcRu: `У тебя есть еще вопросы ко мне или к менеджеру?`,
+        options: [
+          { text: `Ja, ik ben een vraag over mijn contract.`, ok: false, msg: `Наличие вопроса выражается через глагол hebben: ik heb een vraag.` },
+          { text: `Ja, ik heb een vraag over mijn werkplek. Hebben we vandaag een teammeeting?`, ok: true, msg: `Верно! И ik heb een vraag, и вопрос Hebben we...? построены идеально.` },
+          { text: `Ja, ik heb een vraag. Hebt we vandaag een meeting?`, ok: false, msg: `Для we (множественное число) нужна форма hebben, а не hebt.` }
+        ]
+      },
+      {
+        npcSpeaker: `Laura (HR)`,
+        npcLine: `Ja, om 11 uur! Wat is je zakelijke e-mailadres voor de uitnodiging?`,
+        npcRu: `Да, в 11 часов! Какой у тебя рабочий e-mail для приглашения?`,
+        options: [
+          { text: `Mijn e-mailadres is maxim@bedrijf.nl. Dank je wel!`, ok: true, msg: `Прекрасно! Вы успешно завершили знакомство в HR-отделе.` },
+          { text: `Mijn e-mailadres heeft maxim@bedrijf.nl.`, ok: false, msg: `Адрес электронной почты называют с помощью is (Mijn e-mailadres is...).` },
+          { text: `Ik zijn maxim@bedrijf.nl.`, ok: false, msg: `Так вы говорите «Я являюсь адресом». Нужен глагол is для Mijn e-mailadres.` }
+        ]
+      }
+    ];
+
+    const EX5_DATA = [
+      {
+        id: `tr1`,
+        ru: `1. Мне 28 лет, и я живу в Амстердаме.`,
+        nl: `Ik ben achtentwintig (28) jaar oud en ik woon in Amsterdam.`,
+        note: `Возраст — через ik ben; 28 = acht-en-twintig.`
+      },
+      {
+        id: `tr2`,
+        ru: `2. У тебя есть вопрос к менеджеру? (неформально)`,
+        nl: `Heb je (jij) een vraag voor de manager?`,
+        note: `При инверсии (глагол перед jij/je) окончание -t исчезает: Heb je...?`
+      },
+      {
+        id: `tr3`,
+        ru: `3. Она преподавательница нидерландского, и у нее пять лет опыта.`,
+        nl: `Zij (Ze) is docente Nederlands en zij (ze) heeft vijf jaar ervaring.`,
+        note: `Профессия с zijn без артикля een; опыт с heeft.`
+      },
+      {
+        id: `tr4`,
+        ru: `4. Мы говорим по-английски и немного по-нидерландски.`,
+        nl: `Wij (We) spreken Engels en een beetje Nederlands.`,
+        note: `В обычной речи чаще используют we.`
+      },
+      {
+        id: `tr5`,
+        ru: `5. Откуда Вы родом и какой у Вас номер телефона? (формально)`,
+        nl: `Waar komt u vandaan en wat is uw telefoonnummer?`,
+        note: `Вежливая форма местоимения — u, притяжательное — uw.`
+      }
+    ];
+
+    const QUIZ_DATA = [
+      {
+        id: `q1`,
+        q: `1. Как правильно сказать «Мне 35 лет» по-нидерландски?`,
+        opts: [`Ik heb 35 jaar.`, `Ik ben vijfendertig jaar oud.`, `Ik ben dertigenvijf jaar.`, `Ik heeft 35 jaar.`],
+        ans: 1,
+        exp: `Возраст выражается глаголом zijn (ik ben), а 35 читается с конца: vijf-en-dertig.`
+      },
+      {
+        id: `q2`,
+        q: `2. Выберите грамматически верный общий вопрос к коллеге:`,
+        opts: [`Hebt jij een laptop?`, `Heb jij een laptop?`, `Heeft jij een laptop?`, `Jij hebt een laptop?`],
+        ans: 1,
+        exp: `При инверсии с местоимением jij/je буква -t отпадает: Heb jij...?`
+      },
+      {
+        id: `q3`,
+        q: `3. Как правильно указать профессию: «Он — разработчик»?`,
+        opts: [`Hij is een developer.`, `Hij heeft developer.`, `Hij is developer.`, `Hij bent developer.`],
+        ans: 2,
+        exp: `Перед названием профессии без прилагательного артикль een опускается.`
+      },
+      {
+        id: `q4`,
+        q: `4. Какая форма глагола hebben соответствует предложению «Mevrouw Bakker ... een afspraak»?`,
+        opts: [`heb`, `hebt`, `heeft`, `hebben`],
+        ans: 2,
+        exp: `Mevrouw Bakker = zij (она, 3-е лицо ед.ч.), поэтому нужна форма heeft.`
+      },
+      {
+        id: `q5`,
+        q: `5. Как образуется женская форма от существительного de adviseur?`,
+        opts: [`de adviseurster`, `de adviseuse`, `de adviseresse`, `de adviseure`],
+        ans: 1,
+        exp: `Существительные на -eur обычно образуют женскую форму с суффиксом -euse (de adviseuse).`
+      },
+      {
+        id: `q6`,
+        q: `6. В каком предложении ze означает «они», а не «она»?`,
+        opts: [`Ze is docente.`, `Ze heeft een contract.`, `Ze werkt in Delft.`, `Ze hebben een meeting.`],
+        ans: 3,
+        exp: `Глагол hebben (окончание -en) однозначно указывает на множественное число («они»).`
+      },
+      {
+        id: `q7`,
+        q: `7. Как правильно спросить клиента на «Вы»: «У Вас есть паспорт?»`,
+        opts: [`Heb u een paspoort?`, `Heeft u een paspoort?`, `Hebben u een paspoort?`, `Is u een paspoort?`],
+        ans: 1,
+        exp: `С вежливым u стандартно используется форма heeft (Heeft u...?).`
+      },
+      {
+        id: `q8`,
+        q: `8. Какая пара «страна — язык» верна?`,
+        opts: [`Ik ben uit Polen / Ik spreek Pools.`, `Ik kom uit Polen / Ik spreek Pools.`, `Ik kom uit Polen / Ik heb Pools.`, `Ik woon uit Polen / Ik spreek Polen.`],
+        ans: 1,
+        exp: `Происхождение выражается глаголом komen uit, владение языком — spreken.`
+      },
+      {
+        id: `q9`,
+        q: `9. Как по-нидерландски называется символ @ в адресе электронной почты?`,
+        opts: [`de punt`, `het kantoor`, `het apestaartje`, `het streepje`],
+        ans: 2,
+        exp: `Символ @ называется het apestaartje («обезьяний хвостик»), а точка — de punt.`
+      },
+      {
+        id: `q10`,
+        q: `10. Выберите правильный перевод: «У нас нет перерыва, но у нас есть кофе».`,
+        opts: [`We zijn geen pauze, maar we zijn koffie.`, `We hebben geen pauze, maar we hebben koffie.`, `Wij heeft geen pauze, maar wij hebben koffie.`, `We heb geen pauze, maar we heb koffie.`],
+        ans: 1,
+        exp: `Для wij/we в обоих случаях нужна форма hebben.`
+      }
+    ];
+
+    /* ============================
+       APPLICATION STATE
+       ============================ */
+    let appState = {
+      explorerPronoun: `ik`,
+      explorerMode: `statement`,
+      vocabFilter: `all`,
+      knownVocab: {},
+      ex1Answers: {},
+      ex2Values: {},
+      ex2Solved: false,
+      ex3Solved: false,
+      dialogueStep: 0,
+      ex4Solved: false,
+      ex5Drafts: {},
+      quizAnswers: {},
+      quizSubmitted: false,
+      quizScore: null
+    };
+
+    function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          window.notebookAppApi.setAppState(appState);
+        }
+      } catch (e) {
+        /* Safe fallback when viewed outside host */
+      }
+    }
+
+    function updateProgressFigures() {
+      let doneBlocks = 0;
+      const ex1Count = Object.keys(appState.ex1Answers).length;
+      if (ex1Count === EX1_DATA.length) doneBlocks++;
+      if (appState.ex2Solved) doneBlocks++;
+      if (appState.ex3Solved) doneBlocks++;
+      if (appState.ex4Solved) doneBlocks++;
+      const ex5Filled = Object.values(appState.ex5Drafts).filter(function(v) { return v && v.trim().length > 2; }).length;
+      if (ex5Filled >= 3) doneBlocks++;
+
+      const statEx = document.getElementById(`stat-exercises`);
+      if (statEx) statEx.textContent = `${doneBlocks} / 5`;
+
+      const knownCount = Object.keys(appState.knownVocab).filter(function(k) { return appState.knownVocab[k]; }).length;
+      const statVoc = document.getElementById(`stat-vocab`);
+      if (statVoc) statVoc.textContent = `${knownCount} / ${VOCAB_DATA.length}`;
+
+      const statQuiz = document.getElementById(`stat-quiz`);
+      const statQuizDesc = document.getElementById(`stat-quiz-desc`);
+      if (statQuiz) {
+        if (appState.quizSubmitted && appState.quizScore !== null) {
+          statQuiz.textContent = `${appState.quizScore} / ${QUIZ_DATA.length}`;
+          if (statQuizDesc) {
+            statQuizDesc.textContent = appState.quizScore >= 8
+              ? `отличный результат, можно к Уроку 3`
+              : `рекомендуется повторить теорию`;
+          }
+        } else {
+          statQuiz.textContent = `Не пройден`;
+          if (statQuizDesc) statQuizDesc.textContent = `итоговая проверка из 10 вопросов`;
+        }
+      }
+    }
+
+    /* ============================
+       SPEECH SYNTHESIS (OPTIONAL)
+       ============================ */
+    function speakDutchPhrase(text) {
+      try {
+        if (!(`speechSynthesis` in window)) return;
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = `nl-NL`;
+        utter.rate = 0.92;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        /* Optional enhancement */
+      }
+    }
+
+    function speakDutchText(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      speakDutchPhrase(el.textContent || ``);
+    }
+
+    function togglePanel(panelId, btn) {
+      const panel = document.getElementById(panelId);
+      if (!panel) return;
+      const isOpen = panel.classList.toggle(`is-open`);
+      if (btn) {
+        btn.textContent = isOpen ? `Скрыть перевод` : `Показать перевод`;
+      }
+    }
+
+    /* ============================
+       FORMULA EXPLORER
+       ============================ */
+    function setExplorerPronoun(key, btn) {
+      appState.explorerPronoun = key;
+      const group = document.getElementById(`explorer-pronouns`);
+      if (group) {
+        group.querySelectorAll(`button`).forEach(function(b) {
+          b.className = `button button--small button--secondary`;
+        });
+      }
+      if (btn) btn.className = `button button--small button--active`;
+      renderExplorer();
+      persistState();
+    }
+
+    function setExplorerMode(mode, btn) {
+      appState.explorerMode = mode;
+      const group = document.getElementById(`explorer-modes`);
+      if (group) {
+        group.querySelectorAll(`button`).forEach(function(b) {
+          b.className = `button button--small button--secondary`;
+        });
+      }
+      if (btn) btn.className = `button button--small button--active`;
+      renderExplorer();
+      persistState();
+    }
+
+    function renderExplorer() {
+      const out = document.getElementById(`explorer-output`);
+      if (!out) return;
+      const d = EXPLORER_DATA[appState.explorerPronoun] || EXPLORER_DATA.ik;
+      const isQ = appState.explorerMode === `question`;
+      const hebSentence = isQ ? d.hebQuestion : d.hebStatement;
+      const hebRu = isQ ? d.hebQuestionRu : d.hebStatementRu;
+      const zijnSentence = isQ ? d.zijnQuestion : d.zijnStatement;
+      const zijnRu = isQ ? d.zijnQuestionRu : d.zijnStatementRu;
+
+      out.innerHTML = `
+        <div class="explorer-card">
+          <div class="figure-label">Глагол hebben (${d.label} + ${d.hebForm})</div>
+          <div class="explorer-sentence">${hebSentence}</div>
+          <p class="muted">${hebRu}</p>
+          <button type="button" class="button button--small button--secondary" onclick="speakDutchPhrase(EXPLORER_DATA['${appState.explorerPronoun}'].${isQ ? 'hebQuestion' : 'hebStatement'})">Озвучить</button>
+        </div>
+        <div class="explorer-card">
+          <div class="figure-label">Глагол zijn (${d.label} + ${d.zijnForm})</div>
+          <div class="explorer-sentence">${zijnSentence}</div>
+          <p class="muted">${zijnRu}</p>
+          <button type="button" class="button button--small button--secondary" onclick="speakDutchPhrase(EXPLORER_DATA['${appState.explorerPronoun}'].${isQ ? 'zijnQuestion' : 'zijnStatement'})">Озвучить</button>
+        </div>
+        <div class="inset" style="grid-column: 1 / -1;">
+          <strong>Подсказка:</strong> ${d.note}
+        </div>
+      `;
+    }
+
+    /* ============================
+       VOCABULARY CARDS
+       ============================ */
+    function filterVocab(cat, btn) {
+      appState.vocabFilter = cat;
+      const group = document.getElementById(`vocab-filters`);
+      if (group) {
+        group.querySelectorAll(`button`).forEach(function(b) {
+          b.className = `button button--small button--secondary`;
+        });
+      }
+      if (btn) btn.className = `button button--small button--active`;
+      renderVocab();
+      persistState();
+    }
+
+    function toggleVocabKnown(id) {
+      appState.knownVocab[id] = !appState.knownVocab[id];
+      renderVocab();
+      updateProgressFigures();
+      persistState();
+    }
+
+    function toggleVocabExample(id) {
+      const el = document.getElementById(`vex-${id}`);
+      if (!el) return;
+      el.hidden = !el.hidden;
+    }
+
+    function renderVocab() {
+      const grid = document.getElementById(`vocab-grid`);
+      if (!grid) return;
+      const list = VOCAB_DATA.filter(function(item) {
+        return appState.vocabFilter === `all` || item.cat === appState.vocabFilter;
+      });
+      grid.innerHTML = list.map(function(item) {
+        const known = !!appState.knownVocab[item.id];
+        return `
+          <article class="vocab-card ${known ? 'is-known' : ''}">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:var(--space-xs); margin-bottom:var(--space-xs);">
+                <span class="vocab-word">${item.word}</span>
+                ${known ? '<span class="tag tag--positive">Изучено</span>' : ''}
+              </div>
+              <div class="vocab-plural">${item.plural}</div>
+              <div class="vocab-ru" style="margin-top:var(--space-xs);">${item.ru}</div>
+              <div class="vocab-example" id="vex-${item.id}" hidden>
+                <div class="nl">${item.ex}</div>
+                <div class="muted">${item.exRu}</div>
+              </div>
+            </div>
+            <div class="vocab-actions">
+              <button type="button" class="button button--small button--secondary" onclick="toggleVocabExample('${item.id}')">Пример</button>
+              <button type="button" class="button button--small button--secondary" onclick="speakVocab('${item.id}')">Озвучить</button>
+              <button type="button" class="button button--small ${known ? 'button--active' : 'button--secondary'}" onclick="toggleVocabKnown('${item.id}')">${known ? 'Снять отметку' : 'Знаю'}</button>
+            </div>
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function speakVocab(id) {
+      const item = VOCAB_DATA.find(function(v) { return v.id === id; });
+      if (item) speakDutchPhrase(item.word.replace(/\//g, `, `));
+    }
+
+    /* ============================
+       PROFILE BUILDER
+       ============================ */
+    function numberToDutch(n) {
+      const num = parseInt(n, 10);
+      if (isNaN(num) || num < 0 || num > 99) return String(n);
+      const ones = [`nul`, `een`, `twee`, `drie`, `vier`, `vijf`, `zes`, `zeven`, `acht`, `negen`, `tien`, `elf`, `twaalf`, `dertien`, `veertien`, `vijftien`, `zestien`, `zeventien`, `achttien`, `negentien`];
+      if (num < 20) return ones[num];
+      const tens = [`twintig`, `dertig`, `veertig`, `vijftig`, `zestig`, `zeventig`, `tachtig`, `negentig`];
+      const t = Math.floor(num / 10) - 2;
+      const o = num % 10;
+      if (o === 0) return tens[t];
+      const joiner = (o === 2 || o === 3) ? `ën` : `en`;
+      return `${ones[o]}${joiner}${tens[t]}`;
+    }
+
+    function updateProfileBuilder() {
+      const nameEl = document.getElementById(`prof-name`);
+      const ageEl = document.getElementById(`prof-age`);
+      const countryEl = document.getElementById(`prof-country`);
+      const cityEl = document.getElementById(`prof-city`);
+      const jobEl = document.getElementById(`prof-job`);
+      const genderEl = document.getElementById(`prof-gender`);
+      const expEl = document.getElementById(`prof-exp`);
+      const langsEl = document.getElementById(`prof-langs`);
+      const emailEl = document.getElementById(`prof-email`);
+
+      const out1 = document.getElementById(`prof-out-first`);
+      const out3 = document.getElementById(`prof-out-third`);
+      if (!nameEl || !out1 || !out3) return;
+
+      const name = nameEl.value.trim() || `Alex`;
+      const ageNum = parseInt(ageEl.value, 10) || 28;
+      const ageWord = numberToDutch(ageNum);
+      const country = countryEl.value;
+      const city = cityEl.value.trim() || `Amsterdam`;
+      const job = jobEl.value;
+      const pron = genderEl.value === `hij` ? `Hij` : `Zij`;
+      const pronLow = pron.toLowerCase();
+      const expNum = parseInt(expEl.value, 10) || 0;
+      const langs = langsEl.value.trim() || `Engels en Nederlands`;
+      const email = emailEl.value.trim() || `naam@bedrijf.nl`;
+
+      out1.textContent = `Hoi! Ik heet ${name} en ik ben ${ageWord} (${ageNum}) jaar oud. Ik kom uit ${country}, maar ik woon nu in ${city}. Ik ben ${job} en ik heb ${expNum} jaar ervaring. Ik spreek ${langs}. Mijn e-mailadres is ${email}.`;
+      out3.textContent = `Dit is onze nieuwe collega ${name}. ${pron} is ${ageWord} (${ageNum}) jaar oud en ${pronLow} komt uit ${country}. ${pron} woont in ${city}. ${pron} is ${job} en ${pronLow} heeft ${expNum} jaar ervaring. ${pron} spreekt ${langs}.`;
+    }
+
+    /* ============================
+       EX 1: PRONOUNS
+       ============================ */
+    function renderEx1() {
+      const container = document.getElementById(`ex1-container`);
+      if (!container) return;
+      container.innerHTML = EX1_DATA.map(function(item) {
+        const chosen = appState.ex1Answers[item.id];
+        const isAnswered = chosen !== undefined;
+        const isCorrect = chosen === item.answer;
+        return `
+          <div class="q-row">
+            <div class="q-prompt">${item.prompt}</div>
+            <div class="q-options">
+              ${item.options.map(function(opt) {
+                let cls = `opt-btn`;
+                if (isAnswered && opt === chosen) {
+                  cls += isCorrect ? ` is-correct` : ` is-wrong`;
+                } else if (isAnswered && opt === item.answer) {
+                  cls += ` is-correct`;
+                }
+                return `<button type="button" class="${cls}" onclick="answerEx1('${item.id}', '${opt}')">${opt}</button>`;
+              }).join(``)}
+            </div>
+            <div class="feedback ${isAnswered ? 'is-visible' : ''} ${isCorrect ? 'feedback--ok' : 'feedback--err'}">
+              ${isAnswered ? `<strong>${isCorrect ? 'Верно.' : 'Ошибка.'}</strong> ${item.why}` : ``}
+            </div>
+          </div>
+        `;
+      }).join(``);
+
+      const badge = document.getElementById(`badge-ex1`);
+      if (badge) {
+        const answered = Object.keys(appState.ex1Answers).length;
+        const correct = EX1_DATA.filter(function(i) { return appState.ex1Answers[i.id] === i.answer; }).length;
+        if (answered === 0) {
+          badge.className = `tag tag--neutral`;
+          badge.textContent = `Не выполнено`;
+        } else if (answered === EX1_DATA.length && correct === EX1_DATA.length) {
+          badge.className = `tag tag--positive`;
+          badge.textContent = `Готово: ${correct} / ${EX1_DATA.length}`;
+        } else {
+          badge.className = `tag`;
+          badge.textContent = `Прогресс: ${correct} / ${EX1_DATA.length}`;
+        }
+      }
+    }
+
+    function answerEx1(id, option) {
+      appState.ex1Answers[id] = option;
+      renderEx1();
+      updateProgressFigures();
+      persistState();
+    }
+
+    /* ============================
+       EX 2: HEBBEN VS ZIJN FILL-IN
+       ============================ */
+    function renderEx2() {
+      const container = document.getElementById(`ex2-container`);
+      if (!container) return;
+      container.innerHTML = EX2_DATA.map(function(item, idx) {
+        const val = appState.ex2Values[item.id] || ``;
+        return `
+          <div class="q-row">
+            <div class="inline-input-row">
+              <div class="field-group">
+                <label class="field-label" for="inp-${item.id}">
+                  ${idx + 1}. ${item.before ? item.before + ' ' : ''}[ ___ ] ${item.after}
+                </label>
+                <input class="input" type="text" id="inp-${item.id}" value="${val}"
+                  oninput="saveEx2Input('${item.id}', this.value)"
+                  onkeydown="if(event.key==='Enter'){checkSingleEx2('${item.id}');}">
+              </div>
+              <button type="button" class="button button--small button--secondary" onclick="checkSingleEx2('${item.id}')">Проверить</button>
+              <button type="button" class="button button--small button--secondary" onclick="toggleHintEx2('${item.id}')">Подсказка</button>
+            </div>
+            <div class="field-hint" id="hint-${item.id}" hidden>Подсказка: ${item.hint}</div>
+            <div class="feedback" id="fb-${item.id}"></div>
+          </div>
+        `;
+      }).join(``);
+
+      if (appState.ex2Solved) {
+        checkAllEx2(true);
+      }
+    }
+
+    function saveEx2Input(id, val) {
+      appState.ex2Values[id] = val;
+      persistState();
+    }
+
+    function toggleHintEx2(id) {
+      const el = document.getElementById(`hint-${id}`);
+      if (el) el.hidden = !el.hidden;
+    }
+
+    function checkSingleEx2(id) {
+      const item = EX2_DATA.find(function(x) { return x.id === id; });
+      const inp = document.getElementById(`inp-${id}`);
+      const fb = document.getElementById(`fb-${id}`);
+      if (!item || !inp || !fb) return false;
+      const userVal = inp.value.trim().toLowerCase();
+      appState.ex2Values[id] = inp.value;
+
+      if (!userVal) {
+        fb.className = `feedback is-visible feedback--err`;
+        fb.innerHTML = `<strong>Пусто.</strong> Введите форму глагола <em>hebben</em> или <em>zijn</em>.`;
+        return false;
+      }
+      const ok = item.accept.indexOf(userVal) !== -1;
+      fb.className = `feedback is-visible ${ok ? 'feedback--ok' : 'feedback--err'}`;
+      fb.innerHTML = ok
+        ? `<strong>Верно!</strong> Правильная форма: <span class="nl">${userVal}</span>.`
+        : `<strong>Неверно.</strong> Вы ввели «${userVal}». Правильный вариант: <span class="nl">${item.accept.join(' / ')}</span>. (${item.hint})`;
+      persistState();
+      return ok;
+    }
+
+    function checkAllEx2(silentSave) {
+      let score = 0;
+      EX2_DATA.forEach(function(item) {
+        if (checkSingleEx2(item.id)) score++;
+      });
+      appState.ex2Solved = score >= 7;
+      const summary = document.getElementById(`ex2-summary`);
+      if (summary) {
+        summary.className = `feedback is-visible ${score >= 8 ? 'feedback--ok' : 'feedback--err'}`;
+        summary.innerHTML = `<strong>Результат Задания 2: ${score} из ${EX2_DATA.length}.</strong> ${score >= 8 ? 'Отличное владение формами hebben и zijn!' : 'Просмотрите исправления выше и попробуйте ввести правильные формы.'}`;
+      }
+      const badge = document.getElementById(`badge-ex2`);
+      if (badge) {
+        badge.className = score >= 8 ? `tag tag--positive` : `tag`;
+        badge.textContent = `Балл: ${score} / ${EX2_DATA.length}`;
+      }
+      if (!silentSave) {
+        updateProgressFigures();
+        persistState();
+      }
+    }
+
+    function resetEx2() {
+      appState.ex2Values = {};
+      appState.ex2Solved = false;
+      renderEx2();
+      const summary = document.getElementById(`ex2-summary`);
+      if (summary) summary.className = `feedback`;
+      const badge = document.getElementById(`badge-ex2`);
+      if (badge) {
+        badge.className = `tag tag--neutral`;
+        badge.textContent = `Не выполнено`;
+      }
+      updateProgressFigures();
+      persistState();
+    }
+
+    /* ============================
+       EX 3: PROFESSION MATCHING
+       ============================ */
+    let matchSelectedLeft = null;
+    let matchedIds = {};
+    let shuffledRight = [];
+
+    function shuffleList(arr) {
+      const copy = arr.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = tmp;
+      }
+      return copy;
+    }
+
+    function initMatching() {
+      matchSelectedLeft = null;
+      matchedIds = {};
+      appState.ex3Solved = false;
+      shuffledRight = shuffleList(MATCH_PAIRS);
+      renderMatching();
+      const fb = document.getElementById(`match-feedback`);
+      if (fb) fb.className = `feedback`;
+      updateProgressFigures();
+      persistState();
+    }
+
+    function renderMatching() {
+      const leftCol = document.getElementById(`match-left`);
+      const rightCol = document.getElementById(`match-right`);
+      if (!leftCol || !rightCol) return;
+
+      if (shuffledRight.length === 0) {
+        shuffledRight = shuffleList(MATCH_PAIRS);
+      }
+
+      leftCol.innerHTML = MATCH_PAIRS.map(function(p) {
+        const isMatched = !!matchedIds[p.id];
+        const isSel = matchSelectedLeft === p.id;
+        return `
+          <button type="button" class="match-item ${isMatched ? 'is-matched' : ''} ${isSel ? 'is-selected' : ''}"
+            ${isMatched ? 'disabled' : ''} onclick="selectMatchLeft('${p.id}')">
+            <span>${p.left}</span>
+            <span class="tag ${isMatched ? 'tag--positive' : 'tag--neutral'}">${isMatched ? 'OK' : (isSel ? 'Выбрано' : 'NL')}</span>
+          </button>
+        `;
+      }).join(``);
+
+      rightCol.innerHTML = shuffledRight.map(function(p) {
+        const isMatched = !!matchedIds[p.id];
+        return `
+          <button type="button" class="match-item ${isMatched ? 'is-matched' : ''}"
+            ${isMatched ? 'disabled' : ''} onclick="selectMatchRight('${p.id}')">
+            <span>${p.right}</span>
+            <span class="tag ${isMatched ? 'tag--positive' : 'tag--neutral'}">${isMatched ? 'Совпало' : 'RU'}</span>
+          </button>
+        `;
+      }).join(``);
+
+      const count = Object.keys(matchedIds).length;
+      const badge = document.getElementById(`badge-ex3`);
+      if (badge) {
+        badge.className = count === MATCH_PAIRS.length ? `tag tag--positive` : `tag tag--neutral`;
+        badge.textContent = `${count} / ${MATCH_PAIRS.length} пар`;
+      }
+    }
+
+    function selectMatchLeft(id) {
+      if (matchedIds[id]) return;
+      matchSelectedLeft = id;
+      renderMatching();
+    }
+
+    function selectMatchRight(rightId) {
+      if (matchedIds[rightId]) return;
+      const fb = document.getElementById(`match-feedback`);
+      if (!matchSelectedLeft) {
+        if (fb) {
+          fb.className = `feedback is-visible feedback--err`;
+          fb.textContent = `Сначала выберите профессию на нидерландском в левой колонке.`;
+        }
+        return;
+      }
+      if (matchSelectedLeft === rightId) {
+        matchedIds[rightId] = true;
+        matchSelectedLeft = null;
+        if (Object.keys(matchedIds).length === MATCH_PAIRS.length) {
+          appState.ex3Solved = true;
+          if (fb) {
+            fb.className = `feedback is-visible feedback--ok`;
+            fb.textContent = `Отлично! Все 8 профессий сопоставлены правильно.`;
+          }
+        } else if (fb) {
+          fb.className = `feedback is-visible feedback--ok`;
+          fb.textContent = `Верная пара! Выберите следующую профессию слева.`;
+        }
+        renderMatching();
+        updateProgressFigures();
+        persistState();
+      } else {
+        if (fb) {
+          fb.className = `feedback is-visible feedback--err`;
+          fb.textContent = `Не совпадает: обратите внимание на значение и род (мужской/женский) профессии.`;
+        }
+      }
+    }
+
+    /* ============================
+       EX 4: DIALOGUE TRAINER
+       ============================ */
+    function renderDialogueTrainer() {
+      const historyEl = document.getElementById(`dialogue-trainer-history`);
+      const promptEl = document.getElementById(`dialogue-trainer-prompt`);
+      const optsEl = document.getElementById(`dialogue-trainer-options`);
+      const badgeEl = document.getElementById(`badge-ex4`);
+      if (!historyEl || !promptEl || !optsEl) return;
+
+      let histHtml = ``;
+      for (let i = 0; i < appState.dialogueStep; i++) {
+        const st = DIALOGUE_STEPS[i];
+        const correctOpt = st.options.find(function(o) { return o.ok; });
+        histHtml += `
+          <div class="dialogue-line">
+            <span class="speaker">${st.npcSpeaker}:</span>
+            <span>${st.npcLine}</span>
+          </div>
+          <div class="dialogue-line">
+            <span class="speaker">Вы (Maxim):</span>
+            <span class="nl">${correctOpt ? correctOpt.text : ''}</span>
+          </div>
+        `;
+      }
+      historyEl.innerHTML = histHtml || `<p class="muted">История диалога появится здесь по мере прохождения шагов.</p>`;
+
+      if (appState.dialogueStep >= DIALOGUE_STEPS.length) {
+        promptEl.innerHTML = `<strong>Диалог успешно завершен!</strong> Вы грамотно представились, назвали возраст, профессию без артикля, языки и контакты.`;
+        optsEl.innerHTML = ``;
+        if (badgeEl) {
+          badgeEl.className = `tag tag--positive`;
+          badgeEl.textContent = `Завершено (5 / 5)`;
+        }
+        return;
+      }
+
+      const cur = DIALOGUE_STEPS[appState.dialogueStep];
+      promptEl.innerHTML = `
+        <div class="figure-label">${cur.npcSpeaker} говорит вам:</div>
+        <p style="font-weight:700; margin-bottom:var(--space-xs);">${cur.npcLine}</p>
+        <p class="muted">${cur.npcRu}</p>
+        <button type="button" class="button button--small button--secondary" onclick="speakDutchPhrase(DIALOGUE_STEPS[${appState.dialogueStep}].npcLine)">Озвучить реплику</button>
+      `;
+
+      optsEl.innerHTML = cur.options.map(function(opt, idx) {
+        return `<button type="button" class="opt-btn" onclick="pickDialogueOption(${idx})">${opt.text}</button>`;
+      }).join(``);
+
+      if (badgeEl) {
+        badgeEl.className = `tag tag--neutral`;
+        badgeEl.textContent = `Шаг ${appState.dialogueStep + 1} / ${DIALOGUE_STEPS.length}`;
+      }
+    }
+
+    function pickDialogueOption(optIndex) {
+      const cur = DIALOGUE_STEPS[appState.dialogueStep];
+      if (!cur) return;
+      const opt = cur.options[optIndex];
+      const fb = document.getElementById(`dialogue-trainer-feedback`);
+      if (!opt || !fb) return;
+
+      if (opt.ok) {
+        fb.className = `feedback is-visible feedback--ok`;
+        fb.textContent = opt.msg;
+        appState.dialogueStep++;
+        if (appState.dialogueStep >= DIALOGUE_STEPS.length) {
+          appState.ex4Solved = true;
+        }
+        renderDialogueTrainer();
+        updateProgressFigures();
+        persistState();
+      } else {
+        fb.className = `feedback is-visible feedback--err`;
+        fb.textContent = opt.msg;
+      }
+    }
+
+    function resetDialogueTrainer() {
+      appState.dialogueStep = 0;
+      appState.ex4Solved = false;
+      const fb = document.getElementById(`dialogue-trainer-feedback`);
+      if (fb) fb.className = `feedback`;
+      renderDialogueTrainer();
+      updateProgressFigures();
+      persistState();
+    }
+
+    /* ============================
+       EX 5: HOE ZEG JE DIT?
+       ============================ */
+    function renderEx5() {
+      const container = document.getElementById(`ex5-container`);
+      if (!container) return;
+      container.innerHTML = EX5_DATA.map(function(item) {
+        const draft = appState.ex5Drafts[item.id] || ``;
+        return `
+          <div class="q-row">
+            <div class="field-group">
+              <label class="field-label" for="tr-${item.id}">${item.ru}</label>
+              <input class="input" type="text" id="tr-${item.id}" value="${draft}" oninput="saveEx5Draft('${item.id}', this.value)">
+            </div>
+            <details>
+              <summary>Показать эталонный ответ и пояснение</summary>
+              <p class="nl" style="margin-bottom:var(--space-xs);">${item.nl}</p>
+              <p class="muted" style="margin-bottom:var(--space-xs);">${item.note}</p>
+              <button type="button" class="button button--small button--secondary" onclick="speakDutchPhrase('${item.nl.replace(/'/g, '')}')">Озвучить эталон</button>
+            </details>
+          </div>
+        `;
+      }).join(``);
+    }
+
+    function saveEx5Draft(id, val) {
+      appState.ex5Drafts[id] = val;
+      updateProgressFigures();
+      persistState();
+    }
+
+    /* ============================
+       SECTION 6: FINAL MINI-TEST
+       ============================ */
+    function renderQuiz() {
+      const container = document.getElementById(`quiz-questions`);
+      if (!container) return;
+      container.innerHTML = QUIZ_DATA.map(function(item) {
+        const chosen = appState.quizAnswers[item.id];
+        return `
+          <div class="q-row">
+            <div class="q-prompt">${item.q}</div>
+            <div class="q-options">
+              ${item.opts.map(function(opt, idx) {
+                let cls = `opt-btn`;
+                if (appState.quizSubmitted) {
+                  if (idx === item.ans) cls += ` is-correct`;
+                  else if (idx === chosen) cls += ` is-wrong`;
+                } else if (idx === chosen) {
+                  cls += ` is-selected`;
+                }
+                return `<button type="button" class="${cls}" onclick="selectQuizOption('${item.id}', ${idx})">${opt}</button>`;
+              }).join(``)}
+            </div>
+            ${appState.quizSubmitted ? `
+              <div class="feedback is-visible ${chosen === item.ans ? 'feedback--ok' : 'feedback--err'}">
+                <strong>${chosen === item.ans ? 'Верно.' : 'Неверно.'}</strong> ${item.exp}
+              </div>
+            ` : ``}
+          </div>
+        `;
+      }).join(``);
+
+      const banner = document.getElementById(`quiz-result-banner`);
+      if (banner) {
+        if (appState.quizSubmitted && appState.quizScore !== null) {
+          banner.className = `feedback is-visible ${appState.quizScore >= 8 ? 'feedback--ok' : 'feedback--err'}`;
+          banner.innerHTML = `<strong>Ваш результат: ${appState.quizScore} из ${QUIZ_DATA.length} (${Math.round((appState.quizScore / QUIZ_DATA.length) * 100)}%).</strong> ${appState.quizScore >= 8 ? 'Отличная работа! Тема Урока 2 усвоена уверенно.' : 'Просмотрите комментарии к ошибкам выше и пройдите тест еще раз.'}`;
+        } else {
+          banner.className = `feedback`;
+        }
+      }
+    }
+
+    function selectQuizOption(qId, idx) {
+      if (appState.quizSubmitted) return;
+      appState.quizAnswers[qId] = idx;
+      renderQuiz();
+      persistState();
+    }
+
+    function gradeQuiz() {
+      const answeredCount = Object.keys(appState.quizAnswers).length;
+      const banner = document.getElementById(`quiz-result-banner`);
+      if (answeredCount < QUIZ_DATA.length) {
+        if (banner) {
+          banner.className = `feedback is-visible feedback--err`;
+          banner.innerHTML = `<strong>Ответьте на все вопросы.</strong> Вы выбрали ответы для ${answeredCount} из ${QUIZ_DATA.length} вопросов.`;
+        }
+        return;
+      }
+      let score = 0;
+      QUIZ_DATA.forEach(function(q) {
+        if (appState.quizAnswers[q.id] === q.ans) score++;
+      });
+      appState.quizSubmitted = true;
+      appState.quizScore = score;
+      renderQuiz();
+      updateProgressFigures();
+      persistState();
+    }
+
+    function resetQuiz() {
+      appState.quizAnswers = {};
+      appState.quizSubmitted = false;
+      appState.quizScore = null;
+      renderQuiz();
+      updateProgressFigures();
+      persistState();
+    }
+
+    /* ============================
+       GLOBAL RESET (TWO-STEP INLINE)
+       ============================ */
+    function resetAllProgress(btn) {
+      if (btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Нажмите еще раз для подтверждения сброса`;
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `Сбросить весь прогресс урока`;
+      }
+      appState = {
+        explorerPronoun: `ik`,
+        explorerMode: `statement`,
+        vocabFilter: `all`,
+        knownVocab: {},
+        ex1Answers: {},
+        ex2Values: {},
+        ex2Solved: false,
+        ex3Solved: false,
+        dialogueStep: 0,
+        ex4Solved: false,
+        ex5Drafts: {},
+        quizAnswers: {},
+        quizSubmitted: false,
+        quizScore: null
+      };
+      initMatching();
+      renderAll();
+      persistState();
+    }
+
+    function renderAll() {
+      renderExplorer();
+      renderVocab();
+      updateProfileBuilder();
+      renderEx1();
+      renderEx2();
+      renderMatching();
+      renderDialogueTrainer();
+      renderEx5();
+      renderQuiz();
+      updateProgressFigures();
+    }
+
+    /* ============================
+       INITIALIZATION & STATE LOAD
+       ============================ */
+    async function initLesson() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign({}, appState, saved);
+          }
+        }
+      } catch (e) {
+        /* Safe fallback if opened standalone */
+      }
+
+      if (appState.ex3Solved) {
+        MATCH_PAIRS.forEach(function(p) { matchedIds[p.id] = true; });
+      }
+      shuffledRight = shuffleList(MATCH_PAIRS);
+
+      renderAll();
+
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+          window.notebookAppApi.notifyAppReady();
+        }
+      } catch (e) {
+        /* Ignore outside host */
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initLesson);
+  </script>
+</body>
+</html>
