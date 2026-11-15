@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="dashboard">
+  <meta name="design-style" content="canopy">
+  <title>Dutch A0–A2: Навигационный центр курса (6 месяцев · 26 уроков)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Canopy earth strata) */
+      --background: #faf6ef;
+      --surface-container-low: #f0eae0;
+      --surface-container: #e8e0d2;
+      --surface-container-high: #ddd3c2;
+
+      /* Ink */
+      --on-surface: #2a302b;
+      --on-surface-variant: #4a524b;
+
+      /* Lines */
+      --outline: #737872;
+      --outline-variant: #cbc5b8;
+
+      /* Accents */
+      --primary: #366948;
+      --on-primary: #ffffff;
+      --primary-container: #d8efe0;
+      --on-primary-container: #1f4d30;
+      --secondary: #5c635c;
+      --tertiary: #8f5822;
+      --tertiary-container: #f2d4a7;
+      --on-tertiary-container: #6e3f0c;
+      --error: #b83230;
+      --on-error: #ffffff;
+
+      /* Semantic */
+      --positive: #366948;
+      --warning: #8f5822;
+      --focus: #366948;
+
+      /* Data series */
+      --data-1: #366948;
+      --data-2: #8f5822;
+      --data-3: #a85438;
+      --data-4: #4b6b78;
+      --data-context: #b5b0a3;
+
+      /* Fonts */
+      --font-headline: 'Literata', 'Nunito Sans', Georgia, serif;
+      --font-body: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-label: 'Geist Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.625rem;
+      --rounded-lg: 1rem;
+      --rounded-full: 9999px;
+
+      /* Effects */
+      --shadow-soft: 0 4px 20px rgb(42 48 43 / 0.06);
+      --shadow-soft-hover: 0 8px 28px rgb(42 48 43 / 0.09);
+      --border-soft: 1px solid rgb(203 197 184 / 0.65);
+      --focus-glow: 0 0 0 4px rgb(54 105 72 / 0.18);
+
+      /* Type scale (Dashboard) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.35rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      box-shadow: var(--focus-glow);
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Hero / Header */
+    .hub-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+      padding-bottom: var(--space-md);
+      border-bottom: var(--border-soft);
+    }
+
+    .kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tertiary);
+      margin: 0 0 var(--space-xs) 0;
+    }
+
+    h1 {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin: 0 0 var(--space-sm) 0;
+      color: var(--on-surface);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--on-surface-variant);
+      max-width: 65ch;
+    }
+
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+    }
+    .meta-pill strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Highlighted Progress Card (the single pale-leaf highlight card) */
+    .card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .card.is-leaf-highlight {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .progress-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+    .progress-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-primary-container);
+    }
+
+    .progress-figure {
+      font-family: var(--font-headline);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+      font-variant-numeric: lining-nums tabular-nums;
+      color: var(--on-primary-container);
+    }
+
+    .progress-bar-track {
+      width: 100%;
+      height: 12px;
+      background-color: var(--background);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+      margin: var(--space-sm) 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--primary);
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+
+    .progress-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.875rem;
+      color: var(--on-primary-container);
+    }
+
+    .next-lesson-row {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid rgb(31 77 48 / 0.16);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .next-lesson-info {
+      font-size: 0.875rem;
+      line-height: 1.4;
+    }
+    .next-lesson-info strong {
+      display: block;
+      font-weight: 700;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-primary:hover {
+      background-color: var(--on-primary-container);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .btn-secondary:hover {
+      background-color: var(--surface-container-high);
+    }
+
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--on-primary-container);
+      border: 1px solid rgb(31 77 48 / 0.25);
+    }
+    .btn-ghost:hover {
+      background-color: rgb(31 77 48 / 0.08);
+    }
+
+    /* Almanac 26-Week Phenology Strip */
+    .almanac-strip {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .almanac-head {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .almanac-title {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--secondary);
+    }
+
+    .almanac-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .legend-dot.is-todo { background-color: var(--surface-container-high); }
+    .legend-dot.is-cp { background-color: var(--tertiary-container); border: 1px solid var(--tertiary); }
+    .legend-dot.is-done { background-color: var(--primary); }
+
+    .week-cells {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .week-cell {
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      font-weight: 600;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      border: 0;
+      cursor: pointer;
+      background-color: var(--surface-container-high);
+      color: var(--secondary);
+      transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .week-cell:hover {
+      transform: translateY(-2px);
+    }
+    .week-cell.is-checkpoint {
+      background-color: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+    .week-cell.is-done {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* KPI Summary Row */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .kpi-tile {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .kpi-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+    }
+
+    .kpi-value {
+      font-family: var(--font-headline);
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.1;
+      font-variant-numeric: lining-nums tabular-nums;
+      color: var(--on-surface);
+    }
+
+    .kpi-note {
+      font-size: 0.85rem;
+      color: var(--tertiary);
+      font-weight: 600;
+    }
+
+    /* Filter & Search Controls */
+    .controls-bar {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: end;
+      justify-content: space-between;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      flex: 1 1 220px;
+    }
+
+    .control-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+    }
+
+    .search-input, .select-input {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--background);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      width: 100%;
+    }
+    .select-input {
+      padding-right: var(--space-xl);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .filter-chip {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      border: 0;
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .filter-chip:hover {
+      background-color: var(--surface-container-high);
+    }
+    .filter-chip.is-active {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Section Headings */
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    h2 {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .section-subtitle {
+      color: var(--on-surface-variant);
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+
+    /* Month Sections & Lesson Cards */
+    .months-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+
+    .month-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .month-header-card {
+      background-color: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .month-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .month-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--tertiary);
+    }
+
+    .month-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .month-focus {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      margin: 2px 0 0 0;
+    }
+
+    .month-progress-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+
+    .mini-bar {
+      width: 96px;
+      height: 8px;
+      background-color: var(--background);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+    }
+    .mini-bar-fill {
+      height: 100%;
+      background-color: var(--primary);
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .lesson-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+      position: relative;
+    }
+    .lesson-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft-hover);
+    }
+    .lesson-card.is-completed {
+      background-color: var(--surface-container);
+    }
+
+    .lesson-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .lesson-num-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .lesson-num {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      background-color: var(--primary-container);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .checkpoint-tag {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background-color: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .complete-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 var(--space-sm);
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      background-color: var(--background);
+      color: var(--on-surface-variant);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .complete-toggle:hover {
+      background-color: var(--surface-container-high);
+    }
+    .complete-toggle[aria-pressed="true"] {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .lesson-title {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      line-height: 1.3;
+      margin: var(--space-xs) 0;
+      color: var(--on-surface);
+    }
+
+    .lesson-summary {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+    }
+
+    .lesson-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.825rem;
+    }
+
+    .tag-line {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag-badge {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 1px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .tag-badge.is-everyday {
+      background-color: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+    .tag-badge.is-workplace {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .tag-badge.is-grammar {
+      background-color: var(--surface-container-high);
+      color: var(--on-surface);
+    }
+
+    .lesson-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: var(--border-soft);
+      flex-wrap: wrap;
+    }
+
+    .lesson-file-code {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      color: var(--secondary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 190px;
+    }
+
+    .lesson-link {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      background-color: var(--primary);
+      color: var(--on-primary);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .lesson-link:hover {
+      background-color: var(--on-primary-container);
+    }
+
+    /* Two-column Lower Reference Panels (Checkpoints, Objectives, Weekly Schedule) */
+    .reference-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      background-color: var(--surface-container-low);
+    }
+
+    tbody td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--border-soft);
+      vertical-align: top;
+    }
+
+    .cp-status-pill {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background-color: var(--surface-container-high);
+      color: var(--secondary);
+      white-space: nowrap;
+    }
+    .cp-status-pill.is-reached {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Weekly Schedule Interactive Checklist */
+    .schedule-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .schedule-item {
+      background-color: var(--background);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      border: var(--border-soft);
+    }
+
+    .schedule-check {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .schedule-day {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--tertiary);
+    }
+
+    .schedule-time {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      color: var(--secondary);
+    }
+
+    /* Principles & 17-Part Structure */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    .principle-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    .principle-num {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+      text-transform: uppercase;
+    }
+
+    .principle-title {
+      font-family: var(--font-headline);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin: 4px 0 6px 0;
+    }
+
+    .structure-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: var(--space-sm);
+    }
+    .structure-pill {
+      background-color: var(--background);
+      border: var(--border-soft);
+      border-radius: var(--rounded);
+      padding: 4px 10px;
+      font-size: 0.8125rem;
+    }
+    .structure-pill span {
+      font-family: var(--font-label);
+      font-weight: 600;
+      color: var(--primary);
+      margin-right: 4px;
+    }
+
+    /* Empty state & Confirm inline */
+    .empty-state {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      color: var(--on-surface-variant);
+    }
+
+    .inline-status {
+      font-size: 0.85rem;
+      color: var(--on-primary-container);
+      margin-top: var(--space-xs);
+      min-height: 1.2em;
+    }
+
+    .footer-note {
+      padding-top: var(--space-md);
+      border-top: var(--border-soft);
+      font-size: 0.85rem;
+      color: var(--on-surface-variant);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    @media (max-width: 900px) {
+      .hub-header, .reference-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .kpi-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .month-header-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+    <!-- 1. Header & Active Progress Highlight -->
+    <header class="hub-header">
+      <div>
+        <p class="kicker">НАВИГАЦИОННЫЙ ЦЕНТР КУРСА · DUTCH A0–A2</p>
+        <h1>Нидерландский язык A0–A2: 6-месячный интенсив</h1>
+        <p class="subtitle">
+          Единая карта из 26 автономных интерактивных уроков по программе <strong>Everyday &amp; Workplace Dutch</strong>.
+          От абсолютного нуля до уверенного общения в быту (супермаркет, <em>Huisarts</em>, <em>OV</em>, <em>Gemeente</em>)
+          и рабочей среде (созвоны, Slack/Teams, деловая переписка, отчеты).
+        </p>
+        <div class="meta-pills">
+          <span class="meta-pill"><strong>26 недель</strong> · 1 урок/неделю</span>
+          <span class="meta-pill"><strong>5–7 ч/нед</strong> нагрузка</span>
+          <span class="meta-pill"><strong>Теория:</strong> English-first</span>
+          <span class="meta-pill"><strong>Практика:</strong> ≥70% + Hoe zeg je dit?</span>
+        </div>
+      </div>
+
+      <section class="card is-leaf-highlight" aria-labelledby="progress-heading">
+        <div class="progress-card-head">
+          <span class="progress-label" id="progress-heading">Ваш прогресс по курсу</span>
+          <span class="progress-figure" id="progress-pct">0%</span>
+        </div>
+        <div class="progress-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar-aria">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+        <div class="progress-meta-row">
+          <span id="progress-count-text">Пройдено 0 из 26 уроков</span>
+          <span id="progress-cefr-text">Текущий этап: Старт (A0)</span>
+        </div>
+        <div class="next-lesson-row">
+          <div class="next-lesson-info" id="next-lesson-box">
+            <strong>Следующий урок: № 1</strong>
+            <span>Greetings, Introductions &amp; Workplace Basics</span>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <a class="btn btn-primary" id="next-lesson-link" href="dutch_lesson_01_greetings_introductions.html">Открыть урок</a>
+            <button type="button" class="btn btn-ghost" id="reset-progress-btn" onclick="handleResetProgress(this)">Сбросить</button>
+          </div>
+        </div>
+        <div class="inline-status" id="status-msg" aria-live="polite"></div>
+      </section>
+    </header>
+
+    <!-- 2. 26-Week Almanac Strip -->
+    <section class="almanac-strip" aria-label="Карта 26 недель курса">
+      <div class="almanac-head">
+        <span class="almanac-title">Календарь 26 недель (клик — переход к уроку)</span>
+        <div class="almanac-legend">
+          <span><span class="legend-dot is-todo"></span>Запланирован</span>
+          <span><span class="legend-dot is-cp"></span>Контрольная точка (4, 9, 13, 18, 22, 26)</span>
+          <span><span class="legend-dot is-done"></span>Завершен</span>
+        </div>
+      </div>
+      <div class="week-cells" id="week-strip-cells"></div>
+    </section>
+
+    <!-- 3. KPI Overview -->
+    <section class="kpi-grid" aria-label="Ключевые показатели программы">
+      <div class="kpi-tile">
+        <span class="kpi-label">Модули и уроки</span>
+        <span class="kpi-value">6 мес · 26</span>
+        <span class="kpi-note">Автономные HTML-уроки</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="kpi-label">Лексический запас</span>
+        <span class="kpi-value">~700+</span>
+        <span class="kpi-note">25–30 слов на каждый урок</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="kpi-label">Грамматических заданий</span>
+        <span class="kpi-value">520–780</span>
+        <span class="kpi-note">20–30 упражнений в уроке</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="kpi-label">Контрольные точки</span>
+        <span class="kpi-value" id="cp-kpi-val">0 / 6</span>
+        <span class="kpi-note">5 рубежей + Final A2 Exam</span>
+      </div>
+    </section>
+
+    <!-- 4. Filters & Search -->
+    <section class="controls-bar" aria-label="Поиск и фильтрация уроков">
+      <div class="control-group">
+        <label class="control-label" for="search-lessons">Поиск по теме, грамматике или тегу</label>
+        <input type="search" id="search-lessons" class="search-input" placeholder="Например: Perfectum, Slack, Huisarts, V2, OV..." oninput="applyFilters()">
+      </div>
+
+      <div class="control-group" style="max-width: 240px;">
+        <label class="control-label" for="filter-month">Месяц программы</label>
+        <select id="filter-month" class="select-input" onchange="applyFilters()">
+          <option value="all">Все 6 месяцев (1–26)</option>
+          <option value="1">Месяц 1 (Уроки 1–4)</option>
+          <option value="2">Месяц 2 (Уроки 5–9)</option>
+          <option value="3">Месяц 3 (Уроки 10–13)</option>
+          <option value="4">Месяц 4 (Уроки 14–18)</option>
+          <option value="5">Месяц 5 (Уроки 19–22)</option>
+          <option value="6">Месяц 6 (Уроки 23–26)</option>
+        </select>
+      </div>
+
+      <div class="control-group" style="flex: 0 1 auto;">
+        <span class="control-label">Статус и фокус</span>
+        <div class="filter-pills" role="group" aria-label="Быстрые фильтры">
+          <button type="button" class="filter-chip is-active" data-status="all" onclick="setStatusFilter('all', this)">Все</button>
+          <button type="button" class="filter-chip" data-status="todo" onclick="setStatusFilter('todo', this)">Не пройдены</button>
+          <button type="button" class="filter-chip" data-status="done" onclick="setStatusFilter('done', this)">Завершены</button>
+          <button type="button" class="filter-chip" data-status="checkpoint" onclick="setStatusFilter('checkpoint', this)">Checkpoints</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Curriculum by 6 Months -->
+    <section aria-labelledby="curriculum-heading">
+      <div class="section-header">
+        <div>
+          <h2 id="curriculum-heading">Программа курса по месяцам (Уроки 1–26)</h2>
+          <p class="section-subtitle">Отмечайте пройденные уроки — прогресс сохраняется автоматически. Нажмите «Открыть урок», чтобы перейти к HTML-файлу занятия.</p>
+        </div>
+        <span class="kicker" id="visible-count-label">Показано: 26 из 26 уроков</span>
+      </div>
+
+      <div class="months-container" id="months-container"></div>
+    </section>
+
+    <!-- 6. Checkpoints & Weekly Study Schedule -->
+    <section class="reference-grid" aria-label="Контрольные точки и недельный график">
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2>Контрольные точки (Checkpoints)</h2>
+            <p class="section-subtitle">Шесть рубежных проверок знаний от уровня A0 до итогового экзамена A2.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Рубеж</th>
+                <th>Урок</th>
+                <th>Фокус проверки</th>
+                <th>Статус</th>
+              </tr>
+            </thead>
+            <tbody id="checkpoints-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2>Режим обучения: 5–7 часов в неделю</h2>
+            <p class="section-subtitle">Рекомендуемый недельный ритм для одного урока (отмечайте выполненные дни текущей недели).</p>
+          </div>
+        </div>
+        <ul class="schedule-list" id="schedule-list"></ul>
+      </div>
+    </section>
+
+    <!-- 7. Learning Objectives, Principles & 17-Component Lesson Architecture -->
+    <section aria-labelledby="objectives-heading">
+      <div class="section-header">
+        <div>
+          <h2 id="objectives-heading">Цели, принципы и стандарт каждого урока</h2>
+          <p class="section-subtitle">Единая методология курса: английский язык инструкций, строгие формулы порядка слов и баланс быта и офиса.</p>
+        </div>
+      </div>
+
+      <div class="principles-grid">
+        <article class="principle-card">
+          <span class="principle-num">Принцип 01</span>
+          <h3 class="principle-title">English-First Instruction</h3>
+          <p class="lesson-summary">Вся теория, разборы правил, инструкции и подсказки — на английском языке; нидерландский — в примерах, диалогах и практике.</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-num">Принцип 02</span>
+          <h3 class="principle-title">Theory → Formulas → Practice</h3>
+          <p class="lesson-summary">Каждая тема подкреплена формулами порядка слов (V2, инверсия, SOV), таблицами спряжений и разбором частых ошибок.</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-num">Принцип 03</span>
+          <h3 class="principle-title">Everyday &amp; Workplace Dual Focus</h3>
+          <p class="lesson-summary">Параллельная тренировка бытовых тем (OV, Huisarts, Tikkie, Gemeente) и рабочих ситуаций (стендапы, Slack, E-mail, звонки).</p>
+        </article>
+        <article class="principle-card">
+          <span class="principle-num">Принцип 04</span>
+          <h3 class="principle-title">70%+ Practice &amp; Hidden Drills</h3>
+          <p class="lesson-summary">20–30 интерактивных заданий с мгновенной проверкой и обязательный блок «Hoe zeg je dit in het Nederlands?» со скрытыми ответами.</p>
+        </article>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-md);">
+        <span class="kicker">Обязательная архитектура каждого HTML-файла</span>
+        <h3 class="principle-title" style="margin-top: 2px;">17 компонентов каждого урока</h3>
+        <div class="structure-pills">
+          <span class="structure-pill"><span>01</span>Lesson header</span>
+          <span class="structure-pill"><span>02</span>Learning goals</span>
+          <span class="structure-pill"><span>03</span>Revision</span>
+          <span class="structure-pill"><span>04</span>Grammar theory</span>
+          <span class="structure-pill"><span>05</span>Grammar cheat sheet</span>
+          <span class="structure-pill"><span>06</span>Vocabulary (25–30)</span>
+          <span class="structure-pill"><span>07</span>Vocabulary practice</span>
+          <span class="structure-pill"><span>08</span>Grammar practice (20–30)</span>
+          <span class="structure-pill"><span>09</span>Hoe zeg je dit?</span>
+          <span class="structure-pill"><span>10</span>Reading</span>
+          <span class="structure-pill"><span>11</span>Reading translation</span>
+          <span class="structure-pill"><span>12</span>Comprehension</span>
+          <span class="structure-pill"><span>13</span>Listening practice</span>
+          <span class="structure-pill"><span>14</span>Real-life &amp; Work guide</span>
+          <span class="structure-pill"><span>15</span>Speaking &amp; Writing</span>
+          <span class="structure-pill"><span>16</span>Lesson test</span>
+          <span class="structure-pill"><span>17</span>Homework</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <span>Источник: Программа курса «Dutch A0–A2: усиленный план курса на 6 месяцев (Everyday &amp; Workplace Dutch)».</span>
+      <span>Формат уроков: автономные HTML-файлы (<code>dutch_lesson_01…26.html</code>).</span>
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    const MONTHS = [
+      {
+        id: 1,
+        name: `Месяц 1. Основы нидерландского языка`,
+        subtitle: `Everyday & Workplace Basics · Уроки 1–4`,
+        focus: `Первые фразы, приветствия в офисе и быту, местоимения, глаголы zijn/hebben, алфавит, артикли de/het и предметы.`
+      },
+      {
+        id: 2,
+        name: `Месяц 2. Описание, время и рабочие процессы`,
+        subtitle: `Everyday & Workplace Routine · Уроки 5–9`,
+        focus: `Описания (людей, товаров, проектов), настоящее время, вопросы, время, даты, назначение встреч (Outlook/быт), предлоги места.`
+      },
+      {
+        id: 3,
+        name: `Месяц 3. Семья, команда, покупки и просьбы`,
+        subtitle: `Team, Ordering & Modals · Уроки 10–13`,
+        focus: `Притяжательные местоимения, семья и команда, еда/обед с коллегами, покупки/расходы, модальные глаголы и субординация/просьбы.`
+      },
+      {
+        id: 4,
+        name: `Месяц 4. Офис, транспорт, разделяемые глаголы и общение`,
+        subtitle: `Facilities, OV & Socializing · Уроки 14–18`,
+        focus: `Жилье (er is/zijn), разделяемые глаголы (рабочий день), объектные местоимения, Slack/приглашения, транспорт (OV), сравнения и погода.`
+      },
+      {
+        id: 5,
+        name: `Месяц 5. Прошедшее время, отчетность и будущее`,
+        subtitle: `Perfectum, Reports & Future Plans · Уроки 19–22`,
+        focus: `Perfectum (регулярные/нерегулярные глаголы, zijn, возвратные глаголы), отчет о выполненных задачах, прошедшие выходные, планы (gaan + inf).`
+      },
+      {
+        id: 6,
+        name: `Месяц 6. Практический A2: Здоровье, деловая переписка, Gemeente и экзамен`,
+        subtitle: `Health, Business E-mail, Gemeente & Final A2 Review · Уроки 23–26`,
+        focus: `Здоровье/больничный (ziekmelden), деловая переписка/собеседование, Imperfectum, придаточные предложения (omdat/als/dat), Gemeente, BSN и A2 Exam.`
+      }
+    ];
+
+    const LESSONS = [
+      {
+        id: 1, month: 1,
+        title: `Greetings, Introductions & Workplace Basics`,
+        file: `dutch_lesson_01_greetings_introductions.html`,
+        grammar: `Глагол zijn, порядок слов V2, инверсия в вопросе, отрицание niet`,
+        everyday: `Знакомство с соседями, вежливые приветствия и прощания`,
+        workplace: `Первый рабочий день (Mijn eerste werkdag), общение у koffieautomaat на «jij»`,
+        reading: `Mijn eerste werkdag`,
+        checkpoint: null
+      },
+      {
+        id: 2, month: 1,
+        title: `Personal Pronouns, hebben & Professional Profiles`,
+        file: `dutch_lesson_02_personal_pronouns_have.html`,
+        grammar: `Личные местоимения (jij/je, wij/we), hebben vs zijn, возраст и профессии`,
+        everyday: `Рассказ о себе, возрасте, стране и языках`,
+        workplace: `Заполнение профиля сотрудника (Personeelsgegevens, LinkedIn, BSN/IBAN)`,
+        reading: `Dit ben ik: Mijn profiel`,
+        checkpoint: null
+      },
+      {
+        id: 3, month: 1,
+        title: `Dutch Alphabet, Pronunciation, Phone/Email Dictation & Numbers 0–100`,
+        file: `dutch_lesson_03_alphabet_pronunciation.html`,
+        grammar: `Дифтонги (ui, ij/ei, oe, eu), g/ch/sch, числительные 0–100 (единицы перед десятками)`,
+        everyday: `Почтовый индекс (postcode 1012 AB), цены и номера телефонов`,
+        workplace: `Диктовка имени, домена и e-mail по буквам (spellen, apestaartje) на рецепции`,
+        reading: `Mijn contactgegevens`,
+        checkpoint: null
+      },
+      {
+        id: 4, month: 1,
+        title: `Articles (de vs het), Plural Nouns & Office Equipment`,
+        file: `dutch_lesson_04_articles_plural.html`,
+        grammar: `Артикли de / het / een, множественное число (-en, -s, f→v, s→z)`,
+        everyday: `Перечисление предметов дома и их количества`,
+        workplace: `Запрос техники и канцелярии в тикет-системе IT Support Desk`,
+        reading: `Het nieuwe kantoor`,
+        checkpoint: `Checkpoint 1`
+      },
+      {
+        id: 5, month: 2,
+        title: `Adjectives, Descriptions & Project Reviews`,
+        file: `dutch_lesson_05_adjectives_descriptions.html`,
+        grammar: `Окончание прилагательных -e и правило исключения (een + het-слово)`,
+        everyday: `Описание квартиры, товаров, цены и качества`,
+        workplace: `Оценка проектов и обратная связь (feedback cultuur, directheid)`,
+        reading: `Een nieuw project en een mooi kantoor`,
+        checkpoint: null
+      },
+      {
+        id: 6, month: 2,
+        title: `Present Simple, Daily Routine & Work Schedules`,
+        file: `dutch_lesson_06_present_simple_daily_routine.html`,
+        grammar: `Present Simple (stam + t), орфография гласных, наречия частоты (altijd/vaak/soms)`,
+        everyday: `Распорядок дня, утренние и вечерние привычки`,
+        workplace: `Гибридный график работы (Het Nieuwe Werken), стендапы и митинги`,
+        reading: `Een normale werkdag van een developer`,
+        checkpoint: null
+      },
+      {
+        id: 7, month: 2,
+        title: `Questions, Question Words, niet vs geen`,
+        file: `dutch_lesson_07_questions_question_words.html`,
+        grammar: `Вопросительные слова (Wie/Wat/Waar/Wanneer/Waarom/Hoe), отрицания geen vs niet`,
+        everyday: `Уточнение информации, цен и планов в быту`,
+        workplace: `Три главных вопроса на Daily Standup, сроки, дедлайны и IT-вопросы`,
+        reading: `Vragen op de werkvloer`,
+        checkpoint: null
+      },
+      {
+        id: 8, month: 2,
+        title: `Numbers, Dates, Telling Time & Scheduling Meetings`,
+        file: `dutch_lesson_08_numbers_dates_time.html`,
+        grammar: `Нидерландское время (half negen = 08:30), предлоги времени om / op / in`,
+        everyday: `Дни недели, месяцы, запись к врачу и расписание тренировок`,
+        workplace: `Календарный этикет в Outlook/Google Calendar, перенос и подтверждение встреч`,
+        reading: `Mijn volle weekagenda`,
+        checkpoint: null
+      },
+      {
+        id: 9, month: 2,
+        title: `Prepositions of Place, Location & Office Navigation`,
+        file: `dutch_lesson_09_prepositions_place.html`,
+        grammar: `Предлоги места (in, op, onder, naast, tegenover, bij), Waar? vs Waarheen?`,
+        everyday: `Ориентация на улице и нумерация этажей (Begane grond, 1e verdieping)`,
+        workplace: `Навигация по офисному зданию: переговорки, принтер, kantine, рецепция`,
+        reading: `Een rondleiding door het kantoor`,
+        checkpoint: `Checkpoint 2`
+      },
+      {
+        id: 10, month: 3,
+        title: `Possessives, Family & Team Ownership`,
+        file: `dutch_lesson_10_possessives_family.html`,
+        grammar: `Притяжательные местоимения, правило ons (het) vs onze (de/мн.ч.)`,
+        everyday: `Рассказ о семье, муже/жене и детях`,
+        workplace: `Структура отдела, зоны ответственности и плоская иерархия (без «baas»)`,
+        reading: `Ons team en onze afdeling`,
+        checkpoint: null
+      },
+      {
+        id: 11, month: 3,
+        title: `Food, Drinks, Team Lunch & Polite Requests (willen / graag)`,
+        file: `dutch_lesson_11_food_drinks_ordering.html`,
+        grammar: `Вежливые просьбы (willen + graag, Mag ik…), исчисляемые/неисчисляемые порции`,
+        everyday: `Заказ еды и напитков в кафе`,
+        workplace: `Офисный обед (broodje kaas, 30 мин), small talk у кофемашины`,
+        reading: `Pauze bij de koffieautomaat`,
+        checkpoint: null
+      },
+      {
+        id: 12, month: 3,
+        title: `Shopping, Prices, Demonstratives & Expense Declarations`,
+        file: `dutch_lesson_12_shopping_clothes_prices.html`,
+        grammar: `Указательные местоимения deze / die (de) и dit / dat (het), вопросы о цене`,
+        everyday: `Покупки, оплата картой (PIN only), разделение счетов через Tikkie`,
+        workplace: `Деловые покупки и заявка на компенсацию расходов (declaratie, чек с BTW)`,
+        reading: `Een zakelijke aankoop en declaratie`,
+        checkpoint: null
+      },
+      {
+        id: 13, month: 3,
+        title: `Modal Verbs & Workplace Requests (kunnen, willen, moeten, mogen)`,
+        file: `dutch_lesson_13_modal_verbs.html`,
+        grammar: `Спряжение kunnen/willen/moeten/mogen, рамочная конструкция (инфинитив в конце)`,
+        everyday: `Выражение возможностей, желаний и правил`,
+        workplace: `Вежливые просьбы коллегам и запрос отгула у менеджера (Mag ik vrij nemen?)`,
+        reading: `Wat moet er vandaag gebeuren?`,
+        checkpoint: `Checkpoint 3`
+      },
+      {
+        id: 14, month: 4,
+        title: `Home, Furniture, Office Facilities & er is / er zijn`,
+        file: `dutch_lesson_14_home_furniture.html`,
+        grammar: `Конструкция наличия er is / er zijn и отличие от het is`,
+        everyday: `Описание квартиры, аренда и коммунальные услуги (inclusief g/w/l)`,
+        workplace: `Заявки на ремонт и обслуживание в Facility Management`,
+        reading: `Een melding bij Facility Management`,
+        checkpoint: null
+      },
+      {
+        id: 15, month: 4,
+        title: `Separable Verbs & Daily Business Operations`,
+        file: `dutch_lesson_15_separable_verbs.html`,
+        grammar: `Разделяемые глаголы (opbellen, aanvragen, uitleggen): приставка в конце vs с модальным`,
+        everyday: `Последовательность бытовых дел, звонки и уборка`,
+        workplace: `Подача заявки на отпуск в HR-портале (vakantie aanvragen), проведение воркшопов`,
+        reading: `Een drukke werkdag vol taken`,
+        checkpoint: null
+      },
+      {
+        id: 16, month: 4,
+        title: `Object Pronouns, Slack/Teams Messaging & Socializing`,
+        file: `dutch_lesson_16_object_pronouns_social.html`,
+        grammar: `Объектные местоимения (mij/me, jou/je, hem, haar, ons), правило hen vs hun`,
+        everyday: `Приглашение друзей и принятие/отклонение планов`,
+        workplace: `Переписка в Slack/MS Teams (top!, prima!, tot zo!) и пятничный Vrijmibo`,
+        reading: `Slack-chat in het teamkanaal`,
+        checkpoint: null
+      },
+      {
+        id: 17, month: 4,
+        title: `City, Public Transport (OV), Navigation & Commuting`,
+        file: `dutch_lesson_17_city_transport_directions.html`,
+        grammar: `Повелительное наклонение (Imperatief), предлоги движения naar и met`,
+        everyday: `Поезда NS, пересадки, inchecken/uitchecken по OV-chipkaart и OVpay`,
+        workplace: `Командировки и компенсация проезда до офиса (reiskostenvergoeding)`,
+        reading: `Reizen met de NS trein naar kantoor`,
+        checkpoint: null
+      },
+      {
+        id: 18, month: 4,
+        title: `Comparisons, Weather, Seasons & Quarterly Performance`,
+        file: `dutch_lesson_18_comparisons_weather.html`,
+        grammar: `Сравнительная (-er + dan) и превосходная (het ...-st) степени, dan vs als`,
+        everyday: `Погода, сезоны и классический small talk (Het regent pijpenstelen!)`,
+        workplace: `Сравнение квартальных показателей, оборота (omzet) и версий продукта`,
+        reading: `Kwartaalpresentatie en het Nederlandse weer`,
+        checkpoint: `Checkpoint 4`
+      },
+      {
+        id: 19, month: 5,
+        title: `Perfectum I — Regular Verbs & Task Completion Updates`,
+        file: `dutch_lesson_19_perfectum_regular_verbs.html`,
+        grammar: `Perfectum правильных глаголов, правило 't kofschip / 't fokschaap, причастие в конце`,
+        everyday: `Рассказ о событиях вчера и на прошлой неделе`,
+        workplace: `Отчет о выполненных задачах и исправленных багах на утреннем стендапе`,
+        reading: `Wat heb je gisteren op werk gedaan?`,
+        checkpoint: null
+      },
+      {
+        id: 20, month: 5,
+        title: `Perfectum II — Irregular Verbs & Past Events`,
+        file: `dutch_lesson_20_perfectum_irregular_verbs.html`,
+        grammar: `Неправильные причастия (gedaan, gezien, geschreven, gelezen, gekocht, gesproken), al vs nog niet`,
+        everyday: `Monday Morning Chat: рассказ о выходных (Hoe was je weekend?)`,
+        workplace: `Принятые решения, прочитанные отчеты и статус документов`,
+        reading: `Een succesvol weekend en een goede werkweek`,
+        checkpoint: null
+      },
+      {
+        id: 21, month: 5,
+        title: `Perfectum III — Verbs with zijn & Reflexive Verbs`,
+        file: `dutch_lesson_21_perfectum_zijn_reflexive.html`,
+        grammar: `Выбор hebben vs zijn (движение и изменение состояния), возвратные глаголы (zich voorbereiden)`,
+        everyday: `Поездки, самочувствие (zich voelen) и смена планов`,
+        workplace: `Командировка в Роттердам, регистрация и подготовка к презентации`,
+        reading: `Een zakelijke reis naar Rotterdam`,
+        checkpoint: null
+      },
+      {
+        id: 22, month: 5,
+        title: `Future Plans, Travelling & Project Roadmaps (gaan + inf)`,
+        file: `dutch_lesson_22_future_travelling.html`,
+        grammar: `Будущее время gaan + infinitive, настоящее время с маркером будущего`,
+        everyday: `Планирование отпуска, бронирование отелей и билетов`,
+        workplace: `Дорожная карта (roadmap), запуск релизов и настройка автоответчика Out of Office`,
+        reading: `De roadmap voor het komende jaar`,
+        checkpoint: `Checkpoint 5`
+      },
+      {
+        id: 23, month: 6,
+        title: `Health, Doctor (Huisarts) & Calling in Sick to Work (Ziekmelden)`,
+        file: `dutch_lesson_23_health_doctor.html`,
+        grammar: `Выражение боли (pijn aan, doet pijn, last van), возвратная конструкция ziekmelden`,
+        everyday: `Визит к семейному врачу (Huisarts) и покупка лекарств в аптеке`,
+        workplace: `Правила больничного в Нидерландах: уведомление до 09:00 без справки от врача`,
+        reading: `Een e-mail naar de manager: Ziekmelding`,
+        checkpoint: null
+      },
+      {
+        id: 24, month: 6,
+        title: `Work, Formal E-mail Writing & Professional Communication`,
+        file: `dutch_lesson_24_work_education_communication.html`,
+        grammar: `Сочинительные союзы en, maar, want, dus, of (без изменения порядка слов)`,
+        everyday: `Подготовка к собеседованию (sollicitatiegesprek) и резюме`,
+        workplace: `Деловые E-mail: формальный и полуформальный стиль, правило 3 абзацев и вложения`,
+        reading: `Een formele e-mail naar een klant`,
+        checkpoint: null
+      },
+      {
+        id: 25, month: 6,
+        title: `Imperfectum (OVT) & Subordinate Clauses (omdat, als, dat)`,
+        file: `dutch_lesson_25_imperfectum_complex_sentences.html`,
+        grammar: `Придаточные предложения SOV (глаголы в конец после omdat/als/dat), Imperfectum (was/had/ging)`,
+        everyday: `Объяснение причин, условий и прошлых ситуаций`,
+        workplace: `Аргументация позиций на собраниях и разбор сложных рабочих кейсов`,
+        reading: `Een ingewikkelde situatie op kantoor`,
+        checkpoint: null
+      },
+      {
+        id: 26, month: 6,
+        title: `Housing, Municipality (Gemeente BSN) & Final A2 Review`,
+        file: `dutch_lesson_26_housing_municipality_final_a2.html`,
+        grammar: `Сводный обзор всех структур A2 (V2, SOV, модальные, разделяемые, Perfectum), die vs dat`,
+        everyday: `Регистрация в Gemeente, получение BSN и переговоры по договору аренды`,
+        workplace: `Подписание трудового контракта с BSN и финальный экзамен уровня A2`,
+        reading: `Een afspraak bij de gemeente en mijn nieuwe leven`,
+        checkpoint: `Final A2 Assessment`
+      }
+    ];
+
+    const CHECKPOINTS = [
+      { name: `Checkpoint 1`, lessonId: 4, focus: `Базовые фразы, zijn/hebben, местоимения, артикли de/het, множественное число.` },
+      { name: `Checkpoint 2`, lessonId: 9, focus: `Настоящее время, описания, вопросы, время, даты, предлоги места.` },
+      { name: `Checkpoint 3`, lessonId: 13, focus: `Притяжательные местоимения, еда/обед, расходы, модальные глаголы.` },
+      { name: `Checkpoint 4`, lessonId: 18, focus: `Жилье, разделяемые глаголы, объектные местоимения, транспорт OV, сравнения.` },
+      { name: `Checkpoint 5`, lessonId: 22, focus: `Perfectum (регулярные/нерегулярные/zijn), возвратные глаголы, планы (gaan + inf).` },
+      { name: `Final A2 Assessment`, lessonId: 26, focus: `Комплексный экзамен A2 (Speaking, Listening, Reading, Writing, Grammar).` }
+    ];
+
+    const WEEKLY_SCHEDULE = [
+      { id: `mon`, day: `Понедельник`, duration: `45–60 мин`, task: `Грамматическая теория, шпаргалки и лексика (25–30 единиц).` },
+      { id: `tue`, day: `Вторник`, duration: `45–60 мин`, task: `Грамматические упражнения (20–30) и блок «Hoe zeg je dit?».` },
+      { id: `wed`, day: `Среда`, duration: `45–60 мин`, task: `Чтение текста, проверка перевода и словарная практика.` },
+      { id: `thu`, day: `Четверг`, duration: `45–60 мин`, task: `Диалоги, аудирование (Listening) и устная практика.` },
+      { id: `fri`, day: `Пятница`, duration: `45–60 мин`, task: `Письменные задания (E-mail/Slack), итоговый тест урока и повторение.` },
+      { id: `sat`, day: `Суббота`, duration: `30–45 мин`, task: `Повторение пройденных тем и грамматических шпаргалок.` },
+      { id: `sun`, day: `Воскресенье`, duration: `20–30 мин`, task: `Разговорный тренинг и самостоятельная речь.` }
+    ];
+
+    let appState = {
+      completedLessons: [],
+      weeklyChecklist: [],
+      statusFilter: `all`,
+      monthFilter: `all`,
+      searchQuery: ``
+    };
+
+    function getCefrStage(completedCount) {
+      if (completedCount === 0) return `Старт (A0)`;
+      if (completedCount <= 4) return `A0+ (База)`;
+      if (completedCount <= 9) return `A1- (Рутина и время)`;
+      if (completedCount <= 13) return `A1 (Общение и просьбы)`;
+      if (completedCount <= 18) return `A1+ (Офис и транспорт)`;
+      if (completedCount <= 22) return `A2- (Прошедшее и планы)`;
+      if (completedCount < 26) return `A2 (Практика и письма)`;
+      return `A2 Завершен`;
+    }
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          console.error(`State save error:`, err);
+        }
+      }
+    }
+
+    function toggleLessonComplete(lessonId) {
+      const idx = appState.completedLessons.indexOf(lessonId);
+      if (idx === -1) {
+        appState.completedLessons.push(lessonId);
+      } else {
+        appState.completedLessons.splice(idx, 1);
+      }
+      appState.completedLessons.sort((a, b) => a - b);
+      const resetBtn = document.getElementById(`reset-progress-btn`);
+      if (resetBtn) {
+        resetBtn.dataset.armed = `false`;
+        resetBtn.textContent = `Сбросить`;
+      }
+      const msg = document.getElementById(`status-msg`);
+      if (msg) msg.textContent = ``;
+      renderAll();
+      persistState();
+    }
+
+    function toggleScheduleDay(dayId) {
+      const idx = appState.weeklyChecklist.indexOf(dayId);
+      if (idx === -1) {
+        appState.weeklyChecklist.push(dayId);
+      } else {
+        appState.weeklyChecklist.splice(idx, 1);
+      }
+      persistState();
+    }
+
+    function handleResetProgress(btn) {
+      const msg = document.getElementById(`status-msg`);
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Подтвердить сброс`;
+        if (msg) msg.textContent = `Нажмите кнопку еще раз, чтобы очистить отметки о прохождении.`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `Сбросить`;
+      appState.completedLessons = [];
+      appState.weeklyChecklist = [];
+      if (msg) msg.textContent = `Прогресс курса и недельный чеклист очищены.`;
+      renderAll();
+      persistState();
+    }
+
+    function setStatusFilter(status, btnEl) {
+      appState.statusFilter = status;
+      const chips = document.querySelectorAll(`.filter-chip`);
+      chips.forEach((c) => c.classList.remove(`is-active`));
+      if (btnEl) btnEl.classList.add(`is-active`);
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const searchEl = document.getElementById(`search-lessons`);
+      const monthEl = document.getElementById(`filter-month`);
+      appState.searchQuery = searchEl ? searchEl.value.trim().toLowerCase() : ``;
+      appState.monthFilter = monthEl ? monthEl.value : `all`;
+      renderMonthsAndLessons();
+    }
+
+    function jumpToLesson(lessonId) {
+      const monthSel = document.getElementById(`filter-month`);
+      const searchEl = document.getElementById(`search-lessons`);
+      if (monthSel) monthSel.value = `all`;
+      if (searchEl) searchEl.value = ``;
+      appState.monthFilter = `all`;
+      appState.searchQuery = ``;
+      appState.statusFilter = `all`;
+      document.querySelectorAll(`.filter-chip`).forEach((c) => {
+        c.classList.toggle(`is-active`, c.dataset.status === `all`);
+      });
+      renderMonthsAndLessons();
+      const target = document.getElementById(`lesson-card-${lessonId}`);
+      if (target) {
+        target.scrollIntoView({ behavior: `smooth`, block: `center` });
+      }
+    }
+
+    function renderProgressHeader() {
+      const total = LESSONS.length;
+      const doneCount = appState.completedLessons.length;
+      const pct = Math.round((doneCount / total) * 100);
+
+      const pctEl = document.getElementById(`progress-pct`);
+      const barFillEl = document.getElementById(`progress-bar-fill`);
+      const barAriaEl = document.getElementById(`progress-bar-aria`);
+      const countTextEl = document.getElementById(`progress-count-text`);
+      const cefrEl = document.getElementById(`progress-cefr-text`);
+      const nextBoxEl = document.getElementById(`next-lesson-box`);
+      const nextLinkEl = document.getElementById(`next-lesson-link`);
+
+      if (pctEl) pctEl.textContent = `${pct}%`;
+      if (barFillEl) barFillEl.style.width = `${pct}%`;
+      if (barAriaEl) barAriaEl.setAttribute(`aria-valuenow`, String(pct));
+      if (countTextEl) countTextEl.textContent = `Пройдено ${doneCount} из ${total} уроков`;
+      if (cefrEl) cefrEl.textContent = `Текущий этап: ${getCefrStage(doneCount)}`;
+
+      const nextLesson = LESSONS.find((l) => !appState.completedLessons.includes(l.id)) || LESSONS[LESSONS.length - 1];
+      if (nextBoxEl && nextLesson) {
+        const label = doneCount === total ? `Все уроки пройдены · Итог № ${nextLesson.id}` : `Следующий урок: № ${nextLesson.id}`;
+        nextBoxEl.innerHTML = `<strong>${label}</strong><span>${nextLesson.title}</span>`;
+      }
+      if (nextLinkEl && nextLesson) {
+        nextLinkEl.href = nextLesson.file;
+      }
+
+      const cpDone = CHECKPOINTS.filter((cp) => appState.completedLessons.includes(cp.lessonId)).length;
+      const cpKpiEl = document.getElementById(`cp-kpi-val`);
+      if (cpKpiEl) cpKpiEl.textContent = `${cpDone} / ${CHECKPOINTS.length}`;
+    }
+
+    function renderWeekStrip() {
+      const stripEl = document.getElementById(`week-strip-cells`);
+      if (!stripEl) return;
+      stripEl.innerHTML = LESSONS.map((lesson) => {
+        const isDone = appState.completedLessons.includes(lesson.id);
+        const isCp = Boolean(lesson.checkpoint);
+        const classes = [`week-cell`];
+        if (isCp) classes.push(`is-checkpoint`);
+        if (isDone) classes.push(`is-done`);
+        const cpLabel = isCp ? ` (${lesson.checkpoint})` : ``;
+        const doneLabel = isDone ? ` — завершен` : ``;
+        return `<button type="button" class="${classes.join(` `)}" onclick="jumpToLesson(${lesson.id})" title="Неделя ${lesson.id}: ${lesson.title}${cpLabel}${doneLabel}" aria-label="Неделя ${lesson.id}: ${lesson.title}${cpLabel}${doneLabel}">${lesson.id}</button>`;
+      }).join(``);
+    }
+
+    function renderMonthsAndLessons() {
+      const container = document.getElementById(`months-container`);
+      const visibleLabel = document.getElementById(`visible-count-label`);
+      if (!container) return;
+
+      const q = appState.searchQuery;
+      const mFilter = appState.monthFilter;
+      const sFilter = appState.statusFilter;
+
+      const filteredLessons = LESSONS.filter((lesson) => {
+        if (mFilter !== `all` && String(lesson.month) !== mFilter) return false;
+        const isDone = appState.completedLessons.includes(lesson.id);
+        if (sFilter === `done` && !isDone) return false;
+        if (sFilter === `todo` && isDone) return false;
+        if (sFilter === `checkpoint` && !lesson.checkpoint) return false;
+        if (q) {
+          const hay = `${lesson.id} ${lesson.title} ${lesson.grammar} ${lesson.everyday} ${lesson.workplace} ${lesson.reading} ${lesson.file} ${lesson.checkpoint || ``}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      if (visibleLabel) {
+        visibleLabel.textContent = `Показано: ${filteredLessons.length} из ${LESSONS.length} уроков`;
+      }
+
+      if (filteredLessons.length === 0) {
+        container.innerHTML = `<div class="empty-state"><p><strong>Уроки по заданным фильтрам не найдены.</strong></p><p>Попробуйте очистить строку поиска или переключить фильтр статуса.</p></div>`;
+        return;
+      }
+
+      const monthBlocksHtml = MONTHS.map((month) => {
+        const monthLessonsAll = LESSONS.filter((l) => l.month === month.id);
+        const monthLessons = filteredLessons.filter((l) => l.month === month.id);
+        if (monthLessons.length === 0) return ``;
+
+        const monthDoneCount = monthLessonsAll.filter((l) => appState.completedLessons.includes(l.id)).length;
+        const monthPct = Math.round((monthDoneCount / monthLessonsAll.length) * 100);
+
+        const cardsHtml = monthLessons.map((lesson) => {
+          const isDone = appState.completedLessons.includes(lesson.id);
+          const cpHtml = lesson.checkpoint ? `<span class="checkpoint-tag">${lesson.checkpoint}</span>` : ``;
+          return `
+            <article class="lesson-card${isDone ? ` is-completed` : ``}" id="lesson-card-${lesson.id}">
+              <div>
+                <div class="lesson-top">
+                  <div class="lesson-num-row">
+                    <span class="lesson-num">Урок ${lesson.id}</span>
+                    ${cpHtml}
+                  </div>
+                  <button type="button" class="complete-toggle" aria-pressed="${isDone ? `true` : `false`}" onclick="toggleLessonComplete(${lesson.id})">
+                    <span>${isDone ? `✓ Пройден` : `Отметить`}</span>
+                  </button>
+                </div>
+                <h3 class="lesson-title">${lesson.title}</h3>
+                <div class="lesson-tags">
+                  <div class="tag-line">
+                    <span class="tag-badge is-grammar">Грамматика</span>
+                    <span>${lesson.grammar}</span>
+                  </div>
+                  <div class="tag-line">
+                    <span class="tag-badge is-everyday">Быт</span>
+                    <span>${lesson.everyday}</span>
+                  </div>
+                  <div class="tag-line">
+                    <span class="tag-badge is-workplace">Офис</span>
+                    <span>${lesson.workplace}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-footer">
+                <span class="lesson-file-code" title="${lesson.file}">${lesson.file}</span>
+                <a class="lesson-link" href="${lesson.file}">Открыть урок →</a>
+              </div>
+            </article>
+          `;
+        }).join(``);
+
+        return `
+          <section class="month-block" aria-labelledby="month-title-${month.id}">
+            <div class="month-header-card">
+              <div class="month-title-wrap">
+                <span class="month-kicker">${month.subtitle}</span>
+                <h3 class="month-title" id="month-title-${month.id}">${month.name}</h3>
+                <p class="month-focus">${month.focus}</p>
+              </div>
+              <div class="month-progress-badge">
+                <span>${monthDoneCount} / ${monthLessonsAll.length}</span>
+                <div class="mini-bar" aria-hidden="true">
+                  <div class="mini-bar-fill" style="width: ${monthPct}%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="lessons-grid">
+              ${cardsHtml}
+            </div>
+          </section>
+        `;
+      }).join(``);
+
+      container.innerHTML = monthBlocksHtml;
+    }
+
+    function renderCheckpointsTable() {
+      const tbody = document.getElementById(`checkpoints-tbody`);
+      if (!tbody) return;
+      tbody.innerHTML = CHECKPOINTS.map((cp) => {
+        const isReached = appState.completedLessons.includes(cp.lessonId);
+        return `
+          <tr>
+            <td><strong>${cp.name}</strong></td>
+            <td><button type="button" class="btn btn-secondary" style="min-height:36px; padding:4px 10px; font-size:0.8rem;" onclick="jumpToLesson(${cp.lessonId})">Урок ${cp.lessonId}</button></td>
+            <td>${cp.focus}</td>
+            <td><span class="cp-status-pill${isReached ? ` is-reached` : ``}">${isReached ? `✓ Выполнен` : `Ожидает`}</span></td>
+          </tr>
+        `;
+      }).join(``);
+    }
+
+    function renderWeeklySchedule() {
+      const listEl = document.getElementById(`schedule-list`);
+      if (!listEl) return;
+      listEl.innerHTML = WEEKLY_SCHEDULE.map((item) => {
+        const checked = appState.weeklyChecklist.includes(item.id);
+        return `
+          <li class="schedule-item">
+            <input type="checkbox" class="schedule-check" id="sched-${item.id}" ${checked ? `checked` : ``} onchange="toggleScheduleDay('${item.id}')">
+            <label for="sched-${item.id}" style="cursor:pointer; flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+                <span class="schedule-day">${item.day}</span>
+                <span class="schedule-time">${item.duration}</span>
+              </div>
+              <div style="font-size:0.875rem; color:var(--on-surface);">${item.task}</div>
+            </label>
+          </li>
+        `;
+      }).join(``);
+    }
+
+    function renderAll() {
+      renderProgressHeader();
+      renderWeekStrip();
+      renderMonthsAndLessons();
+      renderCheckpointsTable();
+      renderWeeklySchedule();
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (Array.isArray(saved.completedLessons)) {
+              appState.completedLessons = saved.completedLessons.filter((n) => Number.isInteger(n) && n >= 1 && n <= 26);
+            }
+            if (Array.isArray(saved.weeklyChecklist)) {
+              appState.weeklyChecklist = saved.weeklyChecklist.filter((d) => typeof d === `string`);
+            }
+          }
+        } catch (err) {
+          console.error(`State load error:`, err);
+        }
+      }
+      renderAll();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
