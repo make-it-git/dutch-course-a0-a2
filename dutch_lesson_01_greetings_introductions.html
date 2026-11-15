@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="handbook">
+  <title>Lesson 1: Greetings, Introductions &amp; Workplace Basics — Dutch A0–A2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Handbook) */
+      --background: #ffffff;
+      --surface-container-low: #f3f2f1;
+      --surface-container: #e8e7e5;
+      --surface-container-high: #dbdad9;
+
+      /* Ink */
+      --on-surface: #0b0c0c;
+      --on-surface-variant: #505a5f;
+
+      /* Rules */
+      --outline: #0b0c0c;
+      --outline-variant: #b1b4b6;
+
+      /* Accents */
+      --primary: #162e51;
+      --on-primary: #ffffff;
+      --primary-container: #d2e2f1;
+      --on-primary-container: #0c2d4a;
+      --secondary: #4c2c92;
+      --tertiary: #1a569e;
+      --error: #d4351c;
+      --on-error: #ffffff;
+
+      /* Semantic (harmonized with Handbook, WCAG AA verified on white) */
+      --positive: #00703c;
+      --positive-container: #e6f4ec;
+      --on-positive-container: #004d29;
+      --warning: #a1490a;
+      --warning-container: #fdf3ea;
+      --on-warning-container: #6e3004;
+      --error-container: #fceae8;
+      --on-error-container: #942211;
+
+      /* Focus ring */
+      --focus: #162e51;
+      --focus-yellow: #ffdd00;
+      --focus-ring: 3px solid var(--focus-yellow);
+      --focus-bar: inset 0 0 0 2px var(--on-surface);
+      --focus-underline: 0 -2px var(--focus-yellow), 0 4px var(--on-surface);
+
+      /* Data series */
+      --data-1: #1a569e;
+      --data-2: #c75a0a;
+      --data-3: #28a197;
+      --data-4: #4c2c92;
+      --data-context: #b1b4b6;
+
+      /* Fonts */
+      --font-headline: 'Public Sans', sans-serif;
+      --font-body: 'Public Sans', sans-serif;
+      --font-label: 'Public Sans', sans-serif;
+
+      /* Shape */
+      --rounded: 0;
+      --rounded-lg: 0;
+      --rounded-full: 0;
+
+      /* Style effects */
+      --top-index-rule: 6px solid var(--primary);
+      --inset-rule: 5px solid var(--tertiary);
+      --error-rule: 5px solid var(--error);
+      --positive-rule: 5px solid var(--positive);
+      --warning-rule: 5px solid var(--warning);
+      --button-ground: 0 2px 0 var(--on-surface);
+      --button-ground-secondary: 0 2px 0 var(--on-surface-variant);
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.25rem, 1.4rem + 3.2vw, 3.5rem);
+      --headline-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.125rem);
+      --subhead-size: clamp(1.1875rem, 1.05rem + 0.5vw, 1.375rem);
+      --body-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+      gap: var(--space-xl);
+      padding: var(--space-lg);
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .page-grid * { min-width: 0; }
+
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+      max-width: 72ch;
+    }
+
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      color: var(--on-surface);
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      font-size: var(--display-size);
+      font-weight: 800;
+      margin-bottom: var(--space-sm);
+    }
+    h2 {
+      font-size: var(--headline-size);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-top: var(--space-md);
+      border-top: 2px solid var(--on-surface);
+      margin-bottom: var(--space-md);
+    }
+    h3 {
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-sm);
+    }
+    p {
+      margin: 0 0 var(--space-md) 0;
+    }
+    ul, ol {
+      margin: 0 0 var(--space-md) 0;
+      padding-left: var(--space-lg);
+    }
+    li + li {
+      margin-top: var(--space-xs);
+    }
+
+    /* Handbook Treatments */
+    .index-header {
+      border-top: var(--top-index-rule);
+      border-bottom: 1px solid var(--on-surface);
+      padding: var(--space-sm) 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 var(--space-xs);
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 800;
+      font-size: 0.9375rem;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-tag {
+      display: inline-block;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+    }
+    .status-tag--neutral {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--outline-variant);
+    }
+    .status-tag--positive {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+    .status-tag--error {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    .inset {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md) var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .inset--warning {
+      border-left: var(--warning-rule);
+      background: var(--warning-container);
+    }
+    .inset--error {
+      border-left: var(--error-rule);
+      background: var(--background);
+      border-top: 1px solid var(--outline-variant);
+      border-right: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .inset--positive {
+      border-left: var(--positive-rule);
+      background: var(--positive-container);
+    }
+
+    .lede {
+      font-size: var(--subhead-size);
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-md);
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+      gap: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+      border-bottom: 1px solid var(--outline-variant);
+      padding: var(--space-md) 0;
+      margin: var(--space-md) 0;
+    }
+    .meta-item-label {
+      display: block;
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .meta-item-value {
+      font-weight: 800;
+      font-size: 1.125rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Buttons & Interactive Controls */
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.2;
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 0;
+      border-radius: var(--rounded);
+      padding: 0.6875rem var(--space-md);
+      min-height: 44px;
+      box-shadow: var(--button-ground);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+      text-decoration: none;
+    }
+    .button:hover {
+      background: var(--on-primary-container);
+    }
+    .button:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+    .button--secondary {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      box-shadow: var(--button-ground-secondary);
+      border: 1px solid var(--outline-variant);
+    }
+    .button--secondary:hover {
+      background: var(--surface-container);
+    }
+    .button--small {
+      min-height: 36px;
+      padding: 0.375rem var(--space-sm);
+      font-size: 0.875rem;
+    }
+    .button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 0;
+      box-shadow: var(--focus-bar);
+    }
+
+    a {
+      color: var(--tertiary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+    a:hover {
+      text-decoration-thickness: 3px;
+    }
+    a:visited {
+      color: var(--secondary);
+    }
+    a:focus-visible {
+      outline: none;
+      background: var(--focus-yellow);
+      color: var(--on-surface);
+      text-decoration: none;
+      box-shadow: var(--focus-underline);
+    }
+
+    /* Inputs & Labels */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+    .field-label {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--on-surface);
+    }
+    .field-hint {
+      font-size: 0.9375rem;
+      color: var(--on-surface-variant);
+    }
+    .text-input, .text-area, .select-input {
+      width: 100%;
+      padding: 0.625rem var(--space-sm);
+      min-height: 44px;
+      font-size: 1rem;
+      color: var(--on-surface);
+      background: var(--background);
+      border: 2px solid var(--outline);
+      border-radius: var(--rounded);
+    }
+    .select-input {
+      padding-right: var(--space-xl);
+    }
+    .text-area {
+      min-height: 110px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .input-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: end;
+    }
+    .input-row .field-group {
+      flex: 1 1 240px;
+      margin-bottom: 0;
+    }
+
+    /* Tables */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      margin: var(--space-md) 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.96875rem;
+    }
+    thead th {
+      font-weight: 700;
+      border-bottom: 2px solid var(--on-surface);
+      padding: var(--space-sm) var(--space-sm);
+      vertical-align: bottom;
+    }
+    tbody td {
+      border-bottom: 1px solid var(--outline-variant);
+      padding: var(--space-sm) var(--space-sm);
+      vertical-align: top;
+    }
+    .num-col {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Word Order Formula Display */
+    .formula-box {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .formula-title {
+      font-weight: 700;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-sm);
+    }
+    .formula-slots {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      gap: var(--space-xs);
+    }
+    .slot {
+      border: 1px solid var(--outline);
+      background: var(--background);
+      padding: var(--space-xs) var(--space-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .slot--verb {
+      border: 2px solid var(--primary);
+      background: var(--primary-container);
+    }
+    .slot-role {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--on-surface-variant);
+    }
+    .slot--verb .slot-role {
+      color: var(--on-primary-container);
+    }
+    .slot-word {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .slot-plus {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 800;
+      padding: 0 2px;
+      color: var(--on-surface-variant);
+    }
+
+    /* Interactive Sandbox Word-Order Switcher */
+    .toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin: var(--space-sm) 0 var(--space-md) 0;
+    }
+    .tab-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 2px solid var(--outline-variant);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      cursor: pointer;
+    }
+    .tab-btn[aria-pressed="true"] {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Exercise Cards */
+    .exercise-item {
+      border-top: 1px solid var(--outline-variant);
+      padding: var(--space-md) 0;
+    }
+    .exercise-item:last-child {
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .exercise-prompt {
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+    .choice-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .choice-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--background);
+      color: var(--on-surface);
+      border: 2px solid var(--outline);
+      font-weight: 600;
+      font-size: 0.96875rem;
+      cursor: pointer;
+      text-align: left;
+    }
+    .choice-btn:hover {
+      background: var(--surface-container-low);
+    }
+    .choice-btn.is-correct {
+      background: var(--positive-container);
+      border-color: var(--positive);
+      color: var(--on-positive-container);
+    }
+    .choice-btn.is-wrong {
+      background: var(--error-container);
+      border-color: var(--error);
+      color: var(--on-error-container);
+    }
+
+    .feedback-line {
+      margin-top: var(--space-xs);
+      font-size: 0.96875rem;
+      font-weight: 700;
+      min-height: 1.4em;
+    }
+    .feedback-line--ok {
+      color: var(--positive);
+      border-left: var(--positive-rule);
+      padding-left: var(--space-sm);
+    }
+    .feedback-line--err {
+      color: var(--error);
+      border-left: var(--error-rule);
+      padding-left: var(--space-sm);
+    }
+
+    /* Hint / Details Disclosures */
+    details.disclosure {
+      margin-top: var(--space-sm);
+      border-left: 3px solid var(--outline-variant);
+      padding-left: var(--space-md);
+    }
+    details.disclosure summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--tertiary);
+      padding: var(--space-xs) 0;
+      display: inline-block;
+    }
+    details.disclosure summary:hover {
+      text-decoration: underline;
+    }
+    .disclosure-body {
+      margin-top: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      font-size: 0.96875rem;
+    }
+
+    /* Reading Block */
+    .reading-card {
+      border-left: var(--inset-rule);
+      background: var(--surface-container-low);
+      padding: var(--space-lg);
+      margin: var(--space-md) 0;
+    }
+    .reading-dutch {
+      font-size: 1.125rem;
+      line-height: 1.65;
+    }
+    .translation-box {
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      background: var(--background);
+      border: 1px solid var(--outline-variant);
+      border-left: 4px solid var(--on-surface-variant);
+    }
+
+    /* Matching Grid */
+    .match-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-sm);
+      align-items: center;
+      margin: var(--space-sm) 0;
+    }
+    .match-prompt {
+      font-weight: 600;
+      padding: var(--space-xs) 0;
+    }
+
+    /* Side Column Navigation & Progress */
+    .side-panel {
+      border-top: 4px solid var(--primary);
+      background: var(--surface-container-low);
+      padding: var(--space-md);
+    }
+    .side-panel h3 {
+      margin-top: 0;
+      font-size: 1.0625rem;
+    }
+    .progress-bar-track {
+      width: 100%;
+      height: 12px;
+      background: var(--surface-container-high);
+      border: 1px solid var(--outline);
+      margin: var(--space-xs) 0 var(--space-sm) 0;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9375rem;
+    }
+    .toc-list li {
+      border-bottom: 1px solid var(--outline-variant);
+      margin: 0;
+    }
+    .toc-list a {
+      display: block;
+      padding: 0.375rem 0;
+      text-decoration: none;
+      color: var(--on-surface);
+    }
+    .toc-list a:hover {
+      text-decoration: underline;
+      color: var(--tertiary);
+    }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+    }
+    .checklist li {
+      border-bottom: 1px solid var(--outline-variant);
+      padding: var(--space-sm) 0;
+      margin: 0;
+    }
+    .check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      cursor: pointer;
+    }
+    .check-label input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* Utility */
+    .nl {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .muted {
+      color: var(--on-surface-variant);
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 860px) {
+      .page-grid {
+        grid-template-columns: 1fr;
+      }
+      .side-column {
+        order: -1;
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+      }
+      .match-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <div class="main-column">
+
+      <!-- 1. LESSON HEADER -->
+      <header id="sec-header">
+        <div class="index-header">
+          <span>Dutch A0–A2 Intensive Course · Month 1</span>
+          <span>Lesson 01 of 26</span>
+        </div>
+        <span class="status-tag">Everyday &amp; Workplace Dutch</span>
+        <h1>Greetings, Introductions &amp; Workplace Basics</h1>
+        <p class="lede">
+          Start speaking Dutch from day one: greet colleagues and neighbors appropriately, introduce yourself and your professional role, form basic sentences with <strong>zijn</strong> (to be), ask yes/no questions, and negate statements with <strong>niet</strong>.
+        </p>
+        <div class="meta-strip">
+          <div>
+            <span class="meta-item-label">Target Level</span>
+            <span class="meta-item-value">A0 → A1 Entry</span>
+          </div>
+          <div>
+            <span class="meta-item-label">Study Time</span>
+            <span class="meta-item-value">45–60 min</span>
+          </div>
+          <div>
+            <span class="meta-item-label">New Vocabulary</span>
+            <span class="meta-item-value">28 items</span>
+          </div>
+          <div>
+            <span class="meta-item-label">Practice Volume</span>
+            <span class="meta-item-value">45+ items</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 2. LEARNING GOALS -->
+      <section id="sec-goals" aria-labelledby="h-goals">
+        <h2 id="h-goals"><span class="step-badge">2</span> Learning Goals</h2>
+        <p>By the end of this lesson, you will be able to handle core everyday and office interactions in Dutch:</p>
+        <ul>
+          <li><strong>Greet and say goodbye</strong> in both informal everyday settings (<em>hoi, dag, doei</em>) and polite or time-of-day office contexts (<em>goedemorgen, tot ziens, fijne dag!</em>).</li>
+          <li><strong>Introduce yourself and state your job role</strong> cleanly without an article (e.g., <em>Ik ben software engineer</em>), and ask how someone is doing (<em>Hoe gaat het?</em>).</li>
+          <li><strong>Conjugate the verb <em>zijn</em> (to be)</strong> for all subjects (<em>ik, jij/je, u, hij/zij/het, wij/we, jullie, zij/ze</em>).</li>
+          <li><strong>Apply the V2 Word Order rule</strong> in statements and <strong>inversion</strong> in yes/no questions — including dropping the <em>-t</em> in <em>ben jij?</em></li>
+          <li><strong>Make negative statements with <em>niet</em></strong> and ask for basic help (<em>Kun je mij helpen?</em>).</li>
+        </ul>
+      </section>
+
+      <!-- 3. REVISION (A0 BASELINE) -->
+      <section id="sec-revision" aria-labelledby="h-revision">
+        <h2 id="h-revision"><span class="step-badge">3</span> Revision &amp; A0 Baseline Warm-Up</h2>
+        <p>
+          Because Lesson 1 starts at <strong>A0</strong>, there is no prior lesson to review yet. Instead, test your intuition on three Dutch words that share roots with English — international office and everyday cognates you already recognize.
+        </p>
+        <div id="revision-container"></div>
+      </section>
+
+      <!-- 4. GRAMMAR THEORY -->
+      <section id="sec-grammar-theory" aria-labelledby="h-grammar-theory">
+        <h2 id="h-grammar-theory"><span class="step-badge">4</span> Grammar Theory &amp; Word Order Formulas</h2>
+
+        <h3>4.1 Greetings &amp; Formal vs. Informal Register</h3>
+        <p>
+          Dutch uses two pronouns for "you" (singular): <strong>jij / je</strong> (informal) and <strong>u</strong> (formal). In Dutch offices, colleagues — including managers — almost always use <strong>jij / je</strong> from day one. Reserve <strong>u</strong> for older strangers, formal customer service, or official appointments.
+        </p>
+        <ul>
+          <li><strong>Anytime informal:</strong> <span class="nl">Hoi!</span> / <span class="nl">Hallo!</span> (Hi! / Hello!) · Farewells: <span class="nl">Doei!</span> (informal bye), <span class="nl">Dag!</span> (hello or bye), <span class="nl">Tot ziens!</span> (goodbye, neutral/polite).</li>
+          <li><strong>Time-of-day greetings:</strong> <span class="nl">Goedemorgen</span> (until 12:00), <span class="nl">Goedemiddag</span> (12:00–18:00), <span class="nl">Goedenavond</span> (after 18:00).</li>
+        </ul>
+
+        <h3>4.2 The Verb <em>zijn</em> (to be) &amp; Stating Your Profession</h3>
+        <p>
+          The irregular verb <span class="nl">zijn</span> (to be) is the backbone of introductions. Note that Dutch has both <strong>stressed</strong> (<em>jij, wij, zij</em>) and <strong>unstressed</strong> everyday spoken forms (<em>je, we, ze</em>).
+        </p>
+        <div class="inset">
+          <strong>Rule — Professions without an article:</strong> When stating your job or role after <em>zijn</em>, Dutch omits the indefinite article <em>een</em> (a/an). Say <span class="nl">Ik ben developer</span> or <span class="nl">Hij is manager</span> — do <strong>not</strong> say <em>Ik ben een developer</em>. (You only use <em>een</em> if you add an adjective, e.g., <em>een nieuwe collega</em>.)
+        </div>
+
+        <h3>4.3 Word Order Formula 1: Statement (The V2 Rule)</h3>
+        <p>
+          Dutch main statements follow the strict <strong>V2 (Verb-Second) rule</strong>: the conjugated verb always sits in the <strong>second grammatical slot</strong> of the sentence.
+        </p>
+        <div class="formula-box">
+          <div class="formula-title">Formula A — Standard Statement (V2 Rule)</div>
+          <div class="formula-slots">
+            <div class="slot"><span class="slot-role">1. Subject</span><span class="slot-word">Ik</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot slot--verb"><span class="slot-role">2. Verb (Pos 2)</span><span class="slot-word">ben</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot"><span class="slot-role">3. Rest of sentence</span><span class="slot-word">vandaag op kantoor.</span></div>
+          </div>
+        </div>
+        <p>
+          If you move a time or place word to Position 1 for emphasis, the verb stays in Position 2 and the subject moves to Position 3 (inversion): <span class="nl">Vandaag</span> (1) + <span class="nl">ben</span> (2) + <span class="nl">ik</span> (3) + <span class="nl">op kantoor</span>.
+        </p>
+
+        <h3>4.4 Word Order Formula 2: Yes/No Question (Inversion)</h3>
+        <p>
+          To turn a statement into a yes/no question, place the conjugated verb in <strong>Position 1</strong> and the subject in <strong>Position 2</strong>.
+        </p>
+        <div class="formula-box">
+          <div class="formula-title">Formula B — Yes/No Question (Inversion)</div>
+          <div class="formula-slots">
+            <div class="slot slot--verb"><span class="slot-role">1. Verb (Pos 1)</span><span class="slot-word">Ben</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot"><span class="slot-role">2. Subject (Pos 2)</span><span class="slot-word">jij</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot"><span class="slot-role">3. Rest</span><span class="slot-word">de nieuwe collega?</span></div>
+          </div>
+        </div>
+        <div class="inset inset--warning">
+          <strong>Critical <em>jij/je</em> Inversion Rule:</strong> In a normal statement, you say <span class="nl">Jij bent</span> / <span class="nl">Je bent</span>. When the verb comes <em>before</em> <strong>jij</strong> or <strong>je</strong> in a question, the final <strong>-t</strong> disappears: <span class="nl">Ben jij...?</span> / <span class="nl">Ben je...?</span> (Never <em>Bent jij?</em>).
+        </div>
+
+        <h3>4.5 Interactive Word-Order Explorer</h3>
+        <p>Switch modes below to see how slots shift between a statement, a yes/no question, and a negative sentence:</p>
+        <div class="toggle-row" role="group" aria-label="Word order mode">
+          <button type="button" class="tab-btn" id="wo-btn-stmt" aria-pressed="true" onclick="setWordOrderDemo('stmt')">Statement (V2)</button>
+          <button type="button" class="tab-btn" id="wo-btn-quest" aria-pressed="false" onclick="setWordOrderDemo('quest')">Yes/No Question</button>
+          <button type="button" class="tab-btn" id="wo-btn-neg" aria-pressed="false" onclick="setWordOrderDemo('neg')">Negation (niet)</button>
+          <button type="button" class="tab-btn" id="wo-btn-front" aria-pressed="false" onclick="setWordOrderDemo('front')">Time First (V2)</button>
+        </div>
+        <div id="wo-demo-output" class="formula-box" aria-live="polite"></div>
+
+        <h3>4.6 Basic Negation with <em>niet</em></h3>
+        <p>
+          To negate a statement with <em>zijn</em>, place <span class="nl">niet</span> (not) right after the verb and pronoun:
+        </p>
+        <div class="formula-box">
+          <div class="formula-title">Formula C — Negation with niet</div>
+          <div class="formula-slots">
+            <div class="slot"><span class="slot-role">1. Subject</span><span class="slot-word">Hij</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot slot--verb"><span class="slot-role">2. Verb (Pos 2)</span><span class="slot-word">is</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot"><span class="slot-role">3. Negation</span><span class="slot-word">niet</span></div>
+            <span class="slot-plus">+</span>
+            <div class="slot"><span class="slot-role">4. Rest</span><span class="slot-word">de manager.</span></div>
+          </div>
+        </div>
+        <p>Examples: <span class="nl">Ik ben niet thuis.</span> (I am not at home.) · <span class="nl">De meeting is niet vandaag.</span> (The meeting is not today.)</p>
+
+        <h3>4.7 Common Pitfalls</h3>
+        <div class="inset inset--error">
+          <p><strong>Pitfall 1 — Missing preposition with <em>werk</em>:</strong><br>
+          Incorrect: <em>Ben jij werk?</em><br>
+          Correct: <span class="nl">Ben je op werk?</span> / <span class="nl">Ben je aan het werk?</span> / <span class="nl">Ben je op kantoor?</span></p>
+          <p><strong>Pitfall 2 — Keeping the <em>-t</em> in <em>jij</em> questions:</strong><br>
+          Incorrect: <em>Bent jij de collega?</em><br>
+          Correct: <span class="nl">Ben jij de collega?</span> (The <em>-t</em> drops when <em>jij/je</em> follows the verb.)</p>
+          <p style="margin-bottom:0;"><strong>Pitfall 3 — Adding <em>een</em> before a job title:</strong><br>
+          Incorrect: <em>Ik ben een software engineer.</em><br>
+          Correct: <span class="nl">Ik ben software engineer.</span></p>
+        </div>
+      </section>
+
+      <!-- 5. GRAMMAR CHEAT SHEET -->
+      <section id="sec-cheat-sheet" aria-labelledby="h-cheat-sheet">
+        <h2 id="h-cheat-sheet"><span class="step-badge">5</span> Grammar Cheat Sheet</h2>
+        <p>Keep this summary table open as your quick reference while completing the practice drills.</p>
+
+        <h3>Conjugation of <em>zijn</em> (to be)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Person / Pronoun</th>
+                <th>Form of <em>zijn</em></th>
+                <th>Everyday Example</th>
+                <th>Workplace Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ik</strong> (I)</td>
+                <td><strong>ben</strong></td>
+                <td>Ik ben Jan.</td>
+                <td>Ik ben de nieuwe collega.</td>
+              </tr>
+              <tr>
+                <td><strong>jij / je</strong> (you, inf.)</td>
+                <td><strong>bent</strong> <em>(ben jij?)</em></td>
+                <td>Je bent heel aardig.</td>
+                <td>Ben jij op kantoor?</td>
+              </tr>
+              <tr>
+                <td><strong>u</strong> (you, formal)</td>
+                <td><strong>bent / is</strong></td>
+                <td>U bent mevrouw Bakker?</td>
+                <td>U bent de manager.</td>
+              </tr>
+              <tr>
+                <td><strong>hij / zij / het</strong> (he/she/it)</td>
+                <td><strong>is</strong></td>
+                <td>Het is goed.</td>
+                <td>Hij is op het werk.</td>
+              </tr>
+              <tr>
+                <td><strong>wij / we</strong> (we)</td>
+                <td><strong>zijn</strong></td>
+                <td>Wij zijn thuis.</td>
+                <td>Wij zijn in een meeting.</td>
+              </tr>
+              <tr>
+                <td><strong>jullie</strong> (you all)</td>
+                <td><strong>zijn</strong></td>
+                <td>Jullie zijn laat.</td>
+                <td>Jullie zijn het team.</td>
+              </tr>
+              <tr>
+                <td><strong>zij / ze</strong> (they)</td>
+                <td><strong>zijn</strong></td>
+                <td>Zij zijn buren.</td>
+                <td>Zij zijn ontwikkelaars.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Word Order &amp; Key Phrase Quick Card</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Structure</th>
+                <th>Formula</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Statement (V2)</td>
+                <td><code>[Subject] + [Verb] + [Rest]</code></td>
+                <td>Ik ben vandaag op kantoor.</td>
+              </tr>
+              <tr>
+                <td>Yes/No Question</td>
+                <td><code>[Verb] + [Subject] + [Rest]?</code></td>
+                <td>Ben je vandaag op kantoor?</td>
+              </tr>
+              <tr>
+                <td>Negation</td>
+                <td><code>[Subject] + [Verb] + niet + [Rest]</code></td>
+                <td>Ik ben niet thuis.</td>
+              </tr>
+              <tr>
+                <td>Asking a Name</td>
+                <td><code>Hoe heet je? / Wat is uw naam?</code></td>
+                <td>Ik heet Alex. / Mijn naam is Alex.</td>
+              </tr>
+              <tr>
+                <td>Asking for Help</td>
+                <td><code>Kun je mij helpen?</code></td>
+                <td>Ja, natuurlijk!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 6. VOCABULARY -->
+      <section id="sec-vocabulary" aria-labelledby="h-vocabulary">
+        <h2 id="h-vocabulary"><span class="step-badge">6</span> Vocabulary: Everyday &amp; Workplace (28 Items)</h2>
+        <p>
+          Every Dutch noun belongs to either the <strong>de</strong> or <strong>het</strong> gender group. Always learn nouns together with their article and plural form. Filter by context or click <strong>Listen</strong> to hear the Dutch pronunciation.
+        </p>
+        <div class="toggle-row" role="group" aria-label="Filter vocabulary by context">
+          <button type="button" class="tab-btn" id="vocab-filter-all" aria-pressed="true" onclick="filterVocab('all')">All (28)</button>
+          <button type="button" class="tab-btn" id="vocab-filter-everyday" aria-pressed="false" onclick="filterVocab('Everyday')">Everyday</button>
+          <button type="button" class="tab-btn" id="vocab-filter-workplace" aria-pressed="false" onclick="filterVocab('Workplace')">Workplace</button>
+          <button type="button" class="tab-btn" id="vocab-filter-both" aria-pressed="false" onclick="filterVocab('Both')">Core / Both</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Dutch (Article)</th>
+                <th>Plural / Type</th>
+                <th>English</th>
+                <th>Context &amp; Example</th>
+                <th>Audio</th>
+              </tr>
+            </thead>
+            <tbody id="vocab-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 7. VOCABULARY PRACTICE -->
+      <section id="sec-vocab-practice" aria-labelledby="h-vocab-practice">
+        <h2 id="h-vocab-practice"><span class="step-badge">7</span> Vocabulary Practice</h2>
+        <p>
+          Practice meaningful word relationships: functional equivalents, antonyms, workplace collocations, and words in context. Instant feedback appears as soon as you answer.
+        </p>
+
+        <h3>7A. Functional Equivalents (Relationship: Situation ↔ Expression)</h3>
+        <p class="field-hint">Select the Dutch expression that matches each communication function.</p>
+        <div id="vp-equivalents"></div>
+
+        <h3>7B. Antonyms (Relationship: Opposite Meaning)</h3>
+        <p class="field-hint">Pair each Dutch word or phrase with its opposite.</p>
+        <div id="vp-antonyms"></div>
+
+        <h3>7C. Collocations (Relationship: Natural Word Partners)</h3>
+        <p class="field-hint">Choose the correct preposition or partner word that naturally completes each Everyday/Workplace phrase.</p>
+        <div id="vp-collocations"></div>
+
+        <h3>7D. Word in Context (Fill in the Blank)</h3>
+        <p class="field-hint">Type the missing Dutch word and press <strong>Enter</strong> or click <strong>Check</strong>.</p>
+        <div id="vp-context"></div>
+      </section>
+
+      <!-- 8. GRAMMAR PRACTICE -->
+      <section id="sec-grammar-practice" aria-labelledby="h-grammar-practice">
+        <h2 id="h-grammar-practice"><span class="step-badge">8</span> Grammar Practice (24 Exercises)</h2>
+        <p>
+          Complete all 24 targeted exercises across four drills: <em>zijn</em> conjugation, V2 word order &amp; inversion, <em>niet</em> negation &amp; professions, and error correction. Every item provides instant feedback and an optional hint/answer reveal.
+        </p>
+
+        <h3>8A. Conjugation of <em>zijn</em> (6 items)</h3>
+        <div id="gp-zijn"></div>
+
+        <h3>8B. Word Order: V2 Statements &amp; Inversion (6 items)</h3>
+        <div id="gp-wordorder"></div>
+
+        <h3>8C. Negation with <em>niet</em> &amp; Professions Without Article (6 items)</h3>
+        <div id="gp-negation"></div>
+
+        <h3>8D. Error Correction: Fix the Common Pitfall (6 items)</h3>
+        <div id="gp-errors"></div>
+      </section>
+
+      <!-- 9. HOE ZEG JE DIT IN HET NEDERLANDS? -->
+      <section id="sec-hoe-zeg-je" aria-labelledby="h-hoe-zeg-je">
+        <h2 id="h-hoe-zeg-je"><span class="step-badge">9</span> "Hoe zeg je dit in het Nederlands?"</h2>
+        <p>
+          Translate each everyday or workplace sentence from English into Dutch. Type your own attempt to test yourself against accepted variants, then open the hidden model answer to compare.
+        </p>
+        <div id="hzjd-container"></div>
+      </section>
+
+      <!-- 10 & 11. READING & HIDDEN TRANSLATION -->
+      <section id="sec-reading" aria-labelledby="h-reading">
+        <h2 id="h-reading"><span class="step-badge">10</span> Reading: <em>Mijn eerste werkdag</em></h2>
+        <p>
+          Read the short text about Alex's first morning at a Dutch software company. Notice how <em>zijn</em>, greetings, introductions, and <em>niet</em> appear in natural context.
+        </p>
+        <div class="reading-card">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-md);">
+            <span class="status-tag">Text · 86 words</span>
+            <button type="button" class="button button--secondary button--small" onclick="speakReadingText()">Listen to Reading (nl-NL)</button>
+          </div>
+          <div class="reading-dutch" id="reading-text">
+            <p><strong>Mijn eerste werkdag</strong></p>
+            <p>
+              Goedemorgen! Mijn naam is Alex. Ik ben vandaag nieuw op kantoor. Ik ben ontwikkelaar en dit is mijn eerste werkdag. Bij de koffieautomaat is een collega. "Hallo! Ik heet Sara," zegt zij. "Ben jij de nieuwe collega?" "Ja, aangenaam! Hoe gaat het?" "Goed, dank je! Welkom in het team."
+            </p>
+            <p style="margin-bottom:0;">
+              De manager is niet op kantoor. Hij is thuis. Wij zijn om negen uur in een meeting. Mijn collega's zijn heel aardig. Het team is klaar voor het werk. Fijne dag!
+            </p>
+          </div>
+
+          <div id="sec-translation" style="margin-top:var(--space-md);">
+            <button type="button" class="button button--secondary" id="toggle-translation-btn" aria-expanded="false" onclick="toggleTranslation()">
+              Show English Translation
+            </button>
+            <div id="reading-translation-box" class="translation-box" hidden>
+              <p><strong>11. English Translation — My First Workday</strong></p>
+              <p>
+                Good morning! My name is Alex. I am new at the office today. I am a developer and this is my first workday. By the coffee machine there is a colleague. "Hello! My name is Sara," she says. "Are you the new colleague?" "Yes, nice to meet you! How are you?" "Good, thank you! Welcome to the team."
+              </p>
+              <p style="margin-bottom:0;">
+                The manager is not at the office. He is at home. We are in a meeting at nine o'clock. My colleagues are very kind. The team is ready for work. Have a nice day!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12. COMPREHENSION -->
+      <section id="sec-comprehension" aria-labelledby="h-comprehension">
+        <h2 id="h-comprehension"><span class="step-badge">12</span> Reading Comprehension</h2>
+        <p>Answer these 5 questions based on <em>Mijn eerste werkdag</em>.</p>
+        <div id="comprehension-container"></div>
+      </section>
+
+      <!-- 13. LISTENING PRACTICE -->
+      <section id="sec-listening" aria-labelledby="h-listening">
+        <h2 id="h-listening"><span class="step-badge">13</span> Listening Practice (Audio &amp; Script Fallback)</h2>
+        <p>
+          Listen to each short workplace or neighbor clip using your browser's Dutch speech synthesizer (at normal or slow speed), then answer the question. If audio is unavailable on your device, open the <strong>Show Script</strong> toggle underneath each clip.
+        </p>
+        <div id="listening-status" class="inset" style="display:none;"></div>
+        <div id="listening-container"></div>
+      </section>
+
+      <!-- 14. REAL-LIFE & WORK MINI-GUIDE -->
+      <section id="sec-mini-guide" aria-labelledby="h-mini-guide">
+        <h2 id="h-mini-guide"><span class="step-badge">14</span> Dutch Life &amp; Work Mini-Guide</h2>
+        <div class="inset">
+          <p><strong>In the Dutch Office: Flat Hierarchy &amp; <em>jij/je</em></strong></p>
+          <p>
+            In the Netherlands, colleagues almost always address one another as <strong>jij / je</strong> from the very first day — regardless of seniority or job title. Calling a manager <em>u</em> or <em>meneer/mevrouw</em> in a typical office can feel overly distant. Use first names freely.
+          </p>
+          <p><strong>The <em>Koffieautomaat</em> (Coffee Machine) Ritual</strong></p>
+          <p>
+            Informal office bonding happens at the coffee machine. A standard morning opener is: <span class="nl">Goedemorgen! Hoe gaat het?</span> or on Mondays: <span class="nl">Goedemorgen! Hoe is je weekend geweest?</span> Keep it friendly and direct.
+          </p>
+          <p style="margin-bottom:0;"><strong>Saying Hello to Neighbors (<em>de buren</em>)</strong></p>
+          <p style="margin-bottom:0;">
+            In apartment hallways, elevators, or on quiet neighborhood streets, saying <span class="nl">Goedemorgen</span> or <span class="nl">Dag!</span> to your <em>buurman</em> or <em>buurvrouw</em> is expected basic politeness.
+          </p>
+        </div>
+      </section>
+
+      <!-- 15. SPEAKING & WRITING -->
+      <section id="sec-speaking-writing" aria-labelledby="h-speaking-writing">
+        <h2 id="h-speaking-writing"><span class="step-badge">15</span> Speaking &amp; Writing Practice</h2>
+
+        <h3>15A. Speaking Practice: Sentence Starters &amp; Role-Play</h3>
+        <p>Read these dialogue lines aloud twice — once at slow speed and once at natural pace. Click <strong>Hear Model</strong> to check rhythm and stress.</p>
+        <div class="inset">
+          <p><strong>Role-Play 1 — At the <em>koffieautomaat</em>:</strong></p>
+          <ul>
+            <li>Colleague: <span class="nl">Goedemorgen! Ben jij de nieuwe collega?</span> <button type="button" class="button button--secondary button--small" onclick="speakPhrase(`Goedemorgen! Ben jij de nieuwe collega?`)">Hear Model</button></li>
+            <li>You: <span class="nl">Ja! Hallo, ik heet [Your Name]. Ik ben [Your Role]. Aangenaam!</span> <button type="button" class="button button--secondary button--small" onclick="speakPhrase(`Ja! Hallo, ik heet Alex. Ik ben software engineer. Aangenaam!`)">Hear Model</button></li>
+            <li>Colleague: <span class="nl">Aangenaam! Hoe gaat het?</span></li>
+            <li>You: <span class="nl">Goed, dank je! En met jou?</span> <button type="button" class="button button--secondary button--small" onclick="speakPhrase(`Goed, dank je! En met jou?`)">Hear Model</button></li>
+          </ul>
+          <p><strong>Sentence Starters (practice aloud with your real details):</strong></p>
+          <ul style="margin-bottom:0;">
+            <li><span class="nl">Ik heet …</span> (My name is …)</li>
+            <li><span class="nl">Ik ben …</span> (I am … [profession without <em>een</em>])</li>
+            <li><span class="nl">Ik ben vandaag op kantoor / thuis.</span> (I am at the office / at home today.)</li>
+            <li><span class="nl">Kun je mij helpen?</span> (Can you help me?)</li>
+          </ul>
+        </div>
+
+        <h3>15B. Writing Task: First-Day Slack / Teams Introduction</h3>
+        <p>
+          Imagine you just joined a Dutch team. Write a short 3–4 sentence introduction message in Dutch for the team's <code>#general</code> channel. Include: (1) a greeting, (2) your name, (3) your role without <em>een</em>, (4) where you are working today (<em>op kantoor</em> or <em>thuis</em>), and (5) a friendly closing.
+        </p>
+        <div class="field-group">
+          <label class="field-label" for="writing-slack-input">Your Dutch Introduction Message</label>
+          <span class="field-hint">Tip: Use words from the Vocabulary table (e.g., <em>Goedemorgen, collega's, Ik heet, Ik ben, op kantoor, Succes, Fijne dag</em>).</span>
+          <textarea id="writing-slack-input" class="text-area" oninput="handleWritingInput(this.value)"></textarea>
+        </div>
+        <div class="toggle-row">
+          <button type="button" class="button" onclick="evaluateWriting()">Check My Message Criteria</button>
+          <button type="button" class="button button--secondary" onclick="toggleWritingModel()">Show / Hide Model Answer</button>
+        </div>
+        <div id="writing-feedback" class="inset" hidden></div>
+        <div id="writing-model" class="inset inset--positive" hidden>
+          <p><strong>Model Answer (Slack Introduction):</strong></p>
+          <p>
+            <span class="nl">Goedemorgen collega's! Mijn naam is Alex. Ik ben de nieuwe software engineer in het team. Ik ben vandaag op kantoor. Fijne dag en succes vandaag!</span>
+          </p>
+          <p style="margin-bottom:0;" class="muted">Self-check: Greeting used? Name stated? Role without "een" (or with adjective "de nieuwe...")? Location stated? Friendly closing?</p>
+        </div>
+      </section>
+
+      <!-- 16. LESSON TEST -->
+      <section id="sec-lesson-test" aria-labelledby="h-lesson-test">
+        <h2 id="h-lesson-test"><span class="step-badge">16</span> Lesson 1 Final Test (10 Questions)</h2>
+        <p>
+          Test everything you learned in Lesson 1. Select one answer for each question, then click <strong>Grade Lesson 1 Test</strong> to see your score and review any missed items.
+        </p>
+        <div id="test-container"></div>
+        <div class="toggle-row" style="margin-top:var(--space-lg);">
+          <button type="button" class="button" onclick="gradeLessonTest()">Grade Lesson 1 Test</button>
+          <button type="button" class="button button--secondary" id="reset-test-btn" onclick="resetLessonTest(this)">Reset Test</button>
+        </div>
+        <div id="test-summary" class="inset" hidden aria-live="polite"></div>
+      </section>
+
+      <!-- 17. HOMEWORK -->
+      <section id="sec-homework" aria-labelledby="h-homework">
+        <h2 id="h-homework"><span class="step-badge">17</span> Homework &amp; Weekly Study Plan</h2>
+        <p>
+          Follow the 5–7 hour weekly study rhythm to lock Lesson 1 into active memory before moving to Lesson 2 (<em>Personal Pronouns, hebben &amp; Professional Profiles</em>). Check off each task as you finish it — your progress is saved automatically.
+        </p>
+        <ul class="checklist" id="homework-list"></ul>
+      </section>
+
+    </div>
+
+    <!-- SIDEBAR: CONTENTS & PROGRESS -->
+    <aside class="side-column" aria-label="Lesson navigation and progress">
+      <div class="side-panel">
+        <h3>Lesson 1 Progress</h3>
+        <p class="field-hint" style="margin-bottom:var(--space-xs);">Exercises &amp; Test Completed</p>
+        <div class="progress-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+        <p id="progress-text" style="font-weight:700; margin-bottom:var(--space-sm); font-variant-numeric:tabular-nums;">0 / 41 interactive items completed</p>
+        <p id="test-score-pill" class="status-tag status-tag--neutral" style="margin-bottom:var(--space-md);">Final Test: Not graded yet</p>
+        <div>
+          <button type="button" class="button button--secondary button--small" id="reset-all-btn" onclick="resetAllProgress(this)">Reset All Lesson Progress</button>
+        </div>
+      </div>
+
+      <nav class="side-panel" aria-label="17 Lesson Sections">
+        <h3>17-Part Lesson Index</h3>
+        <ol class="toc-list">
+          <li><a href="#sec-header">1. Lesson Header</a></li>
+          <li><a href="#sec-goals">2. Learning Goals</a></li>
+          <li><a href="#sec-revision">3. Revision &amp; Warm-Up</a></li>
+          <li><a href="#sec-grammar-theory">4. Grammar Theory</a></li>
+          <li><a href="#sec-cheat-sheet">5. Grammar Cheat Sheet</a></li>
+          <li><a href="#sec-vocabulary">6. Vocabulary (28 items)</a></li>
+          <li><a href="#sec-vocab-practice">7. Vocabulary Practice</a></li>
+          <li><a href="#sec-grammar-practice">8. Grammar Practice (24)</a></li>
+          <li><a href="#sec-hoe-zeg-je">9. "Hoe zeg je dit?"</a></li>
+          <li><a href="#sec-reading">10. Reading Text</a></li>
+          <li><a href="#sec-translation">11. Hidden Translation</a></li>
+          <li><a href="#sec-comprehension">12. Comprehension</a></li>
+          <li><a href="#sec-listening">13. Listening Practice</a></li>
+          <li><a href="#sec-mini-guide">14. Dutch Life &amp; Work Guide</a></li>
+          <li><a href="#sec-speaking-writing">15. Speaking &amp; Writing</a></li>
+          <li><a href="#sec-lesson-test">16. Lesson Test (10 Qs)</a></li>
+          <li><a href="#sec-homework">17. Homework Checklist</a></li>
+        </ol>
+      </nav>
+    </aside>
+  </div>
+
+  <api-shim></api-shim>
+
+  <script>
+    // =========================================================================
+    // DATA DEFINITIONS (All strings use backtick template literals for safety)
+    // =========================================================================
+
+    const WORD_ORDER_DEMOS = {
+      stmt: {
+        title: `Statement (V2 Rule): Subject + Verb (Pos 2) + Rest`,
+        slots: [
+          { role: `1. Subject`, word: `Ik`, isVerb: false },
+          { role: `2. Verb (Pos 2)`, word: `ben`, isVerb: true },
+          { role: `3. Time`, word: `vandaag`, isVerb: false },
+          { role: `4. Place`, word: `op kantoor.`, isVerb: false }
+        ],
+        note: `In a normal statement, the conjugated verb sits strictly in Position 2.`
+      },
+      quest: {
+        title: `Yes/No Question (Inversion): Verb (Pos 1) + Subject (Pos 2) + Rest?`,
+        slots: [
+          { role: `1. Verb (Pos 1)`, word: `Ben`, isVerb: true },
+          { role: `2. Subject (Pos 2)`, word: `jij`, isVerb: false },
+          { role: `3. Time`, word: `vandaag`, isVerb: false },
+          { role: `4. Place`, word: `op kantoor?`, isVerb: false }
+        ],
+        note: `Notice "ben" drops the "-t" because "jij" stands directly after the verb.`
+      },
+      neg: {
+        title: `Negation with niet: Subject + Verb (Pos 2) + niet + Rest`,
+        slots: [
+          { role: `1. Subject`, word: `Ik`, isVerb: false },
+          { role: `2. Verb (Pos 2)`, word: `ben`, isVerb: true },
+          { role: `3. Negation`, word: `niet`, isVerb: false },
+          { role: `4. Place`, word: `thuis.`, isVerb: false }
+        ],
+        note: `"Niet" follows the verb and pronouns to negate the statement.`
+      },
+      front: {
+        title: `Time First (V2 Preserved): Time (Pos 1) + Verb (Pos 2) + Subject (Pos 3)`,
+        slots: [
+          { role: `1. Time`, word: `Vandaag`, isVerb: false },
+          { role: `2. Verb (Pos 2)`, word: `ben`, isVerb: true },
+          { role: `3. Subject (Pos 3)`, word: `ik`, isVerb: false },
+          { role: `4. Place`, word: `op kantoor.`, isVerb: false }
+        ],
+        note: `Even when "Vandaag" opens the sentence, "ben" stays in Position 2!`
+      }
+    };
+
+    const REVISION_ITEMS = [
+      {
+        id: `rev1`,
+        prompt: `1. Which Dutch word means "office"?`,
+        choices: [`het kantoor`, `de buurman`, `goedemorgen`],
+        answer: `het kantoor`,
+        hint: `Think of the English word "cantor" or French "comptoir" — a place of business.`,
+        explain: `Correct: "het kantoor" means the office.`
+      },
+      {
+        id: `rev2`,
+        prompt: `2. You see "Welkom in het team!" on your screen. What does it mean?`,
+        choices: [`Goodbye team!`, `Welcome to the team!`, `The team is late.`],
+        answer: `Welcome to the team!`,
+        hint: `Dutch "welkom" and "team" look almost identical to English.`,
+        explain: `Correct: "Welkom in het team!" means "Welcome to the team!"`
+      },
+      {
+        id: `rev3`,
+        prompt: `3. Which greeting would you use at 08:30 AM when walking into the office?`,
+        choices: [`Goedenavond`, `Goedemorgen`, `Tot ziens`],
+        answer: `Goedemorgen`,
+        hint: `"Morgen" means morning.`,
+        explain: `Correct: "Goedemorgen" is used until 12:00 PM.`
+      }
+    ];
+
+    const VOCABULARY_ITEMS = [
+      { dutch: `hoi / hallo`, article: `interj.`, plural: `—`, english: `hi / hello`, context: `Both`, example: `Hoi Sara! Hoe gaat het?` },
+      { dutch: `goedemorgen`, article: `interj.`, plural: `—`, english: `good morning (until 12:00)`, context: `Both`, example: `Goedemorgen allemaal!` },
+      { dutch: `goedemiddag`, article: `interj.`, plural: `—`, english: `good afternoon (12:00–18:00)`, context: `Both`, example: `Goedemiddag, mevrouw Bakker.` },
+      { dutch: `goedenavond`, article: `interj.`, plural: `—`, english: `good evening (after 18:00)`, context: `Everyday`, example: `Goedenavond buurman!` },
+      { dutch: `dag / doei`, article: `interj.`, plural: `—`, english: `bye (neutral / informal)`, context: `Everyday`, example: `Doei! Tot morgen!` },
+      { dutch: `tot ziens`, article: `phrase`, plural: `—`, english: `goodbye / see you (polite)`, context: `Both`, example: `Tot ziens, meneer De Vries.` },
+      { dutch: `fijne dag!`, article: `phrase`, plural: `—`, english: `have a nice day!`, context: `Both`, example: `Succes vandaag en fijne dag!` },
+      { dutch: `de naam`, article: `de`, plural: `de namen`, english: `name`, context: `Both`, example: `Mijn naam is Alex.` },
+      { dutch: `de collega`, article: `de`, plural: `de collega's`, english: `colleague`, context: `Workplace`, example: `Sara is mijn collega.` },
+      { dutch: `de buurman`, article: `de`, plural: `de buurmannen`, english: `neighbor (male)`, context: `Everyday`, example: `De buurman is thuis.` },
+      { dutch: `de buurvrouw`, article: `de`, plural: `de buurvrouwen`, english: `neighbor (female)`, context: `Everyday`, example: `Goedemorgen, buurvrouw!` },
+      { dutch: `het kantoor`, article: `het`, plural: `de kantoren`, english: `office`, context: `Workplace`, example: `Ik ben vandaag op kantoor.` },
+      { dutch: `het werk`, article: `het`, plural: `de werken`, english: `work`, context: `Workplace`, example: `Hij is op het werk.` },
+      { dutch: `het team`, article: `het`, plural: `de teams`, english: `team`, context: `Workplace`, example: `Jullie zijn het team.` },
+      { dutch: `de manager`, article: `de`, plural: `de managers`, english: `manager`, context: `Workplace`, example: `U bent de manager.` },
+      { dutch: `de ontwikkelaar`, article: `de`, plural: `de ontwikkelaars`, english: `developer`, context: `Workplace`, example: `Zij zijn ontwikkelaars.` },
+      { dutch: `de koffieautomaat`, article: `de`, plural: `de koffieautomaten`, english: `coffee machine`, context: `Workplace`, example: `De collega is bij de koffieautomaat.` },
+      { dutch: `de vergadering`, article: `de`, plural: `de vergaderingen`, english: `meeting (also: de meeting)`, context: `Workplace`, example: `Wij zijn in een meeting.` },
+      { dutch: `thuis`, article: `adv.`, plural: `—`, english: `at home`, context: `Everyday`, example: `Ik ben vandaag niet thuis.` },
+      { dutch: `op kantoor`, article: `phrase`, plural: `—`, english: `at the office`, context: `Workplace`, example: `Ben je vandaag op kantoor?` },
+      { dutch: `vandaag`, article: `adv.`, plural: `—`, english: `today`, context: `Both`, example: `Vandaag is mijn eerste werkdag.` },
+      { dutch: `aardig`, article: `adj.`, plural: `—`, english: `nice, kind`, context: `Both`, example: `Je bent heel aardig.` },
+      { dutch: `nieuw`, article: `adj.`, plural: `—`, english: `new`, context: `Both`, example: `Ik ben de nieuwe collega.` },
+      { dutch: `laat`, article: `adj./adv.`, plural: `—`, english: `late`, context: `Both`, example: `Sorry, jullie zijn laat.` },
+      { dutch: `heten (ik heet)`, article: `verb`, plural: `—`, english: `to be called (my name is)`, context: `Both`, example: `Hoe heet je? Ik heet Alex.` },
+      { dutch: `Hoe gaat het?`, article: `phrase`, plural: `—`, english: `How are you? (Goed, dank je)`, context: `Both`, example: `Hoi Mark, hoe gaat het?` },
+      { dutch: `Aangenaam`, article: `phrase`, plural: `—`, english: `Nice to meet you`, context: `Both`, example: `Aangenaam, ik ben Kim.` },
+      { dutch: `Succes! / Kun je mij helpen?`, article: `phrase`, plural: `—`, english: `Good luck! / Can you help me?`, context: `Workplace`, example: `Kun je mij helpen met de laptop?` }
+    ];
+
+    const VP_EQUIVALENTS = [
+      {
+        id: `vpe1`,
+        prompt: `You meet a new colleague for the first time and shake hands.`,
+        answer: `Aangenaam`,
+        options: [`Aangenaam`, `Doei`, `Goedenavond`],
+        hint: `This short expression literally means "pleasant (to meet you)".`
+      },
+      {
+        id: `vpe2`,
+        prompt: `You leave the office at 17:30 and want to wish everyone a good rest of the day.`,
+        answer: `Fijne dag!`,
+        options: [`Goedemorgen!`, `Fijne dag!`, `Hoe heet je?`],
+        hint: `Means "Have a nice day!"`
+      },
+      {
+        id: `vpe3`,
+        prompt: `You greet an older client formally at 14:00.`,
+        answer: `Goedemiddag`,
+        options: [`Hoi!`, `Goedemiddag`, `Doei!`],
+        hint: `Use the afternoon greeting between 12:00 and 18:00.`
+      }
+    ];
+
+    const VP_ANTONYMS = [
+      { id: `vpa1`, left: `goedemorgen`, answer: `goedenavond`, options: [`goedenavond`, `aangenaam`, `vandaag`], hint: `Morning vs. evening.` },
+      { id: `vpa2`, left: `thuis`, answer: `op kantoor`, options: [`op kantoor`, `aardig`, `de naam`], hint: `At home vs. at the workplace.` },
+      { id: `vpa3`, left: `de buurman`, answer: `de buurvrouw`, options: [`de buurvrouw`, `de manager`, `het team`], hint: `Male neighbor vs. female neighbor.` }
+    ];
+
+    const VP_COLLOCATIONS = [
+      {
+        id: `vpc1`,
+        prompt: `Ik ben vandaag ___ kantoor. (I am at the office today.)`,
+        answer: `op`,
+        options: [`op`, `in`, `met`],
+        hint: `Fixed workplace phrase without an article: ___ kantoor.`
+      },
+      {
+        id: `vpc2`,
+        prompt: `Wij zijn ___ een meeting. (We are in a meeting.)`,
+        answer: `in`,
+        options: [`in`, `uit`, `thuis`],
+        hint: `Same preposition as English "in a meeting".`
+      },
+      {
+        id: `vpc3`,
+        prompt: `De collega is ___ de koffieautomaat. (The colleague is at/by the coffee machine.)`,
+        answer: `bij`,
+        options: [`bij`, `naar`, `tot`],
+        hint: `"Bij" means "at / by / near" a machine or spot.`
+      }
+    ];
+
+    const VP_CONTEXT = [
+      {
+        id: `vpx1`,
+        prompt: `Hoe ___ je? — Ik heet Alex.`,
+        answers: [`heet`],
+        hint: `Verb for "to be called" with je/jij: Hoe ___ je?`
+      },
+      {
+        id: `vpx2`,
+        prompt: `Hoe gaat het? — Goed, ___ je!`,
+        answers: [`dank`],
+        hint: `Means "thank you" (informal): ___ je!`
+      },
+      {
+        id: `vpx3`,
+        prompt: `Ik ben de ___ collega. Vandaag is mijn eerste werkdag.`,
+        answers: [`nieuwe`],
+        hint: `Adjective meaning "new" before "collega" (adds -e).`
+      }
+    ];
+
+    const GP_ZIJN = [
+      { id: `gpz1`, prompt: `1. Ik ___ de nieuwe ontwikkelaar.`, answers: [`ben`], choices: [`ben`, `bent`, `is`, `zijn`], hint: `First person singular (ik) always takes "ben".` },
+      { id: `gpz2`, prompt: `2. Jij ___ heel aardig!`, answers: [`bent`], choices: [`ben`, `bent`, `is`, `zijn`], hint: `In a normal statement, jij takes "bent".` },
+      { id: `gpz3`, prompt: `3. ___ jij vandaag op kantoor?`, answers: [`Ben`], choices: [`Ben`, `Bent`, `Is`, `Zijn`], hint: `Inversion! When jij follows the verb, drop the -t.` },
+      { id: `gpz4`, prompt: `4. Hij ___ de manager van het team.`, answers: [`is`], choices: [`ben`, `bent`, `is`, `zijn`], hint: `Third person singular (hij/zij/het) takes "is".` },
+      { id: `gpz5`, prompt: `5. Wij ___ om negen uur in een meeting.`, answers: [`zijn`], choices: [`ben`, `bent`, `is`, `zijn`], hint: `All plurals (wij, jullie, zij) take "zijn".` },
+      { id: `gpz6`, prompt: `6. Jullie ___ vandaag een beetje laat.`, answers: [`zijn`], choices: [`ben`, `bent`, `is`, `zijn`], hint: `Plural "you all" (jullie) uses "zijn".` }
+    ];
+
+    const GP_WORDORDER = [
+      {
+        id: `gpw1`,
+        prompt: `7. Choose the correct V2 statement:`,
+        answer: `Ik ben vandaag op kantoor.`,
+        choices: [`Ik ben vandaag op kantoor.`, `Ik vandaag ben op kantoor.`, `Ben ik vandaag op kantoor.`],
+        hint: `Verb must be in Position 2.`
+      },
+      {
+        id: `gpw2`,
+        prompt: `8. Choose the correct sentence starting with "Vandaag" (Today):`,
+        answer: `Vandaag ben ik op kantoor.`,
+        choices: [`Vandaag ik ben op kantoor.`, `Vandaag ben ik op kantoor.`, `Ik vandaag op kantoor ben.`],
+        hint: `V2 rule: if "Vandaag" is Position 1, the verb "ben" stays in Position 2.`
+      },
+      {
+        id: `gpw3`,
+        prompt: `9. Choose the correct yes/no question for "you (informal)":`,
+        answer: `Ben je de nieuwe collega?`,
+        choices: [`Bent je de nieuwe collega?`, `Je ben de nieuwe collega?`, `Ben je de nieuwe collega?`],
+        hint: `Verb in Position 1, and drop -t before je/jij.`
+      },
+      {
+        id: `gpw4`,
+        prompt: `10. Choose the correct yes/no question for "they":`,
+        answer: `Zijn zij ontwikkelaars?`,
+        choices: [`Is zij ontwikkelaars?`, `Zijn zij ontwikkelaars?`, `Zij zijn ontwikkelaars?`],
+        hint: `Plural "zij" (they) uses "zijn" in Position 1.`
+      },
+      {
+        id: `gpw5`,
+        prompt: `11. Choose the correct question to ask someone's name:`,
+        answer: `Hoe heet je?`,
+        choices: [`Hoe je heet?`, `Hoe heet je?`, `Heet hoe je?`],
+        hint: `Question word (1) + Verb (2) + Subject (3).`
+      },
+      {
+        id: `gpw6`,
+        prompt: `12. Choose the correct polite question to ask for help:`,
+        answer: `Kun je mij helpen?`,
+        choices: [`Je kun mij helpen?`, `Kun je mij helpen?`, `Helpen kun je mij?`],
+        hint: `Verb "Kun" in Position 1, subject "je" in Position 2.`
+      }
+    ];
+
+    const GP_NEGATION = [
+      {
+        id: `gpn1`,
+        prompt: `13. Make negative: "Ik ben ___ thuis." (I am not at home.)`,
+        answers: [`niet`],
+        hint: `Basic negation word placed after "ben".`
+      },
+      {
+        id: `gpn2`,
+        prompt: `14. Make negative: "Hij ___ ___ de manager." (He is not the manager.)`,
+        answers: [`is niet`],
+        hint: `Conjugate zijn for "hij" + niet.`
+      },
+      {
+        id: `gpn3`,
+        prompt: `15. Choose the correct Dutch sentence for "I am a developer":`,
+        choices: [`Ik ben een developer.`, `Ik ben developer.`, `Ik zijn developer.`],
+        answer: `Ik ben developer.`,
+        hint: `Omit "een" before bare professions.`
+      },
+      {
+        id: `gpn4`,
+        prompt: `16. Choose the correct Dutch sentence for "We are not in a meeting":`,
+        choices: [`Wij niet zijn in een meeting.`, `Wij zijn niet in een meeting.`, `Wij is niet in een meeting.`],
+        answer: `Wij zijn niet in een meeting.`,
+        hint: `Place "niet" after the conjugated verb "zijn".`
+      },
+      {
+        id: `gpn5`,
+        prompt: `17. Choose the correct sentence for "You (formal) are not late":`,
+        choices: [`U bent niet laat.`, `U niet bent laat.`, `Jij is niet laat.`],
+        answer: `U bent niet laat.`,
+        hint: `Formal "U" takes "bent" (or "is") + "niet".`
+      },
+      {
+        id: `gpn6`,
+        prompt: `18. Complete: "De buurman is ___ op het werk." (The neighbor is not at work.)`,
+        answers: [`niet`],
+        hint: `Negates "op het werk".`
+      }
+    ];
+
+    const GP_ERRORS = [
+      {
+        id: `gpe1`,
+        prompt: `19. Fix the error: "Bent jij op kantoor?" → Write the correct question:`,
+        answers: [`Ben jij op kantoor?`, `Ben je op kantoor?`, `Ben jij op kantoor`, `Ben je op kantoor`],
+        hint: `Drop the -t on "bent" when "jij" comes after the verb.`
+      },
+      {
+        id: `gpe2`,
+        prompt: `20. Fix the error: "Ben jij werk?" → Choose the natural correction:`,
+        choices: [`Ben je op werk?`, `Ben je aan werk?`, `Zijn jij werk?`],
+        answer: `Ben je op werk?`,
+        hint: `You need the preposition "op" (or "aan het") before "werk".`
+      },
+      {
+        id: `gpe3`,
+        prompt: `21. Fix the error: "Ik ben een software engineer." → Write the natural Dutch sentence:`,
+        answers: [`Ik ben software engineer.`, `Ik ben software engineer`],
+        hint: `Remove the unnecessary article "een" before a job title.`
+      },
+      {
+        id: `gpe4`,
+        prompt: `22. Fix the error: "Ik niet ben thuis." → Write the correct word order:`,
+        answers: [`Ik ben niet thuis.`, `Ik ben niet thuis`],
+        hint: `The verb "ben" must be in Position 2; "niet" comes after it.`
+      },
+      {
+        id: `gpe5`,
+        prompt: `23. Fix the error: "Wij is het team." → Write the correct sentence:`,
+        answers: [`Wij zijn het team.`, `We zijn het team.`, `Wij zijn het team`, `We zijn het team`],
+        hint: `"Wij" is plural and takes "zijn".`
+      },
+      {
+        id: `gpe6`,
+        prompt: `24. Fix the error: "Vandaag ik ben nieuw." → Write the correct V2 sentence:`,
+        answers: [`Vandaag ben ik nieuw.`, `Vandaag ben ik nieuw`],
+        hint: `Keep the verb "ben" in Position 2 right after "Vandaag".`
+      }
+    ];
+
+    const HZJD_ITEMS = [
+      {
+        id: `hz1`,
+        english: `1. "Good morning! I am the new colleague."`,
+        answers: [`Goedemorgen! Ik ben de nieuwe collega.`, `Goedemorgen, ik ben de nieuwe collega.`],
+        model: `Goedemorgen! Ik ben de nieuwe collega.`,
+        notes: `Remember: "de collega" uses "nieuwe" (with -e) when preceded by "de".`
+      },
+      {
+        id: `hz2`,
+        english: `2. "Are you at the office today?"`,
+        answers: [`Ben je vandaag op kantoor?`, `Ben jij vandaag op kantoor?`, `Bent u vandaag op kantoor?`],
+        model: `Ben je vandaag op kantoor? (or: Ben jij vandaag op kantoor?)`,
+        notes: `Inversion drops the -t on "ben" before je/jij. "Op kantoor" needs no article.`
+      },
+      {
+        id: `hz3`,
+        english: `3. "Nice to meet you! My name is Alex."`,
+        answers: [`Aangenaam! Mijn naam is Alex.`, `Aangenaam! Ik heet Alex.`, `Aangenaam, mijn naam is Alex.`, `Aangenaam, ik heet Alex.`],
+        model: `Aangenaam! Mijn naam is Alex. (or: Aangenaam! Ik heet Alex.)`,
+        notes: `Both "Mijn naam is …" and "Ik heet …" are completely natural.`
+      },
+      {
+        id: `hz4`,
+        english: `4. "He is not at home."`,
+        answers: [`Hij is niet thuis.`],
+        model: `Hij is niet thuis.`,
+        notes: `"Niet" stands right after "is".`
+      },
+      {
+        id: `hz5`,
+        english: `5. "Can you help me? Good luck today!"`,
+        answers: [`Kun je mij helpen? Succes vandaag!`, `Kun jij mij helpen? Succes vandaag!`, `Kun je me helpen? Succes vandaag!`],
+        model: `Kun je mij helpen? Succes vandaag!`,
+        notes: `"Kun je mij helpen?" is the standard polite office request.`
+      }
+    ];
+
+    const COMPREHENSION_ITEMS = [
+      {
+        id: `comp1`,
+        prompt: `1. What is Alex's profession?`,
+        choices: [`Manager`, `Developer (ontwikkelaar)`, `Neighbor`],
+        answer: `Developer (ontwikkelaar)`,
+        hint: `Look at sentence 4 of the reading.`
+      },
+      {
+        id: `comp2`,
+        prompt: `2. Where does Alex meet Sara?`,
+        choices: [`At home`, `By the coffee machine (bij de koffieautomaat)`, `In the manager's office`],
+        answer: `By the coffee machine (bij de koffieautomaat)`,
+        hint: `Check the fifth sentence.`
+      },
+      {
+        id: `comp3`,
+        prompt: `3. True or False: The manager is at the office today.`,
+        choices: [`True`, `False — he is at home`],
+        answer: `False — he is at home`,
+        hint: `Look at the second paragraph: "De manager is niet op kantoor."`
+      },
+      {
+        id: `comp4`,
+        prompt: `4. At what time is the team in a meeting?`,
+        choices: [`At 8 o'clock`, `At 9 o'clock (om negen uur)`, `At 12 o'clock`],
+        answer: `At 9 o'clock (om negen uur)`,
+        hint: `Find "om … uur" in the second paragraph.`
+      },
+      {
+        id: `comp5`,
+        prompt: `5. How does Alex describe the colleagues?`,
+        choices: [`Late (laat)`, `Very kind (heel aardig)`, `New (nieuw)`],
+        answer: `Very kind (heel aardig)`,
+        hint: `"Mijn collega's zijn heel …"`
+      }
+    ];
+
+    const LISTENING_ITEMS = [
+      {
+        id: `lst1`,
+        title: `Clip 1: Office Arrival`,
+        tts: `Goedemorgen! Ik heet Mark. Ben jij de nieuwe collega?`,
+        question: `What does Mark ask?`,
+        choices: [`If you are the manager`, `If you are the new colleague`, `If you are at home`],
+        answer: `If you are the new colleague`,
+        transcript: `Goedemorgen! Ik heet Mark. Ben jij de nieuwe collega? ("Good morning! My name is Mark. Are you the new colleague?")`
+      },
+      {
+        id: `lst2`,
+        title: `Clip 2: Status Check`,
+        tts: `Lisa is vandaag niet op kantoor. Zij is thuis.`,
+        question: `Where is Lisa today?`,
+        choices: [`At the office`, `In a meeting`, `At home`],
+        answer: `At home`,
+        transcript: `Lisa is vandaag niet op kantoor. Zij is thuis. ("Lisa is not at the office today. She is at home.")`
+      },
+      {
+        id: `lst3`,
+        title: `Clip 3: Quick Request`,
+        tts: `Hallo! Kun je mij helpen? Mijn laptop is niet klaar.`,
+        question: `What does the speaker want?`,
+        choices: [`Coffee`, `Help`, `To say goodbye`],
+        answer: `Help`,
+        transcript: `Hallo! Kun je mij helpen? Mijn laptop is niet klaar. ("Hello! Can you help me? My laptop is not ready.")`
+      },
+      {
+        id: `lst4`,
+        title: `Clip 4: Neighbor Greeting`,
+        tts: `Goedenavond buurvrouw! Hoe gaat het? Fijne avond!`,
+        question: `Who is the speaker greeting?`,
+        choices: [`The female neighbor`, `The team manager`, `The developer`],
+        answer: `The female neighbor`,
+        transcript: `Goedenavond buurvrouw! Hoe gaat het? Fijne avond! ("Good evening neighbor! How are you? Have a nice evening!")`
+      }
+    ];
+
+    const TEST_QUESTIONS = [
+      {
+        id: `t1`,
+        q: `1. Which sentence correctly states a profession in Dutch?`,
+        choices: [`Ik ben een developer.`, `Ik ben developer.`, `Ik zijn developer.`],
+        answer: `Ik ben developer.`,
+        explain: `Professions after "zijn" omit the article "een".`
+      },
+      {
+        id: `t2`,
+        q: `2. Complete the question: "___ jij vandaag op kantoor?"`,
+        choices: [`Bent`, `Ben`, `Is`],
+        answer: `Ben`,
+        explain: `When "jij" comes after the verb, drop the -t: "Ben jij...?"`
+      },
+      {
+        id: `t3`,
+        q: `3. Which greeting fits 15:00 PM at the office?`,
+        choices: [`Goedemorgen`, `Goedemiddag`, `Goedenavond`],
+        answer: `Goedemiddag`,
+        explain: `"Goedemiddag" is used from 12:00 to 18:00.`
+      },
+      {
+        id: `t4`,
+        q: `4. Complete with the right form of zijn: "Wij ___ in een meeting."`,
+        choices: [`ben`, `bent`, `zijn`],
+        answer: `zijn`,
+        explain: `Plural subjects (wij, jullie, zij) always take "zijn".`
+      },
+      {
+        id: `t5`,
+        q: `5. Choose the correct V2 word order:`,
+        choices: [`Vandaag ik ben thuis.`, `Vandaag ben ik thuis.`, `Ik thuis ben vandaag.`],
+        answer: `Vandaag ben ik thuis.`,
+        explain: `The conjugated verb ("ben") must remain in Position 2.`
+      },
+      {
+        id: `t6`,
+        q: `6. Choose the correct negative sentence:`,
+        choices: [`Hij niet is de manager.`, `Hij is niet de manager.`, `Hij is de manager niet.`],
+        answer: `Hij is niet de manager.`,
+        explain: `Standard placement of "niet" here is directly after "is".`
+      },
+      {
+        id: `t7`,
+        q: `7. What does "de buurvrouw" mean?`,
+        choices: [`The female colleague`, `The female neighbor`, `The manager`],
+        answer: `The female neighbor`,
+        explain: `"De buurvrouw" = female neighbor; "de buurman" = male neighbor.`
+      },
+      {
+        id: `t8`,
+        q: `8. How do you say "Can you help me?" in Dutch?`,
+        choices: [`Hoe gaat het?`, `Kun je mij helpen?`, `Hoe heet je?`],
+        answer: `Kun je mij helpen?`,
+        explain: `"Kun je mij helpen?" is the standard polite request for help.`
+      },
+      {
+        id: `t9`,
+        q: `9. Which article goes with "kantoor" (office)?`,
+        choices: [`de kantoor`, `het kantoor`, `een kantoren`],
+        answer: `het kantoor`,
+        explain: `"Kantoor" is a het-word ("het kantoor", plural "de kantoren").`
+      },
+      {
+        id: `t10`,
+        q: `10. Which pronoun do Dutch colleagues normally use with each other from day one?`,
+        choices: [`u (formal)`, `jij / je (informal)`, `het (it)`],
+        answer: `jij / je (informal)`,
+        explain: `Dutch workplace culture is flat and uses "jij/je" across levels.`
+      }
+    ];
+
+    const HOMEWORK_TASKS = [
+      { id: `hw1`, label: `Monday (45 min): Study the Grammar Cheat Sheet for "zijn" and V2 word order.` },
+      { id: `hw2`, label: `Tuesday (45 min): Complete all 24 Grammar Practice items and "Hoe zeg je dit?" translations.` },
+      { id: `hw3`, label: `Wednesday (45 min): Re-read "Mijn eerste werkdag" aloud and review all 28 vocabulary items.` },
+      { id: `hw4`, label: `Thursday (45 min): Replay the 4 Listening clips at 1.0x speed without looking at the transcripts.` },
+      { id: `hw5`, label: `Friday (45 min): Write a real 4-sentence Slack introduction for yourself and score 8/10+ on the Lesson Test.` },
+      { id: `hw6`, label: `Weekend (30 min): Practice saying your greeting + role introduction aloud 5 times to build fluency.` }
+    ];
+
+    // =========================================================================
+    // APPLICATION STATE (Persisted via notebookAppApi)
+    // =========================================================================
+
+    const TOTAL_INTERACTIVE_ITEMS =
+      REVISION_ITEMS.length +
+      VP_EQUIVALENTS.length +
+      VP_ANTONYMS.length +
+      VP_COLLOCATIONS.length +
+      VP_CONTEXT.length +
+      GP_ZIJN.length +
+      GP_WORDORDER.length +
+      GP_NEGATION.length +
+      GP_ERRORS.length +
+      COMPREHENSION_ITEMS.length +
+      LISTENING_ITEMS.length;
+
+    let appState = {
+      completed: {},
+      inputs: {},
+      writingText: ``,
+      testSelections: {},
+      testGraded: false,
+      testScore: null,
+      homework: {}
+    };
+
+    async function saveState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          // Graceful fallback if host rejects
+        }
+      }
+    }
+
+    async function loadState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const loaded = await window.notebookAppApi.getAppState();
+          if (loaded && typeof loaded === `object`) {
+            appState = {
+              completed: loaded.completed || {},
+              inputs: loaded.inputs || {},
+              writingText: typeof loaded.writingText === `string` ? loaded.writingText : ``,
+              testSelections: loaded.testSelections || {},
+              testGraded: Boolean(loaded.testGraded),
+              testScore: typeof loaded.testScore === `number` ? loaded.testScore : null,
+              homework: loaded.homework || {}
+            };
+          }
+        } catch (err) {
+          // Use clean initial state
+        }
+      }
+    }
+
+    // =========================================================================
+    // HELPERS: NORMALIZATION & SPEECH SYNTHESIS
+    // =========================================================================
+
+    function normalizeDutch(str) {
+      return String(str || ``)
+        .toLowerCase()
+        .trim()
+        .replace(/[.!?,'"]/g, ``)
+        .replace(/\s+/g, ` `);
+    }
+
+    function speakPhrase(text, rate) {
+      const speed = typeof rate === `number` ? rate : 0.92;
+      const statusEl = document.getElementById(`listening-status`);
+      if (typeof window.speechSynthesis === `undefined`) {
+        if (statusEl) {
+          statusEl.style.display = `block`;
+          statusEl.textContent = `Speech synthesis is not available in this browser. Use the "Show Script" button below each clip to read the Dutch text.`;
+        }
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = `nl-NL`;
+        utter.rate = speed;
+        const voices = window.speechSynthesis.getVoices();
+        const dutchVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith(`nl`));
+        if (dutchVoice) utter.voice = dutchVoice;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        if (statusEl) {
+          statusEl.style.display = `block`;
+          statusEl.textContent = `Audio playback could not start. Use the "Show Script" toggle to read the Dutch dialogue.`;
+        }
+      }
+    }
+
+    function speakReadingText() {
+      const fullText = `Goedemorgen! Mijn naam is Alex. Ik ben vandaag nieuw op kantoor. Ik ben ontwikkelaar en dit is mijn eerste werkdag. Bij de koffieautomaat is een collega. Hallo! Ik heet Sara, zegt zij. Ben jij de nieuwe collega? Ja, aangenaam! Hoe gaat het? Goed, dank je! Welkom in het team. De manager is niet op kantoor. Hij is thuis. Wij zijn om negen uur in een meeting. Mijn collega's zijn heel aardig. Het team is klaar voor het werk. Fijne dag!`;
+      speakPhrase(fullText, 0.9);
+    }
+
+    // =========================================================================
+    // SECTION RENDERERS & INTERACTION HANDLERS
+    // =========================================================================
+
+    function setWordOrderDemo(mode) {
+      const modes = [`stmt`, `quest`, `neg`, `front`];
+      modes.forEach(m => {
+        const btn = document.getElementById(`wo-btn-` + m);
+        if (btn) btn.setAttribute(`aria-pressed`, m === mode ? `true` : `false`);
+      });
+      const data = WORD_ORDER_DEMOS[mode];
+      const out = document.getElementById(`wo-demo-output`);
+      if (!data || !out) return;
+      const slotsHtml = data.slots.map((s, idx) => {
+        const plus = idx > 0 ? `<span class="slot-plus">+</span>` : ``;
+        const cls = s.isVerb ? `slot slot--verb` : `slot`;
+        return `${plus}<div class="${cls}"><span class="slot-role">${s.role}</span><span class="slot-word">${s.word}</span></div>`;
+      }).join(``);
+      out.innerHTML = `
+        <div class="formula-title">${data.title}</div>
+        <div class="formula-slots">${slotsHtml}</div>
+        <p class="field-hint" style="margin-top:var(--space-sm); margin-bottom:0;">${data.note}</p>
+      `;
+    }
+
+    function filterVocab(contextFilter) {
+      const filterMap = {
+        all: `vocab-filter-all`,
+        Everyday: `vocab-filter-everyday`,
+        Workplace: `vocab-filter-workplace`,
+        Both: `vocab-filter-both`
+      };
+      Object.keys(filterMap).forEach(k => {
+        const b = document.getElementById(filterMap[k]);
+        if (b) b.setAttribute(`aria-pressed`, k === contextFilter ? `true` : `false`);
+      });
+      renderVocabularyTable(contextFilter);
+    }
+
+    function renderVocabularyTable(filter) {
+      const tbody = document.getElementById(`vocab-tbody`);
+      if (!tbody) return;
+      const rows = VOCABULARY_ITEMS.filter(item => filter === `all` || item.context === filter);
+      tbody.innerHTML = rows.map(item => {
+        const safeSpeech = item.dutch.replace(/`/g, ``);
+        const articleBadge = (item.article === `de` || item.article === `het`)
+          ? `<span class="status-tag">${item.article}</span>`
+          : `<span class="status-tag status-tag--neutral">${item.article}</span>`;
+        return `
+          <tr>
+            <td><strong>${item.dutch}</strong> ${articleBadge}</td>
+            <td>${item.plural}</td>
+            <td>${item.english}</td>
+            <td><span class="field-hint">${item.context}:</span> ${item.example}</td>
+            <td><button type="button" class="button button--secondary button--small" onclick="speakPhrase(\`${safeSpeech}\`)">Listen</button></td>
+          </tr>
+        `;
+      }).join(``);
+    }
+
+    function renderChoiceExercise(item, container, groupPrefix) {
+      const div = document.createElement(`div`);
+      div.className = `exercise-item`;
+      div.id = `item-` + item.id;
+
+      const promptP = document.createElement(`div`);
+      promptP.className = `exercise-prompt`;
+      promptP.textContent = item.prompt;
+      div.appendChild(promptP);
+
+      const choicesDiv = document.createElement(`div`);
+      choicesDiv.className = `choice-group`;
+      const options = item.choices || item.options || [];
+      const correct = item.answer || (item.answers && item.answers[0]) || ``;
+
+      options.forEach(opt => {
+        const btn = document.createElement(`button`);
+        btn.type = `button`;
+        btn.className = `choice-btn`;
+        btn.textContent = opt;
+        btn.onclick = function() {
+          handleChoiceSelect(item.id, opt, correct, item.explain || ``, div);
+        };
+        choicesDiv.appendChild(btn);
+      });
+      div.appendChild(choicesDiv);
+
+      const fb = document.createElement(`div`);
+      fb.className = `feedback-line`;
+      fb.id = `fb-` + item.id;
+      fb.setAttribute(`aria-live`, `polite`);
+      div.appendChild(fb);
+
+      const details = document.createElement(`details`);
+      details.className = `disclosure`;
+      details.innerHTML = `
+        <summary>Show Hint / Answer</summary>
+        <div class="disclosure-body">
+          <strong>Hint:</strong> ${item.hint || `Review Section 4–6.`}<br>
+          <strong>Answer:</strong> ${correct}
+        </div>
+      `;
+      div.appendChild(details);
+
+      container.appendChild(div);
+
+      // Restore if saved
+      if (appState.inputs[item.id]) {
+        applyChoiceVisual(item.id, appState.inputs[item.id], correct, item.explain || ``, div);
+      }
+    }
+
+    function handleChoiceSelect(id, selected, correct, explain, itemEl) {
+      appState.inputs[id] = selected;
+      if (selected === correct) {
+        appState.completed[id] = true;
+      } else {
+        delete appState.completed[id];
+      }
+      applyChoiceVisual(id, selected, correct, explain, itemEl);
+      updateProgressUI();
+      saveState();
+    }
+
+    function applyChoiceVisual(id, selected, correct, explain, itemEl) {
+      const btns = itemEl.querySelectorAll(`.choice-btn`);
+      btns.forEach(b => {
+        b.classList.remove(`is-correct`, `is-wrong`);
+        if (b.textContent === selected) {
+          b.classList.add(selected === correct ? `is-correct` : `is-wrong`);
+        }
+      });
+      const fb = document.getElementById(`fb-` + id);
+      if (!fb) return;
+      if (selected === correct) {
+        fb.className = `feedback-line feedback-line--ok`;
+        fb.textContent = `[Correct] ${explain || `Well done!`}`;
+      } else {
+        fb.className = `feedback-line feedback-line--err`;
+        fb.textContent = `[Try again] "${selected}" is not right here. Check the hint or pick another option.`;
+      }
+    }
+
+    function renderTextExercise(item, container) {
+      const div = document.createElement(`div`);
+      div.className = `exercise-item`;
+      const inputId = `in-` + item.id;
+
+      div.innerHTML = `
+        <div class="input-row">
+          <div class="field-group">
+            <label class="field-label" for="${inputId}">${item.prompt}</label>
+            <input type="text" class="text-input" id="${inputId}" autocomplete="off">
+          </div>
+          <button type="button" class="button button--secondary" onclick="checkTextItem('${item.id}')">Check</button>
+        </div>
+        <div class="feedback-line" id="fb-${item.id}" aria-live="polite"></div>
+        <details class="disclosure">
+          <summary>Show Hint / Answer</summary>
+          <div class="disclosure-body">
+            <strong>Hint:</strong> ${item.hint}<br>
+            <strong>Accepted answer:</strong> ${item.answers[0]}
+          </div>
+        </details>
+      `;
+      container.appendChild(div);
+
+      const inputEl = document.getElementById(inputId);
+      if (inputEl) {
+        if (appState.inputs[item.id]) {
+          inputEl.value = appState.inputs[item.id];
+          evaluateTextItem(item, inputEl.value, false);
+        }
+        inputEl.addEventListener(`keydown`, function(e) {
+          if (e.key === `Enter`) {
+            e.preventDefault();
+            checkTextItem(item.id);
+          }
+        });
+      }
+    }
+
+    function findTextItemById(id) {
+      const all = VP_CONTEXT.concat(GP_ZIJN, GP_NEGATION, GP_ERRORS);
+      return all.find(x => x.id === id);
+    }
+
+    function checkTextItem(id) {
+      const item = findTextItemById(id);
+      const inputEl = document.getElementById(`in-` + id);
+      if (!item || !inputEl) return;
+      evaluateTextItem(item, inputEl.value, true);
+    }
+
+    function evaluateTextItem(item, rawVal, persist) {
+      const norm = normalizeDutch(rawVal);
+      const fb = document.getElementById(`fb-` + item.id);
+      if (!fb) return;
+
+      if (!norm) {
+        fb.className = `feedback-line feedback-line--err`;
+        fb.textContent = `[Missing input] Please type your Dutch answer first.`;
+        return;
+      }
+
+      const isMatch = item.answers.some(ans => normalizeDutch(ans) === norm);
+      if (isMatch) {
+        fb.className = `feedback-line feedback-line--ok`;
+        fb.textContent = `[Correct] "${rawVal.trim()}" matches the Dutch structure.`;
+        if (persist) appState.completed[item.id] = true;
+      } else {
+        fb.className = `feedback-line feedback-line--err`;
+        fb.textContent = `[Try again] Check spelling, verb ending, or word order and retry.`;
+        if (persist) delete appState.completed[item.id];
+      }
+      if (persist) {
+        appState.inputs[item.id] = rawVal;
+        updateProgressUI();
+        saveState();
+      }
+    }
+
+    function renderAntonymPairs() {
+      const container = document.getElementById(`vp-antonyms`);
+      if (!container) return;
+      VP_ANTONYMS.forEach(item => {
+        const div = document.createElement(`div`);
+        div.className = `exercise-item`;
+        const selId = `sel-` + item.id;
+        const optsHtml = [`<option value="">— Select opposite —</option>`]
+          .concat(item.options.map(o => `<option value="${o}">${o}</option>`))
+          .join(``);
+        div.innerHTML = `
+          <div class="match-grid">
+            <label class="match-prompt" for="${selId}">${item.left} ↔</label>
+            <select class="select-input" id="${selId}" onchange="checkSelectItem('${item.id}', '${item.answer}')">${optsHtml}</select>
+          </div>
+          <div class="feedback-line" id="fb-${item.id}" aria-live="polite"></div>
+          <details class="disclosure">
+            <summary>Show Hint / Answer</summary>
+            <div class="disclosure-body"><strong>Hint:</strong> ${item.hint}<br><strong>Answer:</strong> ${item.answer}</div>
+          </details>
+        `;
+        container.appendChild(div);
+        const selEl = document.getElementById(selId);
+        if (selEl && appState.inputs[item.id]) {
+          selEl.value = appState.inputs[item.id];
+          applySelectVisual(item.id, selEl.value, item.answer);
+        }
+      });
+    }
+
+    function checkSelectItem(id, correct) {
+      const selEl = document.getElementById(`sel-` + id);
+      if (!selEl) return;
+      const val = selEl.value;
+      appState.inputs[id] = val;
+      if (val === correct) {
+        appState.completed[id] = true;
+      } else {
+        delete appState.completed[id];
+      }
+      applySelectVisual(id, val, correct);
+      updateProgressUI();
+      saveState();
+    }
+
+    function applySelectVisual(id, val, correct) {
+      const fb = document.getElementById(`fb-` + id);
+      if (!fb) return;
+      if (!val) {
+        fb.className = `feedback-line`;
+        fb.textContent = ``;
+      } else if (val === correct) {
+        fb.className = `feedback-line feedback-line--ok`;
+        fb.textContent = `[Correct] Exact opposite pair!`;
+      } else {
+        fb.className = `feedback-line feedback-line--err`;
+        fb.textContent = `[Try again] That is not the opposite. Check the hint below.`;
+      }
+    }
+
+    function renderHoeZegJeDit() {
+      const container = document.getElementById(`hzjd-container`);
+      if (!container) return;
+      HZJD_ITEMS.forEach(item => {
+        const div = document.createElement(`div`);
+        div.className = `exercise-item`;
+        const inId = `in-` + item.id;
+        div.innerHTML = `
+          <div class="input-row">
+            <div class="field-group">
+              <label class="field-label" for="${inId}">How do you say: ${item.english}</label>
+              <input type="text" class="text-input" id="${inId}" autocomplete="off">
+            </div>
+            <button type="button" class="button button--secondary" onclick="checkHzjd('${item.id}')">Check Attempt</button>
+          </div>
+          <div class="feedback-line" id="fb-${item.id}" aria-live="polite"></div>
+          <details class="disclosure">
+            <summary>Show Model Answer in Dutch</summary>
+            <div class="disclosure-body">
+              <p style="margin-bottom:var(--space-xs);"><strong>Dutch:</strong> <span class="nl">${item.model}</span>
+              <button type="button" class="button button--secondary button--small" style="margin-left:var(--space-sm);" onclick="speakPhrase(\`${item.answers[0]}\`)">Listen</button></p>
+              <p style="margin-bottom:0;" class="muted">${item.notes}</p>
+            </div>
+          </details>
+        `;
+        container.appendChild(div);
+        const inputEl = document.getElementById(inId);
+        if (inputEl) {
+          if (appState.inputs[item.id]) {
+            inputEl.value = appState.inputs[item.id];
+            evaluateHzjd(item, inputEl.value, false);
+          }
+          inputEl.addEventListener(`keydown`, function(e) {
+            if (e.key === `Enter`) {
+              e.preventDefault();
+              checkHzjd(item.id);
+            }
+          });
+        }
+      });
+    }
+
+    function checkHzjd(id) {
+      const item = HZJD_ITEMS.find(x => x.id === id);
+      const inputEl = document.getElementById(`in-` + id);
+      if (!item || !inputEl) return;
+      evaluateHzjd(item, inputEl.value, true);
+    }
+
+    function evaluateHzjd(item, rawVal, persist) {
+      const norm = normalizeDutch(rawVal);
+      const fb = document.getElementById(`fb-` + item.id);
+      if (!fb) return;
+      if (!norm) {
+        fb.className = `feedback-line feedback-line--err`;
+        fb.textContent = `[Missing input] Type your Dutch translation attempt, then check.`;
+        return;
+      }
+      const matched = item.answers.some(a => normalizeDutch(a) === norm);
+      if (matched) {
+        fb.className = `feedback-line feedback-line--ok`;
+        fb.textContent = `[Correct] Spot-on Dutch translation!`;
+      } else {
+        fb.className = `feedback-line feedback-line--err`;
+        fb.textContent = `[Check model] Good effort — open "Show Model Answer in Dutch" below to compare word order and spelling.`;
+      }
+      if (persist) {
+        appState.inputs[item.id] = rawVal;
+        saveState();
+      }
+    }
+
+    function toggleTranslation() {
+      const box = document.getElementById(`reading-translation-box`);
+      const btn = document.getElementById(`toggle-translation-btn`);
+      if (!box || !btn) return;
+      const isHidden = box.hasAttribute(`hidden`);
+      if (isHidden) {
+        box.removeAttribute(`hidden`);
+        btn.setAttribute(`aria-expanded`, `true`);
+        btn.textContent = `Hide English Translation`;
+      } else {
+        box.setAttribute(`hidden`, ``);
+        btn.setAttribute(`aria-expanded`, `false`);
+        btn.textContent = `Show English Translation`;
+      }
+    }
+
+    function renderListeningSection() {
+      const container = document.getElementById(`listening-container`);
+      if (!container) return;
+      LISTENING_ITEMS.forEach(item => {
+        const div = document.createElement(`div`);
+        div.className = `exercise-item`;
+        div.id = `item-` + item.id;
+
+        const headerRow = document.createElement(`div`);
+        headerRow.style.display = `flex`;
+        headerRow.style.flexWrap = `wrap`;
+        headerRow.style.alignItems = `center`;
+        headerRow.style.gap = `var(--space-sm)`;
+        headerRow.style.marginBottom = `var(--space-sm)`;
+        headerRow.innerHTML = `
+          <strong>${item.title}</strong>
+          <button type="button" class="button button--secondary button--small" onclick="speakPhrase(\`${item.tts}\`, 0.92)">Play (Normal)</button>
+          <button type="button" class="button button--secondary button--small" onclick="speakPhrase(\`${item.tts}\`, 0.68)">Play (Slow)</button>
+        `;
+        div.appendChild(headerRow);
+
+        const qEl = document.createElement(`div`);
+        qEl.className = `exercise-prompt`;
+        qEl.textContent = item.question;
+        div.appendChild(qEl);
+
+        const cg = document.createElement(`div`);
+        cg.className = `choice-group`;
+        item.choices.forEach(c => {
+          const btn = document.createElement(`button`);
+          btn.type = `button`;
+          btn.className = `choice-btn`;
+          btn.textContent = c;
+          btn.onclick = function() {
+            handleChoiceSelect(item.id, c, item.answer, ``, div);
+          };
+          cg.appendChild(btn);
+        });
+        div.appendChild(cg);
+
+        const fb = document.createElement(`div`);
+        fb.className = `feedback-line`;
+        fb.id = `fb-` + item.id;
+        fb.setAttribute(`aria-live`, `polite`);
+        div.appendChild(fb);
+
+        const det = document.createElement(`details`);
+        det.className = `disclosure`;
+        det.innerHTML = `
+          <summary>Show Script / Transcript</summary>
+          <div class="disclosure-body">${item.transcript}</div>
+        `;
+        div.appendChild(det);
+
+        container.appendChild(div);
+        if (appState.inputs[item.id]) {
+          applyChoiceVisual(item.id, appState.inputs[item.id], item.answer, ``, div);
+        }
+      });
+    }
+
+    function handleWritingInput(val) {
+      appState.writingText = val;
+      saveState();
+    }
+
+    function evaluateWriting() {
+      const ta = document.getElementById(`writing-slack-input`);
+      const fb = document.getElementById(`writing-feedback`);
+      if (!ta || !fb) return;
+      const text = ta.value.trim();
+      fb.removeAttribute(`hidden`);
+      if (text.length < 15) {
+        fb.className = `inset inset--error`;
+        fb.innerHTML = `<strong>[Too short]</strong> Write at least 3 short Dutch sentences (greeting, name/role, location, closing).`;
+        return;
+      }
+      const lower = text.toLowerCase();
+      const hasGreeting = /(goedemorgen|goedemiddag|goedenavond|hoi|hallo)/.test(lower);
+      const hasIntro = /(ik ben|ik heet|mijn naam is)/.test(lower);
+      const hasArticlePitfall = /ik ben een (developer|engineer|manager|ontwikkelaar)/.test(lower);
+      const hasPlaceOrClosing = /(op kantoor|thuis|fijne dag|succes|aangenaam|tot ziens)/.test(lower);
+
+      const checks = [
+        `<li>Greeting included (<em>goedemorgen/hoi/hallo</em>): <strong>${hasGreeting ? `Yes` : `Missing`}</strong></li>`,
+        `<li>Name or role stated (<em>ik heet / ik ben</em>): <strong>${hasIntro ? `Yes` : `Missing`}</strong></li>`,
+        `<li>No extra <em>"een"</em> before bare job title: <strong>${hasArticlePitfall ? `Remove "een" before job title` : `Good`}</strong></li>`,
+        `<li>Location or friendly closing included: <strong>${hasPlaceOrClosing ? `Yes` : `Add "op kantoor/thuis" or "Fijne dag!"`}</strong></li>`
+      ].join(``);
+
+      fb.className = (!hasArticlePitfall && hasGreeting && hasIntro && hasPlaceOrClosing)
+        ? `inset inset--positive`
+        : `inset inset--warning`;
+      fb.innerHTML = `<p style="margin-bottom:var(--space-xs);"><strong>Automated Checklist Feedback:</strong></p><ul style="margin-bottom:0;">${checks}</ul>`;
+    }
+
+    function toggleWritingModel() {
+      const m = document.getElementById(`writing-model`);
+      if (!m) return;
+      if (m.hasAttribute(`hidden`)) {
+        m.removeAttribute(`hidden`);
+      } else {
+        m.setAttribute(`hidden`, ``);
+      }
+    }
+
+    function renderLessonTest() {
+      const container = document.getElementById(`test-container`);
+      if (!container) return;
+      container.innerHTML = ``;
+      TEST_QUESTIONS.forEach(tq => {
+        const div = document.createElement(`div`);
+        div.className = `exercise-item`;
+        div.id = `test-q-` + tq.id;
+
+        const p = document.createElement(`div`);
+        p.className = `exercise-prompt`;
+        p.textContent = tq.q;
+        div.appendChild(p);
+
+        const cg = document.createElement(`div`);
+        cg.className = `choice-group`;
+        tq.choices.forEach(c => {
+          const btn = document.createElement(`button`);
+          btn.type = `button`;
+          btn.className = `choice-btn`;
+          btn.textContent = c;
+          btn.setAttribute(`aria-pressed`, appState.testSelections[tq.id] === c ? `true` : `false`);
+          if (appState.testSelections[tq.id] === c && !appState.testGraded) {
+            btn.style.background = `var(--primary-container)`;
+            btn.style.borderColor = `var(--primary)`;
+          }
+          btn.onclick = function() {
+            selectTestOption(tq.id, c);
+          };
+          cg.appendChild(btn);
+        });
+        div.appendChild(cg);
+
+        const fb = document.createElement(`div`);
+        fb.className = `feedback-line`;
+        fb.id = `test-fb-` + tq.id;
+        div.appendChild(fb);
+
+        container.appendChild(div);
+      });
+
+      if (appState.testGraded) {
+        showTestResults(false);
+      }
+    }
+
+    function selectTestOption(qId, choice) {
+      appState.testSelections[qId] = choice;
+      if (appState.testGraded) {
+        appState.testGraded = false;
+      }
+      renderLessonTest();
+      saveState();
+    }
+
+    function gradeLessonTest() {
+      const unanswered = TEST_QUESTIONS.filter(q => !appState.testSelections[q.id]);
+      const summary = document.getElementById(`test-summary`);
+      if (unanswered.length > 0 && summary) {
+        summary.removeAttribute(`hidden`);
+        summary.className = `inset inset--warning`;
+        summary.innerHTML = `<strong>[Incomplete]</strong> Please answer all 10 questions before grading (${10 - unanswered.length}/10 answered).`;
+        return;
+      }
+      appState.testGraded = true;
+      showTestResults(true);
+    }
+
+    function showTestResults(persist) {
+      let score = 0;
+      TEST_QUESTIONS.forEach(tq => {
+        const chosen = appState.testSelections[tq.id];
+        const qDiv = document.getElementById(`test-q-` + tq.id);
+        const fb = document.getElementById(`test-fb-` + tq.id);
+        if (!qDiv || !fb) return;
+
+        const btns = qDiv.querySelectorAll(`.choice-btn`);
+        btns.forEach(b => {
+          b.style.background = ``;
+          b.style.borderColor = ``;
+          b.classList.remove(`is-correct`, `is-wrong`);
+          if (b.textContent === tq.answer) {
+            b.classList.add(`is-correct`);
+          } else if (b.textContent === chosen && chosen !== tq.answer) {
+            b.classList.add(`is-wrong`);
+          }
+        });
+
+        if (chosen === tq.answer) {
+          score += 1;
+          fb.className = `feedback-line feedback-line--ok`;
+          fb.textContent = `[Correct] ${tq.explain}`;
+        } else {
+          fb.className = `feedback-line feedback-line--err`;
+          fb.textContent = `[Incorrect] Correct answer: "${tq.answer}". ${tq.explain}`;
+        }
+      });
+
+      appState.testScore = score;
+      const summary = document.getElementById(`test-summary`);
+      const pct = Math.round((score / TEST_QUESTIONS.length) * 100);
+      if (summary) {
+        summary.removeAttribute(`hidden`);
+        summary.className = score >= 8 ? `inset inset--positive` : `inset inset--warning`;
+        summary.innerHTML = `
+          <p style="font-weight:800; font-size:1.25rem; margin-bottom:var(--space-xs);">Lesson 1 Score: ${score} / ${TEST_QUESTIONS.length} (${pct}%)</p>
+          <p style="margin-bottom:0;">${score >= 8
+            ? `Strong mastery! You are ready to proceed to Lesson 2 (Personal Pronouns, hebben & Professional Profiles).`
+            : `Review the Grammar Cheat Sheet and any missed items above, then reset and try the test again to reach 80%+.`}</p>
+        `;
+      }
+      updateProgressUI();
+      if (persist) saveState();
+    }
+
+    function resetLessonTest(btn) {
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Click again to confirm reset`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `Reset Test`;
+      appState.testSelections = {};
+      appState.testGraded = false;
+      appState.testScore = null;
+      const summary = document.getElementById(`test-summary`);
+      if (summary) summary.setAttribute(`hidden`, ``);
+      renderLessonTest();
+      updateProgressUI();
+      saveState();
+    }
+
+    function renderHomework() {
+      const list = document.getElementById(`homework-list`);
+      if (!list) return;
+      list.innerHTML = HOMEWORK_TASKS.map(task => {
+        const checked = appState.homework[task.id] ? `checked` : ``;
+        return `
+          <li>
+            <label class="check-label">
+              <input type="checkbox" ${checked} onchange="toggleHomework('${task.id}', this.checked)">
+              <span>${task.label}</span>
+            </label>
+          </li>
+        `;
+      }).join(``);
+    }
+
+    function toggleHomework(id, isChecked) {
+      if (isChecked) {
+        appState.homework[id] = true;
+      } else {
+        delete appState.homework[id];
+      }
+      saveState();
+    }
+
+    function updateProgressUI() {
+      const count = Object.keys(appState.completed).length;
+      const pct = Math.min(100, Math.round((count / TOTAL_INTERACTIVE_ITEMS) * 100));
+      const bar = document.getElementById(`progress-bar`);
+      const fill = document.getElementById(`progress-fill`);
+      const text = document.getElementById(`progress-text`);
+      const pill = document.getElementById(`test-score-pill`);
+
+      if (bar) bar.setAttribute(`aria-valuenow`, String(pct));
+      if (fill) fill.style.width = pct + `%`;
+      if (text) text.textContent = `${count} / ${TOTAL_INTERACTIVE_ITEMS} interactive items completed (${pct}%)`;
+      if (pill) {
+        if (appState.testGraded && appState.testScore !== null) {
+          pill.className = appState.testScore >= 8
+            ? `status-tag status-tag--positive`
+            : `status-tag status-tag--error`;
+          pill.textContent = `Final Test: ${appState.testScore} / 10`;
+        } else {
+          pill.className = `status-tag status-tag--neutral`;
+          pill.textContent = `Final Test: Not graded yet`;
+        }
+      }
+    }
+
+    function resetAllProgress(btn) {
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Click again to reset all`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `Reset All Lesson Progress`;
+      appState = {
+        completed: {},
+        inputs: {},
+        writingText: ``,
+        testSelections: {},
+        testGraded: false,
+        testScore: null,
+        homework: {}
+      };
+      saveState();
+      buildAllDynamicSections();
+      updateProgressUI();
+    }
+
+    function buildAllDynamicSections() {
+      // Clear containers before rebuilding
+      const ids = [
+        `revision-container`, `vp-equivalents`, `vp-collocations`, `vp-antonyms`,
+        `vp-context`, `gp-zijn`, `gp-wordorder`, `gp-negation`, `gp-errors`,
+        `hzjd-container`, `comprehension-container`, `listening-container`
+      ];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = ``;
+      });
+
+      setWordOrderDemo(`stmt`);
+      renderVocabularyTable(`all`);
+
+      const revC = document.getElementById(`revision-container`);
+      if (revC) REVISION_ITEMS.forEach(it => renderChoiceExercise(it, revC, `rev`));
+
+      const vpeC = document.getElementById(`vp-equivalents`);
+      if (vpeC) VP_EQUIVALENTS.forEach(it => renderChoiceExercise(it, vpeC, `vpe`));
+
+      renderAntonymPairs();
+
+      const vpcC = document.getElementById(`vp-collocations`);
+      if (vpcC) VP_COLLOCATIONS.forEach(it => renderChoiceExercise(it, vpcC, `vpc`));
+
+      const vpxC = document.getElementById(`vp-context`);
+      if (vpxC) VP_CONTEXT.forEach(it => renderTextExercise(it, vpxC));
+
+      const gpzC = document.getElementById(`gp-zijn`);
+      if (gpzC) GP_ZIJN.forEach(it => renderChoiceExercise(it, gpzC, `gpz`));
+
+      const gpwC = document.getElementById(`gp-wordorder`);
+      if (gpwC) GP_WORDORDER.forEach(it => renderChoiceExercise(it, gpwC, `gpw`));
+
+      const gpnC = document.getElementById(`gp-negation`);
+      if (gpnC) {
+        GP_NEGATION.forEach(it => {
+          if (it.choices) renderChoiceExercise(it, gpnC, `gpn`);
+          else renderTextExercise(it, gpnC);
+        });
+      }
+
+      const gpeC = document.getElementById(`gp-errors`);
+      if (gpeC) {
+        GP_ERRORS.forEach(it => {
+          if (it.choices) renderChoiceExercise(it, gpeC, `gpe`);
+          else renderTextExercise(it, gpeC);
+        });
+      }
+
+      renderHoeZegJeDit();
+
+      const compC = document.getElementById(`comprehension-container`);
+      if (compC) COMPREHENSION_ITEMS.forEach(it => renderChoiceExercise(it, compC, `comp`));
+
+      renderListeningSection();
+
+      const ta = document.getElementById(`writing-slack-input`);
+      if (ta) ta.value = appState.writingText || ``;
+
+      renderLessonTest();
+      renderHomework();
+      updateProgressUI();
+    }
+
+    async function initApp() {
+      await loadState();
+      buildAllDynamicSections();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    if (document.readyState === `loading`) {
+      document.addEventListener(`DOMContentLoaded`, initApp);
+    } else {
+      initApp();
+    }
+  </script>
+</body>
+</html>
